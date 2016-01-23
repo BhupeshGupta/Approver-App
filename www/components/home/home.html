@@ -1,0 +1,89 @@
+<ion-view>
+
+
+    <div class="bar bar-header">
+
+        <div class="button-bar row">
+            <a class="button button-stable button-small col-10">Pending</a>
+            <a class="button button-assertive button-small col-10">Rejected</a>
+            <a class="button button-positive button-small col-10">Approved</a>
+        </div>
+
+        <h1 class="title">Approver Panel</h1>
+    </div>
+
+    <ion-side-menus>
+        <!-- Left menu -->
+        <ion-side-menu side="left" expose-aside-when="large">
+            </br>
+            </br>
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Search">
+                </label>
+            </div>
+            <hr/>
+
+            <ul class="list">
+
+                <li class="item" ng-repeat="request in requests">
+                    <a ng-click="selectRequest(request)" ng-class="{'selected' : request === selectedRequest }">
+
+                        <h2>{{request.data.id || request.requestId}}</h2>
+                        <h3>{{request.data.doctype}}</h3>
+                        <p>{{request.data.customer}}</p>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </ion-side-menu>
+
+        <ion-side-menu-content>
+           
+
+                <div class="row">
+                    <div class="col col-50">
+                        </br>
+                        </br>
+                        <ion-nav-view style="width: 50%; height: 80vh" name='form_view'></ion-nav-view>
+
+                        <div style="margin-top: 85vh">
+
+                            <div class="button-bar row" ng-show="selectedRequest">
+                                <a class="button button-positive button-small">Approve</a>
+                                <a class="button button-assertive button-small">Reject</a>
+                                <a class="button button-stable button-small">Reset</a>
+                            </div>
+
+                        </div>
+        
+                    </div>
+
+                    <div class="col col-50">
+                        </br>
+                        </br>
+                        <div class="row">
+
+                            <div class="col col-80">
+                                <p>{{selectedRequest.selectedImg}}</p>
+                            </div>
+                            <div class="col col-20">
+                                <ion-scroll direction="y">
+                                    <img ng-repeat="image in selectedRequest.files" ng-src="img/ionic.png" ng-click="showImage($index)" class="image-list-thumb" style="max-width: 100%" />
+                                </ion-scroll>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            
+        </ion-side-menu-content>
+
+    </ion-side-menus>
+
+    </ion-content>
