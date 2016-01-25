@@ -4,7 +4,7 @@ angular.module('ApproverApp')
     .controller('HomeController', HomeController);
 
 
-function HomeController($q, $http, $state) {
+function HomeController($q, $http, $state, RequestFactory, FileFactory) {
     var vm = this;
 
     /* vars */
@@ -30,33 +30,27 @@ function HomeController($q, $http, $state) {
         progress: 0
     };
 
-
-    $http.get('http://192.168.31.124:1337/request').then(
-        function (data) {
-            angular.forEach(data.data, function (r) {
-                r.data = JSON.parse(JSON.parse(r.uploadedData).body.data);
-            });
-            vm.requests = data.data;
-        });
+    RequestFactory.getReuqests().then(function (requests) {
+        vm.requests = requests;
+        return vm.requests;
+    });
 
     function selectRequest(request) {
         vm.selectedRequest = request;
 
         if (vm.selectedRequest.files && vm.selectedRequest.files.lenght > 0) {
-            vm.selectedImg.src = "http://192.168.31.124:1337/file/download/" +
-                vm.selectedRequest.files[0].fileId +
-                "/";
+            vm.selectedImg.src = FileFactory.getLink(vm.selectedRequest.files[0].fileId);
         } else {
             vm.selectedImg.src = '';
         }
 
-        $state.go('approve.cheque.edit');
+        $state.go('approve.cheque.edit', {
+            requestId: request.requestId
+        });
         //        chequeFlowController.set_user_input(request);
     }
 
     function showImage(index) {
-        vm.selectedImg.src = "http://192.168.31.124:1337/file/download/" +
-            vm.selectedRequest.files[index].fileId +
-            "/";
+        vm.selectedImg.src = FileFactory.getLink(vm.selectedRequest.files[index].fileId);
     }
 }

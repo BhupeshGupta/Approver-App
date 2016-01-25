@@ -8,6 +8,8 @@ angular.module('ApproverApp', [
     'ngPintura'
 ])
 
+.value('ServerUrl', 'http://192.168.31.124:1337/')
+
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
         if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -41,7 +43,7 @@ angular.module('ApproverApp', [
             }
         })
         .state('approve.cheque', {
-            url: '/',
+            url: 'cheque/:requestId/',
             views: {
                 'form_view': {
                     templateUrl: 'components/cheque/cheque.html',
@@ -50,7 +52,7 @@ angular.module('ApproverApp', [
             }
         })
         .state('approve.cheque.edit', {
-            url: 'cheque',
+            url: 'edit/',
             views: {
                 'cheque_view': {
                     templateUrl: 'components/cheque/forms/cheque_detail.html'
