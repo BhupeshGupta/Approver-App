@@ -1,89 +1,91 @@
-<ion-view>
+<div class="bar bar-header bar-dark">
 
-
-    <div class="bar bar-header bar-dark">
-
-        <div class="button-bar row">
-            <a class="button button-energized button-small col-10">Pending</a>
-            <a class="button button-assertive button-small col-10">Rejected</a>
-            <a class="button button-balanced button-small col-10">Approved</a>
-        </div>
-
-        <h1 class="title">Approver Panel</h1>
+    <div class="button-bar row">
+        <a class="button button-energized button-small col-10">Pending</a>
+        <a class="button button-assertive button-small col-10">Rejected</a>
+        <a class="button button-balanced button-small col-10">Approved</a>
     </div>
 
-    <ion-side-menus>
-        <!-- Left menu -->
-        <ion-side-menu side="left" expose-aside-when="large">
-            </br>
-            </br>
-            <div class="list list-inset">
-                <label class="item item-input">
-                    <i class="icon ion-search placeholder-icon"></i>
-                    <input type="text" placeholder="Search">
-                </label>
-            </div>
-            <hr/>
+    <h1 class="title">Approver Panel</h1>
+</div>
 
-            <ul class="list">
+<ion-side-menus>
+    <!-- Left menu -->
+    <ion-side-menu side="left" expose-aside-when="large">
+        <br>
+        <br>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+            </label>
+        </div>
+        <hr/>
 
-                <li class="item" ng-repeat="request in requests">
-                    <a ng-click="selectRequest(request)" ng-class="{'selected' : request === selectedRequest }">
+        <ul class="list">
 
-                        <h2>{{request.data.id || request.requestId}}</h2>
-                        <h3>{{request.data.doctype}}</h3>
-                        <p>{{request.data.customer}}</p>
+            <li class="item" ng-repeat="request in hc.requests">
+                <a ng-click="hc.selectRequest(request)" ng-class="{'selected' : request === gc.selectedRequest }">
 
-                    </a>
+                    <h2>{{request.data.id || request.requestId}}</h2>
+                    <h3>{{request.data.doctype}}</h3>
+                    <p>{{request.data.customer}}</p>
 
-                </li>
+                </a>
 
-            </ul>
+            </li>
 
-        </ion-side-menu>
+        </ul>
 
-        <ion-side-menu-content>
-           
+    </ion-side-menu>
 
-                <div class="row">
-                    <div class="col col-50">
-                        </br>
-                        </br>
-                        <ion-nav-view style="width: 50%; height: 80vh" name='form_view'></ion-nav-view>
+    <ion-side-menu-content>
 
-                        <div style="margin-top: 85vh">
 
-                            <div class="button-bar row" ng-show="selectedRequest">
-                                <a class="button button-balanced button-small">Accept</a>
-                                <a class="button button-assertive button-small">Remove</a>
-                                <a class="button button-energized button-small">Reset</a>
-                            </div>
+        <div class="row" style="justify-content: space-around;">
+            <div class="col col-40">
+                <br>
+                <br>
+                <ion-nav-view style="width: 40%; height: 80vh;" name="form_view"></ion-nav-view>
 
-                        </div>
-        
+                <div style="margin-top: 85vh">
+
+                    <div class="button-bar row" ng-show="hc.selectedRequest">
+                        <a class="button button-balanced button-small">Accept</a>
+                        <a class="button button-assertive button-small">Remove</a>
+                        <a class="button button-energized button-small">Reset</a>
                     </div>
 
-                    <div class="col col-50">
-                        </br>
-                        </br>
-                        <div class="row">
-
-                            <div class="col col-80">
-                                <p>{{selectedRequest.selectedImg}}</p>
-                            </div>
-                            <div class="col col-20">
-                                <ion-scroll direction="y">
-                                    <img ng-repeat="image in selectedRequest.files" ng-src="img/ionic.png" ng-click="showImage($index)" class="image-list-thumb" style="max-width: 100%" />
-                                </ion-scroll>
-                            </div>
-
-                        </div>
-
-                    </div>
                 </div>
-            
-        </ion-side-menu-content>
 
-    </ion-side-menus>
+            </div>
 
-    </ion-content>
+            <div class="col col-50">
+                <br>
+                <br>
+                <div class="row">
+
+                    <div class="col col-80">
+                        <!--
+
+                        <ng-pintura style="width: 100%; height 100%;" ngp-src="hc.selectedImg.src" ngp-scaling="hc.selectedImg.scaling" ngp-position="hc.selectedImg.position" ngp-max-scaling="hc.selectedImg.maxScaling" ngp-scale-step="hc.selectedImg.scaleStep" ngp-move-step="hc.selectedImg.moveStep" ngp-mw-scale-step="hc.selectedImg.mwScaleStep" ngp-fit-onload="hc.selectedImg.fitOnload" ngp-progress="hc.selectedImg.progress">
+                        </ng-pintura>
+-->
+
+
+                        <img ng-src="{{hc.selectedImg.src}}" />
+                    </div>
+                    <div class="col col-20">
+                        <ion-scroll direction="y">
+                            <img ng-repeat="image in hc.selectedRequest.files" ng-src="http://192.168.31.124:1337/file/download/{{image.fileId}}/" ng-click="hc.showImage($index)" class="image-list-thumb" style="max-width: 100%" />
+                        </ion-scroll>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </ion-side-menu-content>
+
+</ion-side-menus>

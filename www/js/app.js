@@ -32,7 +32,8 @@ var approverApp = angular.module('ApproverApp', ['ionic'])
             views: {
                 '': {
                     templateUrl: 'components/home/home.html',
-                    controller: 'HomeController'
+                    controller: 'HomeController',
+                    controllerAs: 'hc'
                 }
             }
         })
