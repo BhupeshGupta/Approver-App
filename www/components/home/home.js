@@ -16,7 +16,7 @@ function HomeController($q, $http, $state) {
     vm.selectRequest = selectRequest;
 
     vm.selectedImg = {
-        src: 'http://192.168.31.124:1337/file/download/8/',
+        src: '',
         position: {
             x: -20,
             y: -20
@@ -33,7 +33,7 @@ function HomeController($q, $http, $state) {
 
     $http.get('http://192.168.31.124:1337/request').then(
         function (data) {
-            angular.forEach(data.data, function (r, index) {
+            angular.forEach(data.data, function (r) {
                 r.data = JSON.parse(JSON.parse(r.uploadedData).body.data);
             });
             vm.requests = data.data;
