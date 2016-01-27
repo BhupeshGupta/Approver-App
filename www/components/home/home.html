@@ -51,7 +51,7 @@
                         padding-bottom: 0px;
                         padding-right: 0px;
                     ">
-                        <img src='/img/ionic.png' title='{{request.uploadedBy || "Admin"}}'>
+                        <img src="/img/ionic.png" title="{{request.uploadedBy || 'Admin'}}">
                         <p>{{request.createdAt | date:'short' }}</p>
                         <p>{{request.data.doctype}}</p>
                         <p ng-if="request.docstatus == 0">Pending</p>

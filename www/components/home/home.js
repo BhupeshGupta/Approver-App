@@ -38,7 +38,7 @@ function HomeController($q, $http, $state, RequestFactory, FileFactory) {
     function selectRequest(request) {
         vm.selectedRequest = request;
 
-        if (vm.selectedRequest.files && vm.selectedRequest.files.lenght > 0) {
+        if (vm.selectedRequest.files && vm.selectedRequest.files.length > 0) {
             vm.selectedImg.src = FileFactory.getLink(vm.selectedRequest.files[0].fileId);
         } else {
             vm.selectedImg.src = '';

@@ -10,6 +10,7 @@ angular.module('ApproverApp', [
 ])
 
 .value('ServerUrl', 'http://192.168.31.124:1337/')
+    .value('ERP', 'http://erp.arungas.com')
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
