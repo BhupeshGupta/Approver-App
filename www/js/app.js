@@ -5,7 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('ApproverApp', [
     'ionic',
-    'ngPintura'
+    'ngPintura',
+    'ion-autocomplete'
 ])
 
 .value('ServerUrl', 'http://192.168.31.124:1337/')

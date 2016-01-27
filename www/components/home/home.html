@@ -12,31 +12,32 @@
 <ion-side-menus>
     <!-- Left menu -->
     <ion-side-menu side="left" expose-aside-when="large">
-        <br>
-        <br>
-        <div class="list list-inset">
-            <label class="item item-input">
-                <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" placeholder="Search">
-            </label>
-        </div>
-        <hr/>
+        <ion-content>
+            <br>
+            <br>
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Search">
+                </label>
+            </div>
+            <hr/>
 
-        <ul class="list">
+            <ul class="list">
 
-            <li class="item" ng-repeat="request in hc.requests">
-                <a ng-click="hc.selectRequest(request)" ng-class="{'selected' : request === gc.selectedRequest }">
+                <li class="item" ng-repeat="request in hc.requests">
+                    <a ng-click="hc.selectRequest(request)" ng-class="{'selected' : request === gc.selectedRequest }">
 
-                    <h2>{{request.data.id || request.requestId}}</h2>
-                    <h3>{{request.data.doctype}}</h3>
-                    <p>{{request.data.customer}}</p>
+                        <h2>{{request.data.id || request.requestId}}</h2>
+                        <h3>{{request.data.doctype}}</h3>
+                        <p>{{request.data.customer}}</p>
 
-                </a>
+                    </a>
 
-            </li>
+                </li>
 
-        </ul>
-
+            </ul>
+        </ion-content>
     </ion-side-menu>
 
     <ion-side-menu-content>

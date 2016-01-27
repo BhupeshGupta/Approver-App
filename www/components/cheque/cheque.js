@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('ApproverApp')
-    .controller('chequeFlowController', function ($scope, $state, $q, $http, $stateParams, RequestFactory) {
-        //DocumentService
+    .controller('chequeFlowController', function ($scope, $state, $q, $http, $stateParams, RequestFactory, DocumentService) {
 
         console.log($stateParams);
 
