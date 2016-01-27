@@ -5,10 +5,10 @@
             <div class="input-label">
                 Pick a Panel
             </div>
-            <select>
-                <option selected>Pending</option>
-                <option>Rejected</option>
-                <option>Approved</option>
+            <select ng-model="selectedDocstatusFilter" ng-change="hc.reloadRequestList()">
+                <option value="0" selected>Pending</option>
+                <option value="2">Rejected</option>
+                <option value="1">Approved</option>
             </select>
         </label>
 
@@ -83,9 +83,8 @@
                 <ion-nav-view style="width: 40%; height: 80vh;" name="form_view"></ion-nav-view>
                 <div style="margin-top: 85vh">
                     <div class="button-bar row" ng-show="hc.selectedRequest">
-                        <a class="button button-balanced button-small">Accept</a>
-                        <a class="button button-assertive button-small">Reject</a>
-                        <a class="button button-energized button-small">Reset</a>
+                        <a class="button button-balanced button-small" ng-click="hc.changeDocstatus(hc.selectedRequest.requestId, 1)">Accept</a>
+                        <a class="button button-assertive button-small" ng-click="hc.changeDocstatus(hc.selectedRequest.requestId, 2)">Reject</a>
                     </div>
                 </div>
             </div>
@@ -111,7 +110,7 @@
                     </div>
                     <div class="col col-20">
                         <ion-scroll direction="y">
-                            <img ng-repeat="image in hc.selectedRequest.files" ng-src="http://192.168.31.124:1337/file/download/{{image.fileId}}/" ng-click="hc.showImage($index)" class="image-list-thumb" style="max-width: 100%" />
+                            <img ng-repeat="image in hc.selectedRequest.files" ng-src="http://192.168.31.124:1337/files/download/{{image.fileId}}/" ng-click="hc.showImage($index)" class="image-list-thumb" style="max-width: 100%" />
                         </ion-scroll>
                     </div>
 

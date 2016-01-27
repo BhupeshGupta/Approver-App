@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ApproverApp')
-    .controller('chequeFlowController', function ($scope, $state, $q, $http, $stateParams, RequestFactory, DocumentService) {
+    .controller('chequeFlowController', function ($rootScope, $scope, $state, $q, $http, $stateParams, RequestFactory, DocumentService) {
 
         console.log($stateParams);
 
@@ -48,7 +48,7 @@ angular.module('ApproverApp')
             transformed_data.entries[0].account = transformed_data.entries[0].account[0].value;
             transformed_data.entries[1].account = transformed_data.entries[1].account[0].value;
             transformed_data.cheque_date = moment(transformed_data.cheque_date).format("YYYY-MM-DD");
-            console.log(JSON.stringify(transformed_data));
+            transformed_data.posting_date = moment(transformed_data.posting_date).format("YYYY-MM-DD");
             return transformed_data
         }
 
@@ -67,5 +67,10 @@ angular.module('ApproverApp')
             }];
             return transformed_data
         }
+
+        $rootScope.$on("changeDocstatus", function handleDocstatusChange(event, args) {
+            console.log(args);
+            RequestFactory.updateStatus(args.requestId, args.docstatus, prepareForErp($scope.user_input));
+        });
 
     });

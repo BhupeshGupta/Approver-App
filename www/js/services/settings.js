@@ -2,25 +2,22 @@ angular
     .module('ApproverApp')
     .factory('SettingsFactory', settingsFactory);
 
-FileFactory.$inject = ['ServerUrl'];
+settingsFactory.$inject = ['ServerUrl'];
 
 function settingsFactory(ServerUrl) {
-
     var _settingsKey = "appSettings",
         defaultSettings = {
-            //            serverBaseUrl: '/api',
-            serverBaseUrl: ServerUrl,
+            serverBaseUrl: '/api',
+            reviewServerBaseUrl: '/review',
             language: 'en'
         };
 
-    function _retrieveSettings() {
-        return defaultSettings;
-    }
-
     return {
         get: _retrieveSettings,
-        getServerBaseUrl: function () {
-            return _retrieveSettings().serverBaseUrl;
+        set: _saveSettings,
+        getERPServerBaseUrl: function () {
+            return 'http://192.168.31.124:8080'
+                //            return _retrieveSettings().serverBaseUrl;
         },
         getSid: function () {
             return _retrieveSettings().sid;
@@ -29,4 +26,15 @@ function settingsFactory(ServerUrl) {
             return 'http://192.168.31.124:1337';
         }
     };
+
+    function _retrieveSettings() {
+        var settings = localStorage[_settingsKey];
+        if (settings)
+            return angular.fromJson(settings);
+        return defaultSettings;
+    }
+
+    function _saveSettings(settings) {
+        localStorage[_settingsKey] = angular.toJson(settings);
+    }
 }

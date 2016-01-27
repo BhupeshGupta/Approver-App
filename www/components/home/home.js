@@ -4,7 +4,7 @@ angular.module('ApproverApp')
     .controller('HomeController', HomeController);
 
 
-function HomeController($q, $http, $state, RequestFactory, FileFactory) {
+function HomeController($rootScope, $scope, $q, $http, $state, RequestFactory, FileFactory) {
     var vm = this;
 
     /* vars */
@@ -14,6 +14,8 @@ function HomeController($q, $http, $state, RequestFactory, FileFactory) {
     /* functions */
     vm.showImage = showImage;
     vm.selectRequest = selectRequest;
+    vm.changeDocstatus = changeDocstatus;
+    vm.reloadRequestList = reloadRequestList;
 
     vm.selectedImg = {
         src: '',
@@ -30,10 +32,7 @@ function HomeController($q, $http, $state, RequestFactory, FileFactory) {
         progress: 0
     };
 
-    RequestFactory.getReuqests().then(function (requests) {
-        vm.requests = requests;
-        return vm.requests;
-    });
+
 
     function selectRequest(request) {
         vm.selectedRequest = request;
@@ -47,10 +46,37 @@ function HomeController($q, $http, $state, RequestFactory, FileFactory) {
         $state.go('approve.cheque.edit', {
             requestId: request.requestId
         });
-        //        chequeFlowController.set_user_input(request);
     }
 
     function showImage(index) {
         vm.selectedImg.src = FileFactory.getLink(vm.selectedRequest.files[index].fileId);
     }
+
+    function changeDocstatus(requestId, docstatus) {
+        if ([0, 2].indexOf(docstatus) > 0) {
+            RequestFactory.updateStatus(requestId, docstatus, {});
+        } else if (docstatus == 1) {
+            $rootScope.$emit('changeDocstatus', {
+                requestId: requestId,
+                docstatus: docstatus
+            })
+        }
+    }
+
+    $rootScope.$on("reloadRequests", function (event, data) {
+        RequestFactory.getReuqests({
+            docstatus: $scope.selectedDocstatusFilter || 0
+        }).then(function (requests) {
+            vm.requests = requests;
+            return vm.requests;
+        });
+    });
+
+    $rootScope.$emit("reloadRequests");
+
+    function reloadRequestList() {
+        $rootScope.$emit("reloadRequests");
+    }
+
+
 }

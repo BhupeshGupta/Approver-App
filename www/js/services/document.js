@@ -12,10 +12,11 @@ function documentService($http, SettingsFactory) {
                 doctype: documentType,
                 cmd: 'frappe.widgets.search.search_link',
                 _type: 'GET',
-                filters: JSON.stringify(filters)
+                filters: JSON.stringify(filters),
+                sid: SettingsFactory.getSid()
             };
 
-            var url = SettingsFactory.getServerBaseUrl() + '?' + $.param(data);
+            var url = SettingsFactory.getERPServerBaseUrl() + '?' + $.param(data);
             return $http({
                 url: url,
                 loading: true,
@@ -24,9 +25,10 @@ function documentService($http, SettingsFactory) {
         },
         create: function (documentType, document) {
             return $http.post(
-                SettingsFactory.getServerBaseUrl() + '/api/resource/' + documentType + '/',
+                SettingsFactory.getERPServerBaseUrl() + '/api/resource/' + documentType + '/',
                 $.param({
-                    data: JSON.stringify(document)
+                    data: JSON.stringify(document),
+                    sid: SettingsFactory.getSid()
                 })
             );
         }
