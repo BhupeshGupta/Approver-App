@@ -7,7 +7,7 @@ angular.module('ApproverApp')
 
         RequestFactory.getRequest($stateParams.requestId).then(function (request) {
             console.log(request);
-            $scope.user_input = request.data;
+            $scope.user_input = prepareForView(request.data);
         });
 
         console.log("Hi from Cheque Controller");
@@ -40,5 +40,32 @@ angular.module('ApproverApp')
                     console.log(success);
                 });
         };
+
+        function prepareForErp(data) {
+            // Create a deep copy
+            var transformed_data = JSON.parse(JSON.stringify(data));
+            transformed_data.company = transformed_data.company[0].value;
+            transformed_data.entries[0].account = transformed_data.entries[0].account[0].value;
+            transformed_data.entries[1].account = transformed_data.entries[1].account[0].value;
+            transformed_data.cheque_date = moment(transformed_data.cheque_date).format("YYYY-MM-DD");
+            console.log(JSON.stringify(transformed_data));
+            return transformed_data
+        }
+
+        function prepareForView(data) {
+            var transformed_data = JSON.parse(JSON.stringify(data));
+            transformed_data.cheque_date = moment(transformed_data.cheque_date).toDate();
+            transformed_data.posting_date = moment(transformed_data.posting_date).toDate();
+            transformed_data.entries[1].account = [{
+                value: transformed_data.entries[1].account
+            }];
+            transformed_data.entries[0].account = [{
+                value: transformed_data.entries[0].account
+            }];
+            transformed_data.company = [{
+                value: transformed_data.company
+            }];
+            return transformed_data
+        }
 
     });

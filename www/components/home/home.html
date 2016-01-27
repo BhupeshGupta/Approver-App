@@ -1,13 +1,31 @@
 <div class="bar bar-header bar-dark">
+    <div class="list col" style="max-width: 20.7% ">
 
-    <div class="button-bar row">
-        <a class="button button-energized button-small col-10">Pending</a>
-        <a class="button button-assertive button-small col-10">Rejected</a>
-        <a class="button button-balanced button-small col-10">Approved</a>
+        <label class="item item-input item-select ">
+            <div class="input-label">
+                Pick a Panel
+            </div>
+            <select>
+                <option selected>Pending</option>
+                <option>Rejected</option>
+                <option>Approved</option>
+            </select>
+        </label>
+
     </div>
+
+
+    <!--
+<div class="button-bar row">
+    <a class="button button-energized button-small col-10">Pending</a>
+    <a class="button button-assertive button-small col-10">Rejected</a>
+    <a class="button button-balanced button-small col-10"></a>
+</div>
+-->
 
     <h1 class="title">Approver Panel</h1>
 </div>
+
 
 <ion-side-menus>
     <!-- Left menu -->
@@ -23,20 +41,36 @@
             </div>
             <hr/>
 
-            <ul class="list">
+            <div class="list card">
 
-                <li class="item" ng-repeat="request in hc.requests">
-                    <a ng-click="hc.selectRequest(request)" ng-class="{'selected' : request === gc.selectedRequest }">
+                <li ng-click="hc.selectRequest(request)" class="item" ng-repeat="request in hc.requests" style="
+                    padding-top: 5px; padding-left: 16px; padding-right: 16px; ">
 
-                        <h2>{{request.data.id || request.requestId}}</h2>
+                    <div class="item item-avatar" style="
+                        padding-top: 0px;
+                        padding-bottom: 0px;
+                        padding-right: 0px;
+                    ">
+                        <img src='/img/ionic.png' title='{{request.uploadedBy || "Admin"}}'>
+                        <p>{{request.createdAt | date:'short' }}</p>
+                        <p>{{request.data.doctype}}</p>
+                        <p ng-if="request.docstatus == 0">Pending</p>
+                        <p ng-if="request.docstatus == 1">Approved</p>
+                        <p ng-if="request.docstatus == 2">Rejected</p>
+                    </div>
+                    <div class="item item-body" style="
+                        padding-top: 0px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        padding-bottom: 5px;
+                    ">
+                        <h3>{{request.data.id || request.requestId}}</h3>
                         <h3>{{request.data.doctype}}</h3>
                         <p>{{request.data.customer}}</p>
-
-                    </a>
+                    </div>
 
                 </li>
-
-            </ul>
+            </div>
         </ion-content>
     </ion-side-menu>
 
@@ -50,7 +84,7 @@
                 <div style="margin-top: 85vh">
                     <div class="button-bar row" ng-show="hc.selectedRequest">
                         <a class="button button-balanced button-small">Accept</a>
-                        <a class="button button-assertive button-small">Remove</a>
+                        <a class="button button-assertive button-small">Reject</a>
                         <a class="button button-energized button-small">Reset</a>
                     </div>
                 </div>
