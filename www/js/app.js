@@ -31,7 +31,7 @@ angular.module('ApproverApp', [
 })
 
 .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/login');
 
     $stateProvider
         .state('approve', {
@@ -60,5 +60,16 @@ angular.module('ApproverApp', [
                     templateUrl: 'components/cheque/forms/cheque_detail.html'
                 }
             }
+        })
+        .state('login', {
+            url: '/login',
+            views: {
+                '': {
+                    'templateUrl': 'components/login/login.html',
+                    controller: 'LoginController'
+                }
+            }
+
+
         });
 });
