@@ -1,4 +1,5 @@
 <div class="bar bar-header bar-positive">
+      <h1 class="title">Approver Panel</h1>
     <div class="list col" style="max-width: 20.7% ">
 
         <label class="item item-input item-select ">
@@ -13,8 +14,6 @@
         </label>
 
     </div>
-
-
     <!--
 <div class="button-bar row">
     <a class="button button-energized button-small col-10">Pending</a>
@@ -23,11 +22,10 @@
 </div>
 -->
 
-    <h1 class="title">Approver Panel</h1>
 </div>
 
 
-<ion-side-menus>
+<ion-side-menus class="color">
     <!-- Left menu -->
     <ion-side-menu side="left" expose-aside-when="large">
         <ion-content>
@@ -40,10 +38,9 @@
                 </label>
             </div>
             <hr/>
-
             <div class="list card">
 
-                <li ng-click="hc.selectRequest(request)" class="item" ng-repeat="request in hc.requests" style="
+                <li ng-click="hc.selectRequest(request);hc.getMetedata(request.cno,request.doctype);" class="item" ng-repeat="request in hc.requests track by request.qid" style="
                     padding-top: 5px; padding-left: 16px; padding-right: 16px; ">
 
                     <div class="item item-avatar" style="
@@ -53,10 +50,10 @@
                     ">
                         <img src="/img/ionic.png" title="{{request.uploadedBy || 'Admin'}}">
                         <p>{{request.createdAt | date:'short' }}</p>
-                        <p>{{request.data.doctype}}</p>
-                        <p ng-if="request.docstatus == 0">Pending</p>
-                        <p ng-if="request.docstatus == 1">Approved</p>
-                        <p ng-if="request.docstatus == 2">Rejected</p>
+                        <p>{{request.doctype}}</p>
+                        <p ng-if="request.status == 0">Pending</p>
+                        <p ng-if="request.status == 1">Approved</p>
+                        <p ng-if="request.status == 2">Rejected</p>
                     </div>
                     <div class="item item-body" style="
                         padding-top: 0px;
@@ -64,9 +61,9 @@
                         padding-right: 10px;
                         padding-bottom: 5px;
                     ">
-                        <h3>{{request.data.id || request.requestId}}</h3>
-                        <h3>{{request.data.doctype}}</h3>
-                        <p>{{request.data.customer}}</p>
+                        <h3>{{request.cno}}</h3>
+                        <!-- <h3>{{request.data.doctype}}</h3>
+                        <p>{{request.data.customer}}</p> -->
                     </div>
 
                 </li>
@@ -83,8 +80,8 @@
                 <ion-nav-view style="width: 40%; height: 80vh;" name="form_view"></ion-nav-view>
                 <div style="margin-top: 85vh">
                     <div class="button-bar row" ng-show="hc.selectedRequest">
-                        <a class="button button-balanced button-small" ng-click="hc.changeDocstatus(hc.selectedRequest.requestId, 1)">Accept</a>
-                        <a class="button button-assertive button-small" ng-click="hc.changeDocstatus(hc.selectedRequest.requestId, 2)">Reject</a>
+                        <a class="button button-balanced button-small" ng-click="hc.changeDocstatus(hc.selectedRequest, 1);">Accept</a>
+                        <a class="button button-assertive button-small" ng-click="hc.changeDocstatus(hc.selectedRequest, 2)">Reject</a>
                     </div>
                 </div>
             </div>
@@ -110,7 +107,7 @@
                     </div>
                     <div class="col col-20">
                         <ion-scroll direction="y">
-                            <img ng-repeat="image in hc.selectedRequest.files" ng-src="http://192.168.31.124:1337/files/download/{{image.fileId}}/" ng-click="hc.showImage($index)" class="image-list-thumb" style="max-width: 100%" />
+                            <img ng-repeat="image in hc.selectedRequest.files" ng-src="http://localhost:1337/files/download/{{image.id}}/" ng-click="hc.showImage($index)" class="image-list-thumb" style="max-width: 100%" />
                         </ion-scroll>
                     </div>
 

@@ -10,6 +10,8 @@ function FileFactory($http, ServerUrl) {
     };
 
     function getLink(fileId) {
+      // return fileId;
+      return ServerUrl + "/files/download/?id=" + fileId
         return ServerUrl + 'files/download/' + fileId + '/';
     };
 }

@@ -16,14 +16,14 @@ function settingsFactory(ServerUrl) {
         get: _retrieveSettings,
         set: _saveSettings,
         getERPServerBaseUrl: function () {
-            return 'http://192.168.31.124:8080'
+            return 'http://192.168.31.195:8080'
                 //            return _retrieveSettings().serverBaseUrl;
         },
         getSid: function () {
             return _retrieveSettings().sid;
         },
         getReviewServerBaseUrl: function () {
-            return 'http://192.168.31.124:1337';
+            return 'http://192.168.31.195:1337';
         }
     };
 

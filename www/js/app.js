@@ -61,6 +61,23 @@ angular.module('ApproverApp', [
                 }
             }
         })
+        .state('approve.invoice', {
+            url: 'invoice/:requestId/',
+            views: {
+                'form_view': {
+                    templateUrl: 'components/invoice/invoice.html',
+                    // controller: 'chequeFlowController'
+                }
+            }
+        })
+        .state('approve.invoice.edit', {
+            url: 'edit/',
+            views: {
+                'invoice_view': {
+                    templateUrl: 'components/invoice/forms/invoice_detail.html'
+                }
+            }
+        })
         .state('login', {
             url: '/login',
             views: {
