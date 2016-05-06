@@ -1,7 +1,9 @@
 <div class="bar bar-header bar-positive">
       <h1 class="title">Approver Panel</h1>
-    <div class="list col" style="max-width: 20.7% ">
-
+</div>
+<ion-side-menus class="color" style="top:45px; margin-bottom:10px; background:#fff;">
+    <div class="list col" style="max-width: 20.7%; padding-bottom:10px;">
+          <!-- pick a panel block start here -->
         <label class="item item-input item-select ">
             <div class="input-label">
                 Pick a Panel
@@ -12,32 +14,20 @@
                 <option value="1">Approved</option>
             </select>
         </label>
-
+        <!-- pick a panel block end here -->
+        <!-- search panel start here -->
+        <div class="list">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+            </label>
+        </div>
+        <!-- search panel endf here -->
     </div>
-    <!--
-<div class="button-bar row">
-    <a class="button button-energized button-small col-10">Pending</a>
-    <a class="button button-assertive button-small col-10">Rejected</a>
-    <a class="button button-balanced button-small col-10"></a>
-</div>
--->
-
-</div>
 
 
-<ion-side-menus class="color">
-    <!-- Left menu -->
-    <ion-side-menu side="left" expose-aside-when="large">
+    <ion-side-menu side="left" expose-aside-when="large" style="top:100px">
         <ion-content>
-            <br>
-            <br>
-            <div class="list list-inset">
-                <label class="item item-input">
-                    <i class="icon ion-search placeholder-icon"></i>
-                    <input type="text" placeholder="Search">
-                </label>
-            </div>
-            <hr/>
             <div class="list card">
 
                 <li ng-click="hc.selectRequest(request);hc.getMetedata(request.cno,request.doctype);" class="item" ng-repeat="request in hc.requests track by request.qid" style="
@@ -75,8 +65,7 @@
         <div class="row" style="justify-content: space-around;">
 
             <div class="col col-40">
-                <br>
-                <br>
+
                 <ion-nav-view style="width: 40%; height: 80vh;" name="form_view"></ion-nav-view>
                 <div style="margin-top: 85vh">
                     <div class="button-bar row" ng-show="hc.selectedRequest">
@@ -87,8 +76,7 @@
             </div>
 
             <div class="col col-50">
-                <br>
-                <br>
+
                 <div class="row">
 
                     <div class="col col-80">

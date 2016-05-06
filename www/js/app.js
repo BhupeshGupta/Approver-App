@@ -6,10 +6,11 @@
 angular.module('ApproverApp', [
     'ionic',
     'ngPintura',
-    'ion-autocomplete'
+    'ion-autocomplete',
+    'ngStorage'
 ])
 
-.value('ServerUrl', 'http://192.168.31.124:1337/')
+.value('ServerUrl', 'http://localhost:1337')
     .value('ERP', 'http://erp.arungas.com')
 
 .run(function ($ionicPlatform) {

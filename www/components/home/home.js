@@ -4,7 +4,7 @@ angular.module('ApproverApp')
   .controller('HomeController', HomeController);
 
 
-function HomeController(InvoiceService, $rootScope, $scope, $q, $http, $state, RequestFactory, FileFactory, $timeout) {
+function HomeController(InvoiceService, SessionService, $rootScope, $scope, $q, $http, $state, RequestFactory, FileFactory, $timeout) {
   var vm = this;
 
   /* vars */
@@ -54,7 +54,8 @@ function HomeController(InvoiceService, $rootScope, $scope, $q, $http, $state, R
   function changeDocstatus(request, docstatus) {
     return $http.post('http://localhost:1337/currentstat/updatestatus', {
         qid: request.qid,
-        status: docstatus
+        status: docstatus,
+        sid: SessionService.getToken()
       })
       .then(function() {
         var index = vm.requests.indexOf(request);

@@ -5,11 +5,11 @@ angular
     .controller('LoginController', loginController);
 
 
-function loginController($scope, $state, UserService, SettingsFactory) {
+function loginController($scope, $state, SessionService, SettingsFactory) {
     console.log("Hi from Login Controller");
 
     $scope.login_func = function () {
-        UserService.login($scope.loginData.username, $scope.loginData.password).then(
+        SessionService.login($scope.loginData.username, $scope.loginData.password).then(
             function (response) {
                 var settings = SettingsFactory.get();
                 settings.full_name = response.data.full_name;
