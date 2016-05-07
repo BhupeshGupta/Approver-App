@@ -1,4 +1,4 @@
-/*
+    /*
 To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file.
 
@@ -15,9 +15,126 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
-// The path for our ionicons font files, relative to the built CSS in www/css
-$ionicons-font-path: "../lib/ionic/fonts" !default;
+    // The path for our ionicons font files, relative to the built CSS in www/css
+    $ionicons-font-path: "../lib/ionic/fonts" !default;
+    // Include all of Ionic
+    //    @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
+    @import "www/lib/ionic/scss/ionic";
+    body {
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+.red_btn{ padding: 10px; width: 100%; background: red;}
+    .approver_app {
+        .bar-header {
+            background: red;
+            height: 50px;
+            border: 0;
+            .title {
+                text-transform: uppercase;
+                line-height: 50px;
+                font-weight: 500;
+                letter-spacing: 1px;
+                padding: 2px 0;
+            }
+        }
+        .left_sidebar {
+            width: 25%;
+            position: relative;
+            float: left;
+            border-right: 1px solid #ccc;
+            height: 100%;
+            .list {
+                max-width: 100%;
+                margin: 0 !important;
+                padding: 0 !important;
+                &.card {
+                    margin: 0 !important;
+                    border: 1px solid #ddd !important;
+                    border-right: 0!important;
+                    li {
+                        padding: 0px !important;
+                        border-radius: 0 !important;
+                        .item {
+                            padding: 10px 10px 10px 72px !important;
+                        }
+                        .item-body {
+                            padding: 0 0 0 72px!important;
+                        }
+                    }
+                }
+            }
+            ion-side-menu {
+                width: 100% !important;
+                top: 20px !important;
+            }
+            .item-select {
+                margin-bottom: 10px;
+            }
+        }
+        .right_sidebar {
+            width: 75% !important;
+            ion-side-menu-content {
+                width: 74% !important;
+                right: 0;
+                left: auto;
+                float: right;
+                transform: none !important;
+            }
+            ion-content {
+                top: 0 !important;
+            }
+            .content_detail{
+                width: 40%;
+                position: relative;
+                border: 1px solid #ddd;
+                position: relative;
+                ion-nav-view{
+                    width: 100%;
 
-// Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
-
+                }
+                ion-view{ height: auto;}
+            }
+        }
+        .tab-nav {
+            top: 65px;
+            &.tabs {
+                color: #fff !important;
+                padding: 0 !important;
+                height: 40px;
+                top: 55px;
+            }
+            .tab-item {
+                width: 33%;
+                float: left;
+                max-width: 33.3% !important;
+                background: #424242 !important;
+                margin-right: 5px;
+                height: 40px;
+                &:last-child {
+                    margin: 0;
+                }
+                i {
+                    display: inline-block;
+                    position: relative;
+                    top: 5px;
+                    font-size: 28px;
+                }
+                span {
+                    display: inline-block;
+                    padding-left: 10px;
+                    font-size: 15px;
+                    padding-top: 3px;
+                    position: relative;
+                    top: 2px;
+                    font-weight: 500;
+                }
+                &.tab-item-active {
+                    background: #424242 !important;
+                }
+            }
+        }
+        ion-side-menus {
+            top: 100px !important;
+        }
+        .buttons{ position: absolute; bottom: 10px;}
+    }

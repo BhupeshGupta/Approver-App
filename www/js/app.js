@@ -10,7 +10,7 @@ angular.module('ApproverApp', [
     'ngStorage'
 ])
 
-.value('ServerUrl', 'http://localhost:1337')
+.value('ServerUrl', 'http://192.168.31.195:1337')
     .value('ERP', 'http://erp.arungas.com')
 
 .run(function ($ionicPlatform) {
