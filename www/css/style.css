@@ -3,7 +3,7 @@
 ng-pintura {
     position: relative;
     display: block;
-    width: 372px;
+    width: 90%;
     height: 90vh;
     background: rgba(135, 206, 250, .15);
     filter: blur(5px);

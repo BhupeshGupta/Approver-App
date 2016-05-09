@@ -9734,10 +9734,27 @@ a.button {
 body {
   font-family: 'Roboto Condensed', sans-serif; }
 
-.red_btn {
-  padding: 10px;
-  width: 100%;
-  background: red; }
+.button.red_btn {
+  padding: 0px 10px;
+  width: 90%;
+  background: red;
+  color: #fff;
+  margin: 10px;
+  border-radius: 5px !important;
+  font-size: 16px;
+  text-transform: uppercase;
+  height: 30px; }
+
+.button.black_btn {
+  padding: 0px 10px;
+  width: 90%;
+  background: #424242;
+  color: #fff;
+  margin: 10px;
+  border-radius: 5px !important;
+  font-size: 16px;
+  text-transform: uppercase;
+  height: 30px; }
 
 .approver_app .bar-header {
   background: red;
@@ -9754,16 +9771,16 @@ body {
   width: 25%;
   position: relative;
   float: left;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #ddd;
   height: 100%; }
   .approver_app .left_sidebar .list {
     max-width: 100%;
     margin: 0 !important;
     padding: 0 !important; }
     .approver_app .left_sidebar .list.card {
-      margin: 0 !important;
+      margin: 0 10px !important;
       border: 1px solid #ddd !important;
-      border-right: 0 !important; }
+      box-shadow: none; }
       .approver_app .left_sidebar .list.card li {
         padding: 0px !important;
         border-radius: 0 !important; }
@@ -9771,11 +9788,46 @@ body {
           padding: 10px 10px 10px 72px !important; }
         .approver_app .left_sidebar .list.card li .item-body {
           padding: 0 0 0 72px !important; }
+  .approver_app .left_sidebar .search_bar {
+    margin: 10px 0; }
+    .approver_app .left_sidebar .search_bar label {
+      height: 50px;
+      line-height: 40px;
+      padding: 10px 5px;
+      background: #424242;
+      color: #fff;
+      margin: 5px 10px; }
+    .approver_app .left_sidebar .search_bar i {
+      position: absolute;
+      right: 5px;
+      color: #fff;
+      font-size: 20px;
+      background: red;
+      padding: 7px 10px;
+      margin: 10px 0;
+      line-height: 15px;
+      top: -3px; }
+    .approver_app .left_sidebar .search_bar input {
+      color: #424242 !important;
+      background: #fff;
+      padding: 10px; }
   .approver_app .left_sidebar ion-side-menu {
     width: 100% !important;
     top: 20px !important; }
   .approver_app .left_sidebar .item-select {
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    background: #424242;
+    margin: 5px 10px; }
+    .approver_app .left_sidebar .item-select .input-label {
+      color: #fff;
+      position: relative;
+      z-index: 9999; }
+    .approver_app .left_sidebar .item-select select {
+      background: #424242;
+      color: #fff;
+      width: 100%;
+      max-width: 100%;
+      padding: 10px; }
 
 .approver_app .right_sidebar {
   width: 75% !important; }
@@ -9784,7 +9836,8 @@ body {
     right: 0;
     left: auto;
     float: right;
-    transform: none !important; }
+    transform: none !important;
+    box-shadow: none; }
   .approver_app .right_sidebar ion-content {
     top: 0 !important; }
   .approver_app .right_sidebar .content_detail {
@@ -9794,8 +9847,8 @@ body {
     position: relative; }
     .approver_app .right_sidebar .content_detail ion-nav-view {
       width: 100%; }
-    .approver_app .right_sidebar .content_detail ion-view {
-      height: auto; }
+      .approver_app .right_sidebar .content_detail ion-nav-view ion-view {
+        height: 85%; }
 
 .approver_app .tab-nav {
   top: 65px; }
@@ -9830,8 +9883,30 @@ body {
       background: #424242 !important; }
 
 .approver_app ion-side-menus {
-  top: 100px !important; }
+  top: 95px !important; }
 
 .approver_app .buttons {
   position: absolute;
-  bottom: 10px; }
+  bottom: 85px;
+  width: 100%;
+  z-index: 999999; }
+
+.approver_app ion-view {
+  background: none;
+  overflow-y: visible; }
+
+.approver_app .display_block {
+  width: 60%; }
+  .approver_app .display_block .d_block_img {
+    width: 80%;
+    padding-left: 10px; }
+    .approver_app .display_block .d_block_img ng-pintura {
+      margin: 0 auto !important; }
+  .approver_app .display_block .d_thumb_img {
+    width: 20%; }
+
+.approver_app .content_detail {
+  width: 40%; }
+
+.approver_app ion-item:last-child {
+  border-bottom: 0; }

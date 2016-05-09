@@ -23,7 +23,30 @@ $dark:                            #444 !default;
     body {
         font-family: 'Roboto Condensed', sans-serif;
     }
-.red_btn{ padding: 10px; width: 100%; background: red;}
+    .button {
+        &.red_btn {
+            padding: 0px 10px;
+            width: 90%;
+            background: red;
+            color: #fff;
+            margin: 10px;
+            border-radius: 5px !important;
+            font-size: 16px;
+            text-transform: uppercase;
+            height: 30px;
+        }
+        &.black_btn {
+            padding: 0px 10px;
+            width: 90%;
+            background: #424242;
+            color: #fff;
+            margin: 10px;
+            border-radius: 5px !important;
+            font-size: 16px;
+            text-transform: uppercase;
+            height: 30px;
+        }
+    }
     .approver_app {
         .bar-header {
             background: red;
@@ -41,16 +64,16 @@ $dark:                            #444 !default;
             width: 25%;
             position: relative;
             float: left;
-            border-right: 1px solid #ccc;
+            border-right: 1px solid #ddd;
             height: 100%;
             .list {
                 max-width: 100%;
                 margin: 0 !important;
                 padding: 0 !important;
                 &.card {
-                    margin: 0 !important;
+                    margin: 0  10px!important;
                     border: 1px solid #ddd !important;
-                    border-right: 0!important;
+                    box-shadow: none;
                     li {
                         padding: 0px !important;
                         border-radius: 0 !important;
@@ -63,12 +86,44 @@ $dark:                            #444 !default;
                     }
                 }
             }
+            .search_bar{
+              margin: 10px 0;
+              label{
+                  height: 50px; line-height: 40px; padding: 10px 5px; background: #424242; color: #fff; margin:5px 10px;}
+                  i{ position: absolute;
+    right: 5px;
+    color: #fff;
+    font-size: 20px;
+    background: red;
+    padding: 7px 10px;
+    margin: 10px 0;
+    line-height: 15px;
+    top: -3px; }
+                  input{     color: #424242 !important;
+    background: #fff;
+    padding: 10px;
+}
+            }
             ion-side-menu {
                 width: 100% !important;
                 top: 20px !important;
             }
             .item-select {
                 margin-bottom: 10px;
+                background: #424242;
+                margin: 5px 10px;
+                .input-label {
+                    color: #fff;
+                    position: relative;
+                    z-index: 9999;
+                }
+                select {
+                    background: #424242;
+                    color: #fff;
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 10px;
+                }
             }
         }
         .right_sidebar {
@@ -79,20 +134,25 @@ $dark:                            #444 !default;
                 left: auto;
                 float: right;
                 transform: none !important;
+                box-shadow: none;
             }
             ion-content {
                 top: 0 !important;
             }
-            .content_detail{
+            .content_detail {
                 width: 40%;
                 position: relative;
                 border: 1px solid #ddd;
                 position: relative;
-                ion-nav-view{
+                ion-nav-view {
                     width: 100%;
+                    ion-view {
+                        height: 85%;
 
+
+                    }
                 }
-                ion-view{ height: auto;}
+
             }
         }
         .tab-nav {
@@ -134,7 +194,35 @@ $dark:                            #444 !default;
             }
         }
         ion-side-menus {
-            top: 100px !important;
+            top: 95px !important;
         }
-        .buttons{ position: absolute; bottom: 10px;}
+        .buttons {
+            position: absolute;
+            bottom: 85px;
+            width: 100%;
+            z-index: 999999;
+        }
+        ion-view {
+            background: none;
+            overflow-y: visible;
+        }
+        .display_block {
+            width: 60%;
+            .d_block_img {
+                width: 80%;
+                padding-left: 10px;
+                ng-pintura {
+                    margin: 0 auto !important;
+                }
+            }
+            .d_thumb_img {
+                width: 20%;
+            }
+        }
+        .content_detail {
+            width: 40%;
+        }
+        ion-item{
+          &:last-child{ border-bottom: 0;}
+        }
     }
