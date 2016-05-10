@@ -9910,3 +9910,28 @@ body {
 
 .approver_app ion-item:last-child {
   border-bottom: 0; }
+
+.approver_app .cheque_items {
+  position: absolute;
+  top: 105px; }
+  .approver_app .cheque_items .item {
+    margin: 10px 0; }
+    .approver_app .cheque_items .item:first-child {
+      margin-top: 0; }
+    .approver_app .cheque_items .item:last-child {
+      margin-bottom: 0; }
+  .approver_app .cheque_items .display_block {
+    margin: 0 15px;
+    float: right;
+    width: 55% !important; }
+    .approver_app .cheque_items .display_block img {
+      margin: 0 auto;
+      display: block; }
+      .approver_app .cheque_items .display_block img.payslip_img {
+        max-width: 400px; }
+  .approver_app .cheque_items .content_detail {
+    float: left; }
+  .approver_app .cheque_items .right_sidebar {
+    float: right;
+    margin: 0 10px;
+    width: 72% !important; }

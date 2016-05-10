@@ -71,7 +71,7 @@ $dark:                            #444 !default;
                 margin: 0 !important;
                 padding: 0 !important;
                 &.card {
-                    margin: 0  10px!important;
+                    margin: 0 10px!important;
                     border: 1px solid #ddd !important;
                     box-shadow: none;
                     li {
@@ -86,23 +86,32 @@ $dark:                            #444 !default;
                     }
                 }
             }
-            .search_bar{
-              margin: 10px 0;
-              label{
-                  height: 50px; line-height: 40px; padding: 10px 5px; background: #424242; color: #fff; margin:5px 10px;}
-                  i{ position: absolute;
-    right: 5px;
-    color: #fff;
-    font-size: 20px;
-    background: red;
-    padding: 7px 10px;
-    margin: 10px 0;
-    line-height: 15px;
-    top: -3px; }
-                  input{     color: #424242 !important;
-    background: #fff;
-    padding: 10px;
-}
+            .search_bar {
+                margin: 10px 0;
+                label {
+                    height: 50px;
+                    line-height: 40px;
+                    padding: 10px 5px;
+                    background: #424242;
+                    color: #fff;
+                    margin: 5px 10px;
+                }
+                i {
+                    position: absolute;
+                    right: 5px;
+                    color: #fff;
+                    font-size: 20px;
+                    background: red;
+                    padding: 7px 10px;
+                    margin: 10px 0;
+                    line-height: 15px;
+                    top: -3px;
+                }
+                input {
+                    color: #424242 !important;
+                    background: #fff;
+                    padding: 10px;
+                }
             }
             ion-side-menu {
                 width: 100% !important;
@@ -148,11 +157,8 @@ $dark:                            #444 !default;
                     width: 100%;
                     ion-view {
                         height: 85%;
-
-
                     }
                 }
-
             }
         }
         .tab-nav {
@@ -222,7 +228,42 @@ $dark:                            #444 !default;
         .content_detail {
             width: 40%;
         }
-        ion-item{
-          &:last-child{ border-bottom: 0;}
+        ion-item {
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+        .cheque_items {
+            position: absolute;
+            top: 105px;
+            .item {
+                margin: 10px 0;
+                &:first-child {
+                    margin-top: 0;
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+            .display_block {
+                margin: 0 15px;
+                float: right;
+                width: 55% !important;
+                img {
+                    margin: 0 auto;
+                    display: block;
+                    &.payslip_img {
+                        max-width: 400px
+                    }
+                }
+            }
+            .content_detail {
+                float: left;
+            }
+            .right_sidebar {
+                float: right;
+                margin: 0 10px;
+                width: 72% !important;
+            }
         }
     }

@@ -1,6 +1,7 @@
 <ion-view class="approver_app">
     <div class="bar bar-header bar-positive">
-        <h1 class="title">Approver Panel</h1> </div>
+        <h1 class="title">Approver Panel</h1>
+    </div>
     <ion-tabs class="tabs-icon-top tabs-top">
         <!-- Documents tab start here -->
         <ion-tab title="Documents" icon-on="ion-ios-compose" icon-off="ion-ios-compose-outline">
@@ -78,12 +79,12 @@
                         </div>
                     </ion-side-menu-content>
                 </div>
-            </ion-side-menus> -->
-        </ion-tab> -->
+            </ion-side-menus>
+        </ion-tab>
         <!-- Documents tab end here -->
         <!-- Cheque tab start here -->
         <ion-tab title="Cheque" icon-on="ion-ios-list" icon-off="ion-ios-list-outline">
-            <ion-content>
+            <div class="cheque_items">
                 <div class="left_sidebar">
                     <div class="list">
                         <div class="item">Item 1</div>
@@ -92,43 +93,35 @@
                     </div>
                 </div>
                 <div class="right_sidebar">
-                    <ion-side-menu-content>
-                        <div class="row">
-                            <div class="content_detail">
-                                <ion-nav-view name="form_view">
-                                    <div class="buttons">
-                                        <div class="button-bar row" ng-show="hc.selectedRequest"> <a class="button red_btn" ng-click="hc.changeDocstatus(hc.selectedRequest, 1);">Accept</a> <a class="button black_btn" ng-click="hc.changeDocstatus(hc.selectedRequest, 2)">Reject</a> </div>
-                                    </div>
-                                </ion-nav-view>
-                            </div>
-                            <div class="display_block">
-                                <div class="row">
-                                    <div class="d_block_img">
-                                        <ng-pintura ngp-src="hc.selectedImg.src" ngp-scaling="hc.selectedImg.scaling" ngp-position="hc.selectedImg.position" ngp-max-scaling="hc.selectedImg.maxScaling" ngp-scale-step="hc.selectedImg.scaleStep" ngp-move-step="hc.selectedImg.moveStep" ngp-mw-scale-step="hc.selectedImg.mwScaleStep" ngp-fit-onload="hc.selectedImg.fitOnload" ngp-progress="hc.selectedImg.progress">
-                                            <div id="zoomslider">
-                                                <input ng-model="slider.value" ng-change="sliderChange()" orient="vertical" type="range" min="0" max="100" step="1" ng-disabled="scalingDisabled" /> </div>
-                                            <button id="zoomin" ng-click="zoomIn()" ng-disabled="scalingDisabled" class="btn btn-default"><span class="ion-ios-plus-empty"></span></button>
-                                            <button id="zoomout" ng-click="zoomOut()" ng-disabled="scalingDisabled" class="btn btn-default"><span class="ion-ios-minus-empty"></span></button>
-                                            <button id="moveup" ng-click="moveUp()" class="btn btn-default"><span class="ion-ios-arrow-up"></span></button>
-                                            <button id="movedown" ng-click="moveDown()" class="btn btn-default"><span class="ion-ios-arrow-down"></span></button>
-                                            <button id="moveleft" ng-click="moveLeft()" class="btn btn-default"><span class="ion-ios-arrow-left"></span></button>
-                                            <button id="moveright" ng-click="moveRight()" class="btn btn-default"><span class="ion-ios-arrow-right"></span></button>
-                                            <button id="movecenter" ng-click="fitInView()" class="btn btn-default"><span class="ion-qr-scanner"></span></button>
-                                        </ng-pintura>
-                                    </div>
-                                    <div class="d_thumb_img">
-                                        <ion-scroll direction="y"> <img ng-repeat="image in hc.selectedRequest.files" ng-src="http://192.168.31.195:1337/files/download/{{image.id}}/" ng-click="hc.showImage($index)" class="image-list-thumb" style="max-width: 100%" /> </ion-scroll>
-                                    </div>
-                                </div>
+                    <div class="list">
+                        <div class="item content_detail">
+                            <div class="content_dtl">
+                                <div>Item 1</div>
+                                <div>Item 1</div>
+                                <div>Item 2</div>
+                                <div>Item 3</div>
                             </div>
                         </div>
-                    </ion-side-menu-content>
+                        <div class="item display_block">
+                            <div class="display_detail">
+                                <div class="item cheque_img"><img src="img\cheque.jpg" alt="cheque"></div>
+                                <div class="item payslip_img"><img src="img\payslip.jpg" alt="payslip"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </ion-content>
+            </div>
         </ion-tab>
         <!-- Cheque tab start here -->
         <!-- Cash tab start here -->
-        <ion-tab title="Cash" icon-on="ion-social-usd" icon-off="ion-social-usd-outline"> </ion-tab>
+        <ion-tab title="Cash" icon-on="ion-social-usd" icon-off="ion-social-usd-outline">
+            <div class="list">
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+                <div class="item">Cash</div>
+            </div>
+
+        </ion-tab>
         <!-- Cash tab start here -->
     </ion-tabs>
 </ion-view>
