@@ -1,0 +1,10 @@
+{
+    "jscodehints.detectedExclusions": [
+        "D:/work/Approver-App/www/components/invoice-report/invoice-report.js",
+        "D:/work/Approver-App/www/lib/jquery/src/data.js",
+        "D:/work/Approver-App/www/lib/jquery/src/css.js",
+        "D:/work/Approver-App/www/lib/jquery/src/deferred.js",
+        "D:/work/Approver-App/www/lib/jquery/src/deprecated.js",
+        "D:/work/Approver-App/www/lib/moment/locale/af.js"
+    ]
+}

@@ -31,6 +31,10 @@ angular.module('ApproverApp', [
     });
 })
 
+.run(function ($rootScope) {
+    $rootScope.$on("$stateChangeError", console.log.bind(console));
+})
+
 .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/login');
 
@@ -46,7 +50,7 @@ angular.module('ApproverApp', [
             }
         })
         .state('approve.cheque', {
-            url: 'cheque/:requestId/',
+            url: 'cheque/',
             views: {
                 'form_view': {
                     templateUrl: 'components/cheque/cheque.html',
@@ -63,19 +67,29 @@ angular.module('ApproverApp', [
             }
         })
         .state('approve.invoice', {
-            url: 'invoice/:requestId/',
-            views: {
-                'form_view': {
-                    templateUrl: 'components/invoice/invoice.html',
-                    // controller: 'chequeFlowController'
+            url: 'invoice/',
+            abstract: true,
+            'views': {
+                form_view: {
+                    template: '<ion-nav-view name="invoice_view"></ion-nav-view>'
                 }
             }
         })
-        .state('approve.invoice.edit', {
-            url: 'edit/',
+        .state('approve.invoice.report', {
+            url: 'report/',
             views: {
                 'invoice_view': {
-                    templateUrl: 'components/invoice/forms/invoice_detail.html'
+                    templateUrl: 'components/invoice-report/invoice-report.html',
+                    controller: 'InvoiceReport'
+                }
+            }
+        })
+        .state('approve.invoice.queue', {
+            url: 'queue/',
+            views: {
+                'invoice_view': {
+                    templateUrl: 'components/documents/document.html',
+                    // controller: 'chequeFlowController'
                 }
             }
         })

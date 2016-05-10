@@ -1,21 +1,21 @@
 'use strict';
 
 angular.module('ApproverApp')
-  .controller('HomeController', HomeController);
+    .controller('Documents', Documents);
 
 
-function HomeController(InvoiceService, SessionService, $rootScope, $scope, $q, $http, $state, RequestFactory, FileFactory, $timeout) {
-  var vm = this;
+function Documents(InvoiceService, SessionService, $rootScope, $scope, $q, $http, $state, RequestFactory, FileFactory, $timeout) {
+    var vm = this;
 
-  /* vars */
-  vm.selectedRequest = "";
-  vm.requests = [];
+    /* vars */
+    vm.selectedRequest = "";
+    vm.requests = [];
 
-  /* functions */
-  vm.showImage = showImage;
-  vm.selectRequest = selectRequest;
-  vm.changeDocstatus = changeDocstatus;
-  vm.reloadRequestList = reloadRequestList;
+    /* functions */
+    vm.showImage = showImage;
+    vm.selectRequest = selectRequest;
+    vm.changeDocstatus = changeDocstatus;
+    vm.reloadRequestList = reloadRequestList;
 
     vm.selectedImg = {
         src: '',
@@ -32,24 +32,24 @@ function HomeController(InvoiceService, SessionService, $rootScope, $scope, $q, 
         progress: 0
     };
 
-  function selectRequest(request) {
-    vm.selectedRequest = request;
-    if (vm.selectedRequest.files && vm.selectedRequest.files.length > 0) {
-      vm.selectedImg.src = FileFactory.getLink(vm.selectedRequest.files[0].id);
-    } else {
-      vm.selectedImg.src = '';
+    function selectRequest(request) {
+        vm.selectedRequest = request;
+        if (vm.selectedRequest.files && vm.selectedRequest.files.length > 0) {
+            vm.selectedImg.src = FileFactory.getLink(vm.selectedRequest.files[0].id);
+        } else {
+            vm.selectedImg.src = '';
+        }
+
+        $state.go('approve.invoice.edit', {
+            requestId: request.requestId
+        });
     }
 
-    $state.go('approve.invoice.edit', {
-      requestId: request.requestId
-    });
-  }
 
 
-
-  function showImage(index) {
-    vm.selectedImg.src = FileFactory.getLink(vm.selectedRequest.files[index].id);
-  }
+    function showImage(index) {
+        vm.selectedImg.src = FileFactory.getLink(vm.selectedRequest.files[index].id);
+    }
 
     function changeDocstatus(request, docstatus) {
         return $http.post('http://localhost:1337/currentstat/updatestatus', {
@@ -91,19 +91,19 @@ function HomeController(InvoiceService, SessionService, $rootScope, $scope, $q, 
         );
     };
 
-  $rootScope.$on("reloadRequests", function(event, data) {
-    RequestFactory.getReuqests({
-      status: $scope.selectedDocstatusFilter || 0
-    }).then(function(requests) {
-      vm.requests = requests;
+    $rootScope.$on("reloadRequests", function (event, data) {
+        RequestFactory.getReuqests({
+            status: $scope.selectedDocstatusFilter || 0
+        }).then(function (requests) {
+            vm.requests = requests;
+        });
     });
-  });
 
-  $rootScope.$emit("reloadRequests");
-
-  function reloadRequestList() {
     $rootScope.$emit("reloadRequests");
-  }
+
+    function reloadRequestList() {
+        $rootScope.$emit("reloadRequests");
+    }
 
 
 }

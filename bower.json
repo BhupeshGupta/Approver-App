@@ -10,6 +10,7 @@
     "moment": "~2.11.1",
     "angular-pintura": "~0.1.1",
     "jquery": "~2.2.0",
-    "ngstorage": "^0.3.10"
+    "ngstorage": "^0.3.10",
+    "angular-nvd3": "^1.0.7"
   }
 }
