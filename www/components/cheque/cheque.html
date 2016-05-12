@@ -1,3 +1,111 @@
-<ion-view>
-    <ion-nav-view name='cheque_view'></ion-nav-view>
-</ion-view>
+<div class="cheque_items">
+    <div class="left_sidebar">
+        <div class="list cheque_detail">
+            <ion-item>
+                <label>Check date</label>:
+                <p>11-05-2015</p>
+            </ion-item>
+            <ion-item>
+                <label>Ammount</label>:
+                <p>XXXX</p>
+            </ion-item>
+            <ion-item>
+                <label>Customer Name</label>:
+                <p>Abc</p>
+            </ion-item>
+            <ion-item>
+                <label>Check date</label>:
+                <p></p>
+            </ion-item>
+
+        </div>
+    </div>
+    <div class="right_sidebar">
+        <div class="list">
+            <div class="item content_detail">
+                <div class="content_dtl cheque_edit_dtl">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Company</span>
+                        <input ion-autocomplete type="text" class="ion-autocomplete" ng-model="user_input.company" items-method="company_search(query)" item-view-value-key="value" placeholder="Company" max-selected-items="1" />
+                    </label>
+                    <ion-list>
+
+                        <ion-item>
+                            <label>Posting Date</label>
+                            <md-datepicker ng-model="myDate" md-placeholder="Enter posting date"></md-datepicker>
+                        </ion-item>
+                        <ion-item>
+                            <label>Cheque Date</label>
+                            <md-datepicker ng-model="myDate" md-placeholder="Enter chjeque date"></md-datepicker>
+                        </ion-item>
+                        <ion-item>
+                            <label>Company Name</label>
+                            <input type="text" placeholder="Company Name">
+                        </ion-item>
+                        <ion-item>
+                            <label>Customer Account</label>
+                            <input type="text" placeholder="Customer Name">
+                        </ion-item>
+                        <ion-item>
+                            <label>Amount</label>
+                            <input type="text" placeholder="Amount">
+                        </ion-item>
+                        <ion-item>
+                            <label>Cheque Number</label>
+                            <input type="text" placeholder="Cheque Number">
+                        </ion-item>
+                        <ion-item>
+                            <label>Cheque Bank Number</label>
+                            <input type="text" placeholder="Bank">
+                        </ion-item>
+                    </ion-list>
+                    <div class="ion_item">
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Company</span>
+                            <input ion-autocomplete type="text" class="ion-autocomplete" ng-model="user_input.company" items-method="company_search(query)" item-view-value-key="value" placeholder="Company" max-selected-items="1" />
+                        </label>
+                    </div>
+                    <div class="buttons">
+                        <div class="button-bar row">
+                            <a class="button red_btn">Submit</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="item display_block cheque_imges">
+                <div class="display_detail">
+                    <div class="d_block_img">
+                        <ng-pintura ngp-src="'img\\cheque.jpg'">
+                            <div id="zoomslider">
+                                <input ng-model="slider.value" ng-change="sliderChange()" orient="vertical" type="range" min="0" max="100" step="1" ng-disabled="scalingDisabled" /> </div>
+                            <button id="zoomin" ng-click="zoomIn()" ng-disabled="scalingDisabled" class="btn btn-default"><span class="ion-ios-plus-empty"></span></button>
+                            <button id="zoomout" ng-click="zoomOut()" ng-disabled="scalingDisabled" class="btn btn-default"><span class="ion-ios-minus-empty"></span></button>
+                            <button id="moveup" ng-click="moveUp()" class="btn btn-default"><span class="ion-ios-arrow-up"></span></button>
+                            <button id="movedown" ng-click="moveDown()" class="btn btn-default"><span class="ion-ios-arrow-down"></span></button>
+                            <button id="moveleft" ng-click="moveLeft()" class="btn btn-default"><span class="ion-ios-arrow-left"></span></button>
+                            <button id="moveright" ng-click="moveRight()" class="btn btn-default"><span class="ion-ios-arrow-right"></span></button>
+                            <button id="movecenter" ng-click="fitInView()" class="btn btn-default"><span class="ion-qr-scanner"></span></button>
+                        </ng-pintura>
+                    </div>
+                    <div class="d_block_img">
+                        <ng-pintura ngp-src="'img\payslip.jpg'">
+                            <div id="zoomslider">
+                                <input ng-model="slider.value" ng-change="sliderChange()" orient="vertical" type="range" min="0" max="100" step="1" ng-disabled="scalingDisabled" /> </div>
+                            <button id="zoomin" ng-click="zoomIn()" ng-disabled="scalingDisabled" class="btn btn-default"><span class="ion-ios-plus-empty"></span></button>
+                            <button id="zoomout" ng-click="zoomOut()" ng-disabled="scalingDisabled" class="btn btn-default"><span class="ion-ios-minus-empty"></span></button>
+                            <button id="moveup" ng-click="moveUp()" class="btn btn-default"><span class="ion-ios-arrow-up"></span></button>
+                            <button id="movedown" ng-click="moveDown()" class="btn btn-default"><span class="ion-ios-arrow-down"></span></button>
+                            <button id="moveleft" ng-click="moveLeft()" class="btn btn-default"><span class="ion-ios-arrow-left"></span></button>
+                            <button id="moveright" ng-click="moveRight()" class="btn btn-default"><span class="ion-ios-arrow-right"></span></button>
+                            <button id="movecenter" ng-click="fitInView()" class="btn btn-default"><span class="ion-qr-scanner"></span></button>
+                        </ng-pintura>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

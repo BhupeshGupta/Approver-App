@@ -1,24 +1,4 @@
-<div class="documents_tab">
-    <div class="document_list">
-        <div title="Drop down list">
-            <div class="list list-inset">
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        4567567
-                    </div>
-                    <select>
-                        <option selected>State 1</option>
-                        <option>State 2</option>
-                        <option>State 3</option>
-                        <option>State 4</option>
-                    </select>
-                </label>
-            </div>
-        </div>
-    </div>
-</div>
 <ion-side-menus class="color">
-
     <div class="left_sidebar">
         <div class="list col">
             <!-- pick a panel block start here -->
@@ -54,8 +34,13 @@
                             <h3>{{request.data.doctype}}</h3>
                             <p>{{request.data.customer}}</p>
                         </div>
+
                     </li>
                 </div>
+                <md-input-container flex-gt-md="30">
+                    <label>Timepicker Only</label>
+                    <input mdc-datetime-picker date="false" time="true" type="text" id="time" short-time="true" placeholder="Time" min-date="minDate" format="hh:mm a" ng-model="time">
+                </md-input-container>
             </ion-content>
         </ion-side-menu>
     </div>
@@ -88,6 +73,7 @@
                         <div class="d_thumb_img">
                             <ion-scroll direction="y"> <img ng-repeat="image in hc.selectedRequest.files" ng-src="http://192.168.31.195:1337/files/download/{{image.id}}/" ng-click="hc.showImage($index)" class="image-list-thumb" style="max-width: 100%" /> </ion-scroll>
                         </div>
+
                     </div>
                 </div>
             </div>

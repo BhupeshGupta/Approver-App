@@ -15,6 +15,7 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -9732,7 +9733,7 @@ a.button {
   transition-duration: 0s; }
 
 body {
-  font-family: 'Roboto Condensed', sans-serif; }
+  font-family: 'Open Sans', sans-serif; }
 
 .button.red_btn {
   padding: 0px 10px;
@@ -9755,6 +9756,13 @@ body {
   font-size: 16px;
   text-transform: uppercase;
   height: 30px; }
+
+ion-tabs {
+  float: left;
+  width: 100%; }
+
+ion-nav-view {
+  background: none !important; }
 
 .approver_app .bar-header {
   background: red;
@@ -9813,7 +9821,7 @@ body {
       padding: 10px; }
   .approver_app .left_sidebar ion-side-menu {
     width: 100% !important;
-    top: 20px !important; }
+    top: 125px !important; }
   .approver_app .left_sidebar .item-select {
     margin-bottom: 10px;
     background: #424242;
@@ -9821,13 +9829,14 @@ body {
     .approver_app .left_sidebar .item-select .input-label {
       color: #fff;
       position: relative;
-      z-index: 9999; }
+      z-index: 9999;
+      text-align: left; }
     .approver_app .left_sidebar .item-select select {
       background: #424242;
       color: #fff;
       width: 100%;
       max-width: 100%;
-      padding: 10px; }
+      padding: 10px 42px 10px 10px; }
 
 .approver_app .right_sidebar {
   width: 75% !important; }
@@ -9843,7 +9852,6 @@ body {
   .approver_app .right_sidebar .content_detail {
     width: 40%;
     position: relative;
-    border: 1px solid #ddd;
     position: relative; }
     .approver_app .right_sidebar .content_detail ion-nav-view {
       width: 100%; }
@@ -9863,7 +9871,9 @@ body {
     max-width: 33.3% !important;
     background: #424242 !important;
     margin-right: 5px;
-    height: 40px; }
+    height: 40px;
+    text-align: left;
+    padding-left: 20px; }
     .approver_app .tab-nav .tab-item:last-child {
       margin: 0; }
     .approver_app .tab-nav .tab-item i {
@@ -9874,7 +9884,7 @@ body {
     .approver_app .tab-nav .tab-item span {
       display: inline-block;
       padding-left: 10px;
-      font-size: 15px;
+      font-size: 18px;
       padding-top: 3px;
       position: relative;
       top: 2px;
@@ -9918,6 +9928,9 @@ body {
     margin: 10px 0; }
     .approver_app .cheque_items .item:first-child {
       margin-top: 0; }
+      .approver_app .cheque_items .item:first-child ng-pintura {
+        background: red;
+        padding: 40px; }
     .approver_app .cheque_items .item:last-child {
       margin-bottom: 0; }
   .approver_app .cheque_items .display_block {
@@ -9930,7 +9943,8 @@ body {
       .approver_app .cheque_items .display_block img.payslip_img {
         max-width: 400px; }
   .approver_app .cheque_items .content_detail {
-    float: left; }
+    float: left;
+    border: 0; }
   .approver_app .cheque_items .right_sidebar {
     float: right;
     margin: 0 10px;
@@ -9960,7 +9974,9 @@ body {
         padding: 0 !important;
         height: 40px; }
         .documents_tab .document_list .list .item .input-label {
-          width: 100%; }
+          width: 100%;
+          text-align: left;
+          max-width: 100%; }
         .documents_tab .document_list .list .item select {
           background: none;
           color: #fff;
@@ -9970,3 +9986,204 @@ body {
           .documents_tab .document_list .list .item select option {
             background: #fff;
             color: #000; }
+
+.ion_tabs .ion_tab_items {
+  width: 33.3%;
+  position: absolute; }
+  .ion_tabs .ion_tab_items select {
+    background: none;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    max-width: 20%;
+    right: 10px;
+    border: none;
+    height: 40px; }
+    .ion_tabs .ion_tab_items select option {
+      background: #fff;
+      color: #000; }
+    .ion_tabs .ion_tab_items select option {
+      float: right;
+      width: 100%;
+      position: absolute; }
+
+.report_module {
+  position: absolute;
+  top: 100px; }
+
+.cheque_edit_dtl {
+  background: #fff; }
+  .cheque_edit_dtl ion-item {
+    border: none;
+    margin: 0 !important;
+    padding: 0; }
+    .cheque_edit_dtl ion-item label {
+      margin: 5px 0 2px 0;
+      font-weight: 600;
+      color: #666;
+      display: inline-block;
+      font-size: 14px;
+      max-width: 240px;
+      float: left; }
+    .cheque_edit_dtl ion-item input {
+      border: 1px solid #ddd;
+      width: 60%;
+      height: 40px;
+      margin: 0 0 10px 0;
+      padding: 0 10px;
+      float: right; }
+      .cheque_edit_dtl ion-item input:focus {
+        box-shadow: 0px 1px 3px #ccc; }
+  .cheque_edit_dtl .buttons {
+    position: relative;
+    bottom: auto; }
+    .cheque_edit_dtl .buttons a {
+      margin: 20px 0 0 0; }
+  .cheque_edit_dtl md-datepicker {
+    width: 60%;
+    float: right;
+    border: 1px solid #ddd;
+    height: 40px;
+    margin: 0 0 10px 0;
+    padding: 0 10px;
+    position: relative; }
+    .cheque_edit_dtl md-datepicker button {
+      position: absolute; }
+    .cheque_edit_dtl md-datepicker .md-datepicker-button {
+      margin: 0 !important;
+      padding: 0 !important; }
+    .cheque_edit_dtl md-datepicker .md-datepicker-input-container {
+      width: 100%;
+      margin: 0 !important; }
+      .cheque_edit_dtl md-datepicker .md-datepicker-input-container input {
+        border: 0;
+        height: 40px;
+        margin: 0 0 10px 0;
+        padding: 0 10px;
+        width: 90%; }
+
+.cheque_items .left_sidebar {
+  display: flex;
+  width: 25%;
+  height: 100%; }
+  .cheque_items .left_sidebar .cheque_detail {
+    width: 100%; }
+
+.cheque_items .right_sidebar {
+  display: flex;
+  width: 74%;
+  height: 100%;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px; }
+  .cheque_items .right_sidebar .list {
+    width: 100%; }
+    .cheque_items .right_sidebar .list ion-item {
+      width: 100%; }
+    .cheque_items .right_sidebar .list .content_detail {
+      display: table-cell; }
+    .cheque_items .right_sidebar .list .cheque_imges {
+      display: table-cell;
+      border: 0; }
+
+.cheque_items .cheque_detail.list {
+  margin: 10px !important; }
+
+.cheque_items .cheque_detail ion-item {
+  border: 0;
+  display: table;
+  border-bottom: 1px solid #efefef;
+  width: 100%;
+  padding: 5px 10px !important;
+  margin: 5px 0 !important; }
+  .cheque_items .cheque_detail ion-item:last-child {
+    border: 0; }
+  .cheque_items .cheque_detail ion-item label {
+    margin: 0;
+    font-weight: 600;
+    color: #666;
+    display: inline-block;
+    font-size: 13px;
+    float: left;
+    display: table-cell;
+    width: 50%; }
+  .cheque_items .cheque_detail ion-item p {
+    margin: 0;
+    padding: 0 10px;
+    float: right;
+    display: table-cell; }
+
+.approver_app.report_module ion-side-menus {
+  top: 0px !important; }
+
+.report_module .ion-side-menus ion-items {
+  margin: 0 auto;
+  width: 90%;
+  border: 0 !important; }
+
+.report_module .sunburst_chart {
+  width: 100%; }
+  .report_module .sunburst_chart .left_sidebar {
+    width: 70% !important; }
+  .report_module .sunburst_chart .right_sidebar {
+    width: 25% !important;
+    display: inline-block;
+    margin-left: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: #eaeaea;
+    padding: 20px; }
+    .report_module .sunburst_chart .right_sidebar p {
+      display: block;
+      text-overflow: initial;
+      white-space: normal;
+      text-align: justify;
+      line-height: 30px; }
+    .report_module .sunburst_chart .right_sidebar .downloader_btn {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      bottom: auto; }
+      .report_module .sunburst_chart .right_sidebar .downloader_btn input {
+        padding: 0px 10px;
+        max-width: 200px;
+        background: red;
+        color: #fff;
+        margin: 10px 0;
+        border-radius: 5px !important;
+        font-size: 16px;
+        text-transform: uppercase;
+        height: 30px;
+        border: 0;
+        border-radius: 0 !important;
+        height: 40px !important;
+        padding: 10px 20px; }
+      .report_module .sunburst_chart .right_sidebar .downloader_btn .button {
+        position: absolute;
+        top: 0 !important;
+        padding: 0 !important;
+        width: 25px !important;
+        height: 25px !important;
+        margin: 0 !important; }
+        .report_module .sunburst_chart .right_sidebar .downloader_btn .button.red_btn {
+          max-width: 200px;
+          border-radius: 0 !important; }
+
+.report_module .multibar_chart_outer {
+  padding: 50px 0;
+  max-width: 90%;
+  border-left: 0;
+  border-right: 0;
+  margin: 0 auto; }
+  .report_module .multibar_chart_outer .multibar_chart {
+    padding: 30px 0; }
+
+@media (max-width: 1190px) {
+  .report_module label {
+    width: 100% !important;
+    max-width: 100% !important; }
+  .report_module input {
+    width: 100% !important; } }
+
+@media (max-width: 1024px) {
+  .report_module label {
+    font-size: 13px !important; } }

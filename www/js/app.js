@@ -7,7 +7,11 @@ angular.module('ApproverApp', [
     'ionic',
     'ngPintura',
     'ion-autocomplete',
-    'ngStorage'
+    'ngStorage',
+    'nvd3',
+    'ionic-datepicker',
+    'ngMaterial',
+    'ngAria',
 ])
 
 .value('ServerUrl', 'http://192.168.31.195:1337')
@@ -49,23 +53,23 @@ angular.module('ApproverApp', [
                 }
             }
         })
-        .state('approve.cheque', {
-            url: 'cheque/',
-            views: {
-                'form_view': {
-                    templateUrl: 'components/cheque/cheque.html',
-                    controller: 'chequeFlowController'
-                }
-            }
-        })
-        .state('approve.cheque.edit', {
-            url: 'edit/',
-            views: {
-                'cheque_view': {
-                    templateUrl: 'components/cheque/forms/cheque_detail.html'
-                }
-            }
-        })
+        //        .state('approve.cheque ', {
+        //            url: 'cheque/',
+        //            views: {
+        //                'form_view': {
+        //                    templateUrl: 'components/cheque/cheque.html',
+        //                    controller: 'chequeFlowController'
+        //                }
+        //            }
+        //        })
+        //        .state('approve.cheque.edit', {
+        //            url: 'edit/',
+        //            views: {
+        //                'cheque_view': {
+        //                    templateUrl: 'components/cheque/forms/cheque_detail.html'
+        //                }
+        //            }
+        //        })
         .state('approve.invoice', {
             url: 'invoice/',
             abstract: true,
@@ -90,6 +94,24 @@ angular.module('ApproverApp', [
                 'invoice_view': {
                     templateUrl: 'components/documents/document.html',
                     // controller: 'chequeFlowController'
+                }
+            }
+        })
+        .state('approve.cheque', {
+            url: 'cheque/',
+            abstract: true,
+            'views': {
+                form_view: {
+                    template: '<ion-nav-view name="cheque"></ion-nav-view>'
+                }
+            }
+        })
+        .state('approve.cheque.queue', {
+            url: 'queue/',
+            views: {
+                'cheque': {
+                    templateUrl: 'components/cheque/cheque.html',
+                    controller: 'Cheque'
                 }
             }
         })

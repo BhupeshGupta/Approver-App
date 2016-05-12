@@ -9,7 +9,6 @@ ng-pintura {
     filter: blur(5px);
     border-radius: 4px 4px 4px 4px;
 }
-
 ng-pintura #zoomslider,
 ng-pintura #zoomin,
 ng-pintura #zoomout,
@@ -26,7 +25,6 @@ ng-pintura #movecenter {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
 }
-
 ng-pintura #zoomslider:hover,
 ng-pintura #zoomin:hover,
 ng-pintura #zoomout:hover,
@@ -37,7 +35,6 @@ ng-pintura #moveright:hover,
 ng-pintura #movecenter:hover {
     opacity: 1;
 }
-
 ng-pintura #zoomslider {
     top: 20px;
     right: 20px;
@@ -45,29 +42,24 @@ ng-pintura #zoomslider {
     background: rgba(255, 255, 255, 0.75);
     padding: 10px 0;
 }
-
 ng-pintura #zoomslider input {
     writing-mode: bt-lr;
     -webkit-appearance: slider-vertical;
     width: 40px;
     height: 160px;
 }
-
 ng-pintura #zoomin,
 ng-pintura .zoomout {
     width: 40px;
 }
-
 ng-pintura #zoomin {
     right: 20px;
     bottom: 55px;
 }
-
 ng-pintura #zoomout {
     right: 20px;
     bottom: 20px;
 }
-
 ng-pintura #moveleft,
 ng-pintura #movedown,
 ng-pintura #moveright,
@@ -75,25 +67,28 @@ ng-pintura #moveup {
     bottom: 20px;
     width: 40px;
 }
-
 ng-pintura #moveleft {
     left: 20px;
 }
-
 ng-pintura #movedown {
     left: 60px;
 }
-
 ng-pintura #moveright {
     left: 100px;
 }
-
 ng-pintura #moveup {
     left: 60px;
     bottom: 55px;
 }
-
 ng-pintura #movecenter {
     top: 20px;
     left: 20px;
+}
+.cheque_imges ng-pintura {
+    padding: 30px;
+    height: 300px;
+}
+.cheque_imges .d_block_img {
+    margin: 10px 0 !important;
+    width: 100%!important;
 }
