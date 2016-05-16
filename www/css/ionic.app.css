@@ -10045,7 +10045,7 @@ ion-nav-view {
     border: 1px solid #ddd;
     height: 40px;
     margin: 0 0 10px 0;
-    padding: 0 10px;
+    padding: 0 10px 0 0;
     position: relative; }
     .cheque_edit_dtl md-datepicker button {
       position: absolute; }
@@ -10060,7 +10060,10 @@ ion-nav-view {
         height: 40px;
         margin: 0 0 10px 0;
         padding: 0 10px;
-        width: 90%; }
+        width: 90%;
+        box-shadow: none; }
+      .cheque_edit_dtl md-datepicker .md-datepicker-input-container .md-datepicker-triangle-button {
+        top: 5px; }
 
 .cheque_items .left_sidebar {
   display: flex;
