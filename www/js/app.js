@@ -115,15 +115,25 @@ angular.module('ApproverApp', [
                 }
             }
         })
-        .state('login', {
-            url: '/login',
+        .state('approve.cheque.report', {
+            url: 'report/',
             views: {
-                '': {
-                    'templateUrl': 'components/login/login.html',
-                    controller: 'LoginController'
+                'cheque': {
+                    templateUrl: 'components/cheque-report/cheque-report.html',
+                    controller: 'ChequeReport'
                 }
             }
+        })
+
+    .state('login', {
+        url: '/login',
+        views: {
+            '': {
+                'templateUrl': 'components/login/login.html',
+                controller: 'LoginController'
+            }
+        }
 
 
-        });
+    });
 });

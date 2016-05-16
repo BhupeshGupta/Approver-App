@@ -9735,6 +9735,62 @@ a.button {
 body {
   font-family: 'Open Sans', sans-serif; }
 
+.md-datepicker-input-mask {
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+
+.tabs_items {
+  width: 100%;
+  position: absolute;
+  top: 15px;
+  z-index: 9999; }
+  .tabs_items .ion_tab_item {
+    width: 33% !important;
+    float: left !important; }
+    .tabs_items .ion_tab_item select {
+      float: right;
+      background: none;
+      border: 0;
+      color: #fff;
+      height: 40px;
+      position: relative;
+      top: 40px; }
+      .tabs_items .ion_tab_item select option {
+        background: #000 !important;
+        padding: 10px !important; }
+
+.report_module .cheque_detail {
+  position: static;
+  border-bottom: 1px solid #ddd; }
+
+.report_module .right_sidebar {
+  border-right: 0; }
+
+.report_module .right_sidebar {
+  margin-left: 30px;
+  float: left;
+  width: 100% !important; }
+  .report_module .right_sidebar .cheque_detail {
+    border-bottom: 1px solid #ddd !important;
+    width: 70%; }
+  .report_module .right_sidebar .ion-item:last-child {
+    border-bottom: 1px solid #ddd !important; }
+
+.approver_app .cheque_report {
+  width: 100%;
+  float: left; }
+  .approver_app .cheque_report .left_sidebar {
+    width: 30% !important;
+    float: left;
+    border-bottom: 1px solid #ddd !important;
+    border-right: 0 !important; }
+  .approver_app .cheque_report .right_sidebar {
+    width: 40% !important;
+    float: left; }
+  .approver_app .cheque_report h3 {
+    margin: 0 0 20px 0; }
+
 .button.red_btn {
   padding: 0px 10px;
   width: 90%;
@@ -9760,9 +9816,28 @@ body {
 ion-tabs {
   float: left;
   width: 100%; }
+  ion-tabs label {
+    float: left;
+    width: 33%; }
 
 ion-nav-view {
   background: none !important; }
+
+.content_dtl h3 {
+  margin: 20px 0 10px 0;
+  display: block;
+  font-size: 16px;
+  background: #424242;
+  color: #fff;
+  padding: 10px;
+  font-weight: 400; }
+
+.ion-tabs label {
+  width: 33.3%;
+  display: block; }
+
+.cheque_items .content_detail {
+  padding: 0 10px 10px 10px !important; }
 
 .approver_app .bar-header {
   background: red;
@@ -9851,7 +9926,6 @@ ion-nav-view {
     top: 0 !important; }
   .approver_app .right_sidebar .content_detail {
     width: 40%;
-    position: relative;
     position: relative; }
     .approver_app .right_sidebar .content_detail ion-nav-view {
       width: 100%; }
@@ -9949,6 +10023,16 @@ ion-nav-view {
     float: right;
     margin: 0 10px;
     width: 72% !important; }
+
+.report_module .cheque_detail label {
+  width: 40%;
+  display: inline-block; }
+
+.report_module .cheque_detail p {
+  float: right;
+  width: 50%;
+  text-align: left;
+  padding-left: 15px; }
 
 .approver_doc_block {
   width: 33%;

@@ -23,6 +23,76 @@ $dark:                            #444 !default;
     body {
         font-family: 'Open Sans', sans-serif;
     }
+    .md-datepicker-input-mask {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .tabs_items {
+        width: 100%;
+        position: absolute;
+        top: 15px;
+        z-index: 9999;
+        .ion_tab_item {
+            width: 33%!important;
+            float: left !important;
+            select {
+                float: right;
+                background: none;
+                border: 0;
+                color: #fff;
+                height: 40px;
+                position: relative;
+                top: 40px;
+                option {
+                    background: #000 !important;
+                    padding: 10px !important;
+                }
+            }
+        }
+    }
+    .report_module {
+        .cheque_detail {
+            position: static;
+            border-bottom: 1px solid #ddd;
+        }
+        .right_sidebar {
+            border-right: 0;
+        }
+        .right_sidebar     {
+            margin-left: 30px;
+            float: left;
+            width: 100% !important;
+            .cheque_detail {
+                border-bottom: 1px solid #ddd !important;
+                width: 70%;
+            }
+            .ion-item {
+                &:last-child {
+                    border-bottom: 1px solid #ddd !important;
+                }
+            }
+        }
+    }
+    .approver_app {
+        .cheque_report {
+            width: 100%;
+            float: left;
+            .left_sidebar {
+                width: 30% !important;
+                float: left;
+                border-bottom: 1px solid #ddd !important;
+                border-right: 0 !important;
+            }
+            .right_sidebar {
+                width: 40% !important;
+                float: left;
+            }
+            h3 {
+                margin: 0 0 20px 0;
+            }
+        }
+    }
     .button {
         &.red_btn {
             padding: 0px 10px;
@@ -50,9 +120,35 @@ $dark:                            #444 !default;
     ion-tabs {
         float: left;
         width: 100%;
+        label {
+            float: left;
+            width: 33%;
+        }
     }
     ion-nav-view {
         background: none !important;
+    }
+    .content_dtl {
+        h3 {
+            margin: 20px 0 10px 0;
+            display: block;
+            font-size: 16px;
+            background: #424242;
+            color: #fff;
+            padding: 10px;
+            font-weight: 400;
+        }
+    }
+    .ion-tabs {
+        label {
+            width: 33.3%;
+            display: block;
+        }
+    }
+    .cheque_items {
+        .content_detail {
+            padding: 0 10px 10px 10px !important;
+        }
     }
     .approver_app {
         .bar-header {
@@ -158,7 +254,6 @@ $dark:                            #444 !default;
             }
             .content_detail {
                 width: 40%;
-                position: relative;
                 position: relative;
                 ion-nav-view {
                     width: 100%;
@@ -278,6 +373,20 @@ $dark:                            #444 !default;
                 float: right;
                 margin: 0 10px;
                 width: 72% !important;
+            }
+        }
+    }
+    .report_module {
+        .cheque_detail {
+            label {
+                width: 40%;
+                display: inline-block;
+            }
+            p {
+                float: right;
+                width: 50%;
+                text-align: left;
+                padding-left: 15px;
             }
         }
     }

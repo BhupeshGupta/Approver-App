@@ -24,19 +24,15 @@
         <div class="list">
             <div class="item content_detail">
                 <div class="content_dtl cheque_edit_dtl">
-                    <label class="item item-input item-stacked-label">
-                        <span class="input-label">Company</span>
-                        <input ion-autocomplete type="text" class="ion-autocomplete" ng-model="user_input.company" items-method="company_search(query)" item-view-value-key="value" placeholder="Company" max-selected-items="1" />
-                    </label>
+                    <h3>Cheque Detail</h3>
                     <ion-list>
-
                         <ion-item>
                             <label>Posting Date</label>
                             <md-datepicker ng-model="myDate" md-placeholder="Enter posting date"></md-datepicker>
                         </ion-item>
                         <ion-item>
                             <label>Cheque Date</label>
-                            <md-datepicker ng-model="myDate" md-placeholder="Enter chjeque date"></md-datepicker>
+                            <md-datepicker ng-model="myDate" md-placeholder="Enter cheque date"></md-datepicker>
                         </ion-item>
                         <ion-item>
                             <label>Company Name</label>
@@ -59,16 +55,21 @@
                             <input type="text" placeholder="Bank">
                         </ion-item>
                     </ion-list>
-                    <div class="ion_item">
-                        <label class="item item-input item-stacked-label">
-                            <span class="input-label">Company</span>
-                            <input ion-autocomplete type="text" class="ion-autocomplete" ng-model="user_input.company" items-method="company_search(query)" item-view-value-key="value" placeholder="Company" max-selected-items="1" />
-                        </label>
+
+                    <div class="pay_slip_detail">
+                        <h3>Pay Slip Detail</h3>
+                        <ion-item>
+                            <label>Bank account</label>
+                            <input type="text" placeholder="Bank Account">
+                        </ion-item>
+                        <ion-item>
+                            <label>Cheque Date</label>
+                            <md-datepicker ng-model="myDate" md-placeholder="Date"></md-datepicker>
+                        </ion-item>
                     </div>
                     <div class="buttons">
                         <div class="button-bar row">
                             <a class="button red_btn">Submit</a>
-
                         </div>
                     </div>
 

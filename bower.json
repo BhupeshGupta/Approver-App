@@ -13,7 +13,8 @@
     "ngstorage": "^0.3.10",
     "angular-nvd3": "^1.0.7",
     "datepicker-for-ionic": "^1.1.7",
-    "angular-material": "^1.0.8"
+    "angular-material": "^1.0.8",
+    "underscore": "^1.8.3"
   },
   "resolutions": {
     "angular": ">=1.2.26 <1.6",
