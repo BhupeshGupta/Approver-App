@@ -51,6 +51,15 @@ function HomeController(InvoiceService, SessionService, $rootScope, $scope, $q, 
     // on Document select item change value
     function updateInvoiceView(view) {
         $state.go(view == 'queue' ? 'approve.invoice.queue' : 'approve.invoice.report');
+        if (view == 'queue') {
+            $state.go('approve.invoice.queue');
+        } else if (view == 'report') {
+            $state.go('approve.invoice.report');
+        } else if (view == 'uploads') {
+            $state.go('approve.invoice.uploads');
+
+        }
+
     }
 
     function updateChequeView(view) {

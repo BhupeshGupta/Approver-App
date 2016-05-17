@@ -88,6 +88,15 @@ angular.module('ApproverApp', [
                 }
             }
         })
+        .state('approve.invoice.uploads', {
+            url: 'uploads/',
+            views: {
+                'invoice_view': {
+                    templateUrl: 'components/documents-uploads/document-uploads.html',
+                    controller: 'DocumentsUploads'
+                }
+            }
+        })
         .state('approve.invoice.queue', {
             url: 'queue/',
             views: {

@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('ApproverApp')
-    .controller('DocumentsUploads', DocumentsUploads);
+    .controller('DocumentsUploads', documentsUploads);
 
 
-function chequeUploads() {
+function documentsUploads() {
 
 
 }
