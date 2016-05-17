@@ -53,23 +53,6 @@ angular.module('ApproverApp', [
                 }
             }
         })
-        //        .state('approve.cheque ', {
-        //            url: 'cheque/',
-        //            views: {
-        //                'form_view': {
-        //                    templateUrl: 'components/cheque/cheque.html',
-        //                    controller: 'chequeFlowController'
-        //                }
-        //            }
-        //        })
-        //        .state('approve.cheque.edit', {
-        //            url: 'edit/',
-        //            views: {
-        //                'cheque_view': {
-        //                    templateUrl: 'components/cheque/forms/cheque_detail.html'
-        //                }
-        //            }
-        //        })
         .state('approve.invoice', {
             url: 'invoice/',
             abstract: true,
@@ -102,7 +85,7 @@ angular.module('ApproverApp', [
             views: {
                 'invoice_view': {
                     templateUrl: 'components/documents/document.html',
-                    // controller: 'chequeFlowController'
+                    // controller: 'Documents'
                 }
             }
         })
@@ -120,7 +103,8 @@ angular.module('ApproverApp', [
             views: {
                 'cheque': {
                     templateUrl: 'components/cheque/cheque.html',
-                    controller: 'Cheque'
+                    controller: 'Cheque',
+                    controllerAs: 'cq'
                 }
             }
         })

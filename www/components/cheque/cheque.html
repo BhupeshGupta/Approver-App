@@ -1,21 +1,21 @@
 <div class="cheque_items">
     <div class="left_sidebar">
-        <div class="list cheque_detail">
+        <div class="list cheque_detail" ng-repeat="cheque in cheques" ng-click="cq.selectRequest(cheque);cq.getMetedata(cheque);">
             <ion-item>
                 <label>Check date</label>:
-                <p>11-05-2015</p>
+                <p>{{cheque.createdAt | date}}</p>
             </ion-item>
             <ion-item>
-                <label>Ammount</label>:
-                <p>XXXX</p>
+                <label>Amount</label>:
+                <p>{{cheque.amount}}</p>
             </ion-item>
             <ion-item>
                 <label>Customer Name</label>:
-                <p>Abc</p>
+                <p>{{cheque.customerAccount}}</p>
             </ion-item>
             <ion-item>
                 <label>Check date</label>:
-                <p></p>
+                <p>{{cheque.createdAt|date}}</p>
             </ion-item>
 
         </div>
@@ -24,62 +24,65 @@
         <div class="list">
             <div class="item content_detail">
                 <div class="content_dtl cheque_edit_dtl">
-                    <h3>Cheque Detail</h3>
+                    <h3>Cheque Detail</h3> {{selectedCheque}}
                     <ion-list>
                         <ion-item>
                             <label>Posting Date</label>
-                            <md-datepicker ng-model="myDate" md-placeholder="Enter posting date"></md-datepicker>
+                            <datepicker button-prev-title="previous month">
+                                <input ng-model="date" />
+                            </datepicker>
+
                         </ion-item>
                         <ion-item>
                             <label>Cheque Date</label>
-                            <md-datepicker ng-model="myDate" md-placeholder="Enter cheque date"></md-datepicker>
+                            <md-datepicker ng-model="selectedCheque.chequeDate " md-placeholder="Enter cheque date "></md-datepicker>
                         </ion-item>
                         <ion-item>
                             <label>Company Name</label>
-                            <input type="text" placeholder="Company Name">
+                            <input ng-model="selectedCheque.customerAccount " type="text ">
                         </ion-item>
                         <ion-item>
                             <label>Customer Account</label>
-                            <input type="text" placeholder="Customer Name">
+                            <input type="text " placeholder="Customer Name " ng-model="selectedCheque.customerAccount ">
                         </ion-item>
                         <ion-item>
                             <label>Amount</label>
-                            <input type="text" placeholder="Amount">
+                            <input type="text " placeholder="Amount " ng-model="selectedCheque.amount ">
                         </ion-item>
                         <ion-item>
                             <label>Cheque Number</label>
-                            <input type="text" placeholder="Cheque Number">
+                            <input type="text " ng-model="selectedCheque.chequeNumber" placeholder="Cheque Number ">
                         </ion-item>
                         <ion-item>
-                            <label>Cheque Bank Number</label>
-                            <input type="text" placeholder="Bank">
+                            <label>Cheque Bank Name</label>
+                            <input type="text " placeholder="Bank " ng-model="selectedCheque.bankOfCheque">
                         </ion-item>
                     </ion-list>
 
-                    <div class="pay_slip_detail">
+                    <div class="pay_slip_detail ">
                         <h3>Pay Slip Detail</h3>
                         <ion-item>
                             <label>Bank account</label>
-                            <input type="text" placeholder="Bank Account">
+                            <input type="text " placeholder="Bank Account " ng-model="selectedCheque.PayInSlip.bankAccount">
                         </ion-item>
                         <ion-item>
                             <label>Cheque Date</label>
-                            <md-datepicker ng-model="myDate" md-placeholder="Date"></md-datepicker>
+                            <md-datepicker ng-model="selectedCheque.PayInSlip.date" md-placeholder="Date "></md-datepicker>
                         </ion-item>
                     </div>
-                    <div class="buttons">
-                        <div class="button-bar row">
-                            <a class="button red_btn">Submit</a>
+                    <div class="buttons ">
+                        <div class="button-bar row ">
+                            <a class="button red_btn ">Submit</a>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <div class="item display_block cheque_imges">
-                <div class="display_detail">
-                    <div class="d_block_img">
-                        <ng-pintura ngp-src="'img\\cheque.jpg'">
-                            <div id="zoomslider">
+            <div class="item display_block cheque_imges ">
+                <div class="display_detail ">
+                    <div class="d_block_img ">
+                        <ng-pintura ngp-src="selectedCheque.fd.src" ngp-scaling="selectedCheque.fd.scaling" ngp-position="selectedCheque.fd.position" ngp-max-scaling="hc.selectedImg.maxScaling" ngp-scale-step="selectedCheque.fd.scaleStep" ngp-move-step="selectedCheque.fd.moveStep" ngp-mw-scale-step="selectedCheque.fd.mwScaleStep" ngp-fit-onload="selectedCheque.fd.fitOnload" ngp-progress="selectedCheque.fd.progress">
+                            <div id="zoomslider2">
                                 <input ng-model="slider.value" ng-change="sliderChange()" orient="vertical" type="range" min="0" max="100" step="1" ng-disabled="scalingDisabled" /> </div>
                             <button id="zoomin" ng-click="zoomIn()" ng-disabled="scalingDisabled" class="btn btn-default"><span class="ion-ios-plus-empty"></span></button>
                             <button id="zoomout" ng-click="zoomOut()" ng-disabled="scalingDisabled" class="btn btn-default"><span class="ion-ios-minus-empty"></span></button>
@@ -90,9 +93,9 @@
                             <button id="movecenter" ng-click="fitInView()" class="btn btn-default"><span class="ion-qr-scanner"></span></button>
                         </ng-pintura>
                     </div>
-                    <div class="d_block_img">
-                        <ng-pintura ngp-src="'img\payslip.jpg'">
-                            <div id="zoomslider">
+                    <div class="d_block_img ">
+                        <ng-pintura ngp-src="selectedCheque.fd.src" ngp-scaling="selectedCheque.fd.scaling" ngp-position="selectedCheque.fd.position" ngp-max-scaling="hc.selectedImg.maxScaling" ngp-scale-step="selectedCheque.fd.scaleStep" ngp-move-step="selectedCheque.fd.moveStep" ngp-mw-scale-step="selectedCheque.fd.mwScaleStep" ngp-fit-onload="selectedCheque.fd.fitOnload" ngp-progress="selectedCheque.fd.progress">
+                            <div id="zoomslider1">
                                 <input ng-model="slider.value" ng-change="sliderChange()" orient="vertical" type="range" min="0" max="100" step="1" ng-disabled="scalingDisabled" /> </div>
                             <button id="zoomin" ng-click="zoomIn()" ng-disabled="scalingDisabled" class="btn btn-default"><span class="ion-ios-plus-empty"></span></button>
                             <button id="zoomout" ng-click="zoomOut()" ng-disabled="scalingDisabled" class="btn btn-default"><span class="ion-ios-minus-empty"></span></button>

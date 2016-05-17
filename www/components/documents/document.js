@@ -39,10 +39,6 @@ function Documents(InvoiceService, SessionService, $rootScope, $scope, $q, $http
         } else {
             vm.selectedImg.src = '';
         }
-
-        $state.go('approve.invoice.edit', {
-            requestId: request.requestId
-        });
     }
 
 

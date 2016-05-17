@@ -59,7 +59,7 @@ $dark:                            #444 !default;
         .right_sidebar {
             border-right: 0;
         }
-        .right_sidebar     {
+        .right_sidebar {
             margin-left: 30px;
             float: left;
             width: 100% !important;
@@ -307,8 +307,6 @@ $dark:                            #444 !default;
             top: 95px !important;
         }
         .buttons {
-            position: absolute;
-            bottom: 85px;
             width: 100%;
             z-index: 999999;
         }
@@ -530,7 +528,7 @@ $dark:                            #444 !default;
     }
     .cheque_items {
         .left_sidebar {
-            display: flex;
+            display: inline-block;
             width: 25%;
             height: 100%;
             .cheque_detail {
@@ -538,7 +536,7 @@ $dark:                            #444 !default;
             }
         }
         .right_sidebar {
-            display: flex;
+            display: inline-block;
             width: 74%;
             height: 100%;
             border: 1px solid #ddd;
@@ -559,16 +557,18 @@ $dark:                            #444 !default;
             }
         }
         .cheque_detail {
-            // border: 1px solid #ddd;
+            margin-bottom: 20px;
             &.list {
-                margin: 10px!important;
+                border: 1px solid #ddd;
+                margin: 10px auto 10px !important;
+                width: 96% !important;
             }
             ion-item {
                 border: 0;
                 display: table;
                 border-bottom: 1px solid #efefef;
                 width: 100%;
-                padding: 5px 10px !important;
+                padding: 5px 20px !important;
                 margin: 5px 0!important;
                 &:last-child {
                     border: 0;

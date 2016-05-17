@@ -42,10 +42,6 @@ function HomeController(InvoiceService, SessionService, $rootScope, $scope, $q, 
         } else {
             vm.selectedImg.src = '';
         }
-
-        $state.go('approve.invoice.edit', {
-            requestId: request.requestId
-        });
     }
 
     // on Document select item change value
@@ -57,9 +53,7 @@ function HomeController(InvoiceService, SessionService, $rootScope, $scope, $q, 
             $state.go('approve.invoice.report');
         } else if (view == 'uploads') {
             $state.go('approve.invoice.uploads');
-
         }
-
     }
 
     function updateChequeView(view) {

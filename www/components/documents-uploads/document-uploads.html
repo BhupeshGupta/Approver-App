@@ -1,3 +1,88 @@
-<ion-side-menus class="color">
-    This uploads fields
+<ion-side-menus class="documents_uploads">
+    <div class="left_sidebar">
+        <div class="list col">
+            <!-- pick a panel block start here -->
+            <label class="item item-input item-select pick_panal">
+                <div class="input-label"> Pick a Panel </div>
+                <select ng-model="selectedDocstatusFilter" ng-change="hc.reloadRequestList()">
+                    <option value="0" selected>Pending</option>
+                    <option value="2">Rejected</option>
+                    <option value="1">Approved</option>
+                </select>
+            </label>
+            <!-- pick a panel block end here -->
+            <!-- search panel start here -->
+            <div class="list search_bar">
+                <label class="item item-input"> <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Search"> </label>
+            </div>
+            <!-- search panel endf here -->
+        </div>
+        <ion-side-menu side="left" expose-aside-when="large" style="top:100px">
+            <ion-content>
+                <div class="list card">
+                    <li ng-click="hc.selectRequest(request);hc.getMetedata(request.cno,request.doctype);" class="item" ng-repeat="request in hc.requests track by request.qid">
+                        <div class="item item-avatar"> <img src="/img/ionic.png" title="{{request.uploadedBy || 'Admin'}}">
+                            <p>{{request.createdAt | date:'short' }}</p>
+                            <p>{{request.doctype}}</p>
+                            <p ng-if="request.status == 0">Pending</p>
+                            <p ng-if="request.status == 1">Approved</p>
+                            <p ng-if="request.status == 2">Rejected</p>
+                        </div>
+                        <div class="item item-body">
+                            <h3>{{request.cno}}</h3>
+                            <h3>{{request.data.doctype}}</h3>
+                            <p>{{request.data.customer}}</p>
+                        </div>
+
+                    </li>
+                </div>
+                <md-input-container flex-gt-md="30">
+                    <label>Timepicker Only</label>
+                    <input mdc-datetime-picker date="false" time="true" type="text" id="time" short-time="true" placeholder="Time" min-date="minDate" format="hh:mm a" ng-model="time">
+                </md-input-container>
+            </ion-content>
+        </ion-side-menu>
+    </div>
+    <div class="right_sidebar">
+        <ion-side-menu-content>
+            <div class="row">
+                <div class="content_detail">
+                    <ion-view>
+                        <ion-content>
+                            <ion-item ng-repeat="item in hc.metadata_list">
+                                {{item.key}}: {{item.value}}
+                                <br>
+                            </ion-item>
+                            <div class="buttons">
+                                <div class="button-bar row" ng-show="hc.selectedRequest"> <a class="button red_btn" ng-click="hc.changeDocstatus(hc.selectedRequest, 1);">Accept</a> <a class="button black_btn" ng-click="hc.changeDocstatus(hc.selectedRequest, 2)">Reject</a> </div>
+                            </div>
+                        </ion-content>
+                    </ion-view>
+                </div>
+                <div class="display_block">
+                    <div class="row">
+                        <div class="d_block_img">
+                            <ng-pintura ngp-src="hc.selectedImg.src" ngp-scaling="hc.selectedImg.scaling" ngp-position="hc.selectedImg.position" ngp-max-scaling="hc.selectedImg.maxScaling" ngp-scale-step="hc.selectedImg.scaleStep" ngp-move-step="hc.selectedImg.moveStep" ngp-mw-scale-step="hc.selectedImg.mwScaleStep" ngp-fit-onload="hc.selectedImg.fitOnload" ngp-progress="hc.selectedImg.progress">
+                                <div id="zoomslider">
+                                    <input ng-model="slider.value" ng-change="sliderChange()" orient="vertical" type="range" min="0" max="100" step="1" ng-disabled="scalingDisabled" />
+                                </div>
+                                <button id="zoomin" ng-click="zoomIn()" ng-disabled="scalingDisabled" class="btn btn-default"><span class="ion-ios-plus-empty"></span></button>
+                                <button id="zoomout" ng-click="zoomOut()" ng-disabled="scalingDisabled" class="btn btn-default"><span class="ion-ios-minus-empty"></span></button>
+                                <button id="moveup" ng-click="moveUp()" class="btn btn-default"><span class="ion-ios-arrow-up"></span></button>
+                                <button id="movedown" ng-click="moveDown()" class="btn btn-default"><span class="ion-ios-arrow-down"></span></button>
+                                <button id="moveleft" ng-click="moveLeft()" class="btn btn-default"><span class="ion-ios-arrow-left"></span></button>
+                                <button id="moveright" ng-click="moveRight()" class="btn btn-default"><span class="ion-ios-arrow-right"></span></button>
+                                <button id="movecenter" ng-click="fitInView()" class="btn btn-default"><span class="ion-qr-scanner"></span></button>
+                            </ng-pintura>
+                        </div>
+                        <div class="d_thumb_img">
+                            <ion-scroll direction="y"> <img ng-repeat="image in hc.selectedRequest.files" ng-src="http://192.168.31.195:1337/files/download/{{image.id}}/" ng-click="hc.showImage($index)" class="image-list-thumb" style="max-width: 100%" /> </ion-scroll>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </ion-side-menu-content>
+    </div>
 </ion-side-menus>

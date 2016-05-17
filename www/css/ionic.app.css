@@ -9970,8 +9970,6 @@ ion-nav-view {
   top: 95px !important; }
 
 .approver_app .buttons {
-  position: absolute;
-  bottom: 85px;
   width: 100%;
   z-index: 999999; }
 
@@ -10150,14 +10148,14 @@ ion-nav-view {
         top: 5px; }
 
 .cheque_items .left_sidebar {
-  display: flex;
+  display: inline-block;
   width: 25%;
   height: 100%; }
   .cheque_items .left_sidebar .cheque_detail {
     width: 100%; }
 
 .cheque_items .right_sidebar {
-  display: flex;
+  display: inline-block;
   width: 74%;
   height: 100%;
   border: 1px solid #ddd;
@@ -10173,32 +10171,35 @@ ion-nav-view {
       display: table-cell;
       border: 0; }
 
-.cheque_items .cheque_detail.list {
-  margin: 10px !important; }
-
-.cheque_items .cheque_detail ion-item {
-  border: 0;
-  display: table;
-  border-bottom: 1px solid #efefef;
-  width: 100%;
-  padding: 5px 10px !important;
-  margin: 5px 0 !important; }
-  .cheque_items .cheque_detail ion-item:last-child {
-    border: 0; }
-  .cheque_items .cheque_detail ion-item label {
-    margin: 0;
-    font-weight: 600;
-    color: #666;
-    display: inline-block;
-    font-size: 13px;
-    float: left;
-    display: table-cell;
-    width: 50%; }
-  .cheque_items .cheque_detail ion-item p {
-    margin: 0;
-    padding: 0 10px;
-    float: right;
-    display: table-cell; }
+.cheque_items .cheque_detail {
+  margin-bottom: 20px; }
+  .cheque_items .cheque_detail.list {
+    border: 1px solid #ddd;
+    margin: 10px auto 10px !important;
+    width: 96% !important; }
+  .cheque_items .cheque_detail ion-item {
+    border: 0;
+    display: table;
+    border-bottom: 1px solid #efefef;
+    width: 100%;
+    padding: 5px 20px !important;
+    margin: 5px 0 !important; }
+    .cheque_items .cheque_detail ion-item:last-child {
+      border: 0; }
+    .cheque_items .cheque_detail ion-item label {
+      margin: 0;
+      font-weight: 600;
+      color: #666;
+      display: inline-block;
+      font-size: 13px;
+      float: left;
+      display: table-cell;
+      width: 50%; }
+    .cheque_items .cheque_detail ion-item p {
+      margin: 0;
+      padding: 0 10px;
+      float: right;
+      display: table-cell; }
 
 .approver_app.report_module ion-side-menus {
   top: 0px !important; }
