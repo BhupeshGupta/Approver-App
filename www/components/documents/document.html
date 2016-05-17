@@ -46,13 +46,22 @@
     </div>
     <div class="right_sidebar">
         <ion-side-menu-content>
-            <div class="row">
+              <div class="row">
                 <div class="content_detail">
-                    <ion-nav-view name="form_view">
-                        <div class="buttons">
-                            <div class="button-bar row" ng-show="hc.selectedRequest"> <a class="button red_btn" ng-click="hc.changeDocstatus(hc.selectedRequest, 1);">Accept</a> <a class="button black_btn" ng-click="hc.changeDocstatus(hc.selectedRequest, 2)">Reject</a> </div>
-                        </div>
-                    </ion-nav-view>
+                  <ion-view>
+                    <ion-content>
+                      <ion-item ng-repeat="item in hc.metadata_list">
+                        {{item.key}}: {{item.value}}
+                        <br>
+                      </ion-item>
+                    </ion-content>
+
+                  </ion-view>
+
+                  <div class="buttons">
+                    <div class="button-bar row" ng-show="hc.selectedRequest"> <a class="button red_btn" ng-click="hc.changeDocstatus(hc.selectedRequest, 1);">Accept</a> <a class="button black_btn" ng-click="hc.changeDocstatus(hc.selectedRequest, 2)">Reject</a> </div>
+                  </div>
+
                 </div>
 
                 <div class="display_block">
