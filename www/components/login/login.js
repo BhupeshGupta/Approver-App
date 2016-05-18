@@ -18,7 +18,7 @@ function loginController($scope, $state, SessionService, SettingsFactory) {
 
                 console.log(JSON.stringify(SettingsFactory.get()));
 
-                $state.go('approve');
+                $state.go('approve.invoice.queue');
             },
             function (error) {
                 console.log("Invalid Login!");

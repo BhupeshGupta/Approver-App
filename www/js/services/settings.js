@@ -2,9 +2,9 @@ angular
     .module('ApproverApp')
     .factory('SettingsFactory', settingsFactory);
 
-settingsFactory.$inject = ['ServerUrl'];
+settingsFactory.$inject = ['ServerUrl', 'ERP'];
 
-function settingsFactory(ServerUrl) {
+function settingsFactory(ServerUrl, ERP) {
     var _settingsKey = "appSettings",
         defaultSettings = {
             serverBaseUrl: '/api',
@@ -16,17 +16,14 @@ function settingsFactory(ServerUrl) {
         get: _retrieveSettings,
         set: _saveSettings,
         getERPServerBaseUrl: function () {
-            return 'http://192.168.31.195:8080'
+            return ERP;
                 //            return _retrieveSettings().serverBaseUrl;
         },
         getSid: function () {
             return _retrieveSettings().sid;
         },
         getReviewServerBaseUrl: function () {
-            return 'http://192.168.31.195:1337';
-        },
-        getdownload: function () {
-            return 'http://192.168.31.195:1337/files/download/';
+            return ServerUrl;
         }
     };
 

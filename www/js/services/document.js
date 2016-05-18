@@ -2,7 +2,7 @@ angular
     .module('ApproverApp')
     .factory('DocumentService', documentService);
 
-FileFactory.$inject = ['$http', 'ServerUrl'];
+documentService.$inject = ['$http', 'SettingsFactory'];
 
 function documentService($http, SettingsFactory) {
     var factory = {

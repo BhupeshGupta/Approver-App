@@ -3,7 +3,8 @@
 angular.module('ApproverApp')
   .controller('InvoiceReport', invoiceReport);
 
-function invoiceReport($scope, $http) {
+function invoiceReport($scope, $http, $window) {
+  var vm = this;
   $scope.options = {
     chart: {
       type: 'sunburstChart',
@@ -826,5 +827,11 @@ function invoiceReport($scope, $http) {
 
 
   })
+
+  vm.downloadExcel = function (){
+    var from_date = moment(vm.from_date).format("YYYY-MM-DD");
+    var to_date = moment(vm.to_date).format("YYYY-MM-DD");
+    $window.open("http://192.168.31.195:9005/excel?from_date=" + from_date + "&to_date="+ to_date, '_blank');
+  }
 
 }
