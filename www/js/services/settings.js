@@ -24,6 +24,9 @@ function settingsFactory(ServerUrl) {
         },
         getReviewServerBaseUrl: function () {
             return 'http://192.168.31.195:1337';
+        },
+        getdownload: function () {
+            return 'http://192.168.31.195:1337/files/download/';
         }
     };
 

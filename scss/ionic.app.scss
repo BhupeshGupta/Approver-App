@@ -1,4 +1,4 @@
-    /*
+/*
 To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file.
 
@@ -15,674 +15,754 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
-    // The path for our ionicons font files, relative to the built CSS in www/css
-    $ionicons-font-path: "../lib/ionic/fonts" !default;
-    // Include all of Ionic
-    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
-    @import "www/lib/ionic/scss/ionic";
-    body {
-        font-family: 'Open Sans', sans-serif;
-    }
-    .md-datepicker-input-mask {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    .tabs_items {
-        width: 100%;
-        position: absolute;
-        top: 15px;
-        z-index: 9999;
-        .ion_tab_item {
-            width: 33%!important;
-            float: left !important;
-            select {
-                float: right;
-                background: none;
-                border: 0;
-                color: #fff;
-                height: 40px;
-                position: relative;
-                top: 40px;
-                option {
-                    background: #000 !important;
-                    padding: 10px !important;
-                }
-            }
-        }
-    }
-    .report_module {
-        .cheque_detail {
-            position: static;
-            border-bottom: 1px solid #ddd;
-        }
-        .right_sidebar {
-            border-right: 0;
-        }
-        .right_sidebar {
-            margin-left: 30px;
-            float: left;
-            width: 100% !important;
-            .cheque_detail {
-                border-bottom: 1px solid #ddd !important;
-                width: 70%;
-            }
-            .ion-item {
-                &:last-child {
-                    border-bottom: 1px solid #ddd !important;
-                }
-            }
-        }
-    }
-    .approver_app {
-        .cheque_report {
-            width: 100%;
-            float: left;
-            .left_sidebar {
-                width: 30% !important;
-                float: left;
-                border-bottom: 1px solid #ddd !important;
-                border-right: 0 !important;
-            }
-            .right_sidebar {
-                width: 40% !important;
-                float: left;
-            }
-            h3 {
-                margin: 0 0 20px 0;
-            }
-        }
-    }
-    .button {
-        &.red_btn {
-            padding: 0px 10px;
-            width: 90%;
-            background: red;
-            color: #fff;
-            margin: 10px;
-            border-radius: 5px !important;
-            font-size: 16px;
-            text-transform: uppercase;
-            height: 30px;
-        }
-        &.black_btn {
-            padding: 0px 10px;
-            width: 90%;
-            background: #424242;
-            color: #fff;
-            margin: 10px;
-            border-radius: 5px !important;
-            font-size: 16px;
-            text-transform: uppercase;
-            height: 30px;
-        }
-    }
-    ion-tabs {
-        float: left;
-        width: 100%;
-        label {
-            float: left;
-            width: 33%;
-        }
-    }
-    ion-nav-view {
-        background: none !important;
-    }
-    .content_dtl {
-        h3 {
-            margin: 20px 0 10px 0;
-            display: block;
-            font-size: 16px;
-            background: #424242;
-            color: #fff;
-            padding: 10px;
-            font-weight: 400;
-        }
-    }
-    .ion-tabs {
-        label {
-            width: 33.3%;
-            display: block;
-        }
-    }
-    .cheque_items {
-        .content_detail {
-            padding: 0 10px 10px 10px !important;
-        }
-    }
-    .approver_app {
-        .bar-header {
-            background: red;
-            height: 50px;
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+@import "www/lib/ionic/scss/ionic";
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+.md-datepicker-input-mask {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.tabs_items {
+    width: 100%;
+    position: absolute;
+    top: 15px;
+    z-index: 9999;
+    .ion_tab_item {
+        width: 33%!important;
+        float: left !important;
+        select {
+            float: right;
+            background: none;
             border: 0;
-            .title {
-                text-transform: uppercase;
-                line-height: 50px;
-                font-weight: 500;
-                letter-spacing: 1px;
-                padding: 2px 0;
+            color: #fff;
+            height: 40px;
+            position: relative;
+            top: 40px;
+            option {
+                background: #000 !important;
+                padding: 10px !important;
             }
         }
-        .left_sidebar {
-            width: 25%;
-            position: relative;
+    }
+}
+.doc_download_wrapper {
+    position: relative;
+    top: 100px;
+    h3 {
+        background: #444;
+        color: #FFF;
+        font-size: 18px;
+        padding: 15px 10px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 400;
+    }
+    ion-item {
+        padding: 0;
+        ion-item-content {
+            width: 33.3%;
+            padding: 15px 30px;
             float: left;
+            display: block;
             border-right: 1px solid #ddd;
             height: 100%;
-            .list {
-                max-width: 100%;
-                margin: 0 !important;
-                padding: 0 !important;
-                &.card {
-                    margin: 0 10px!important;
+            .ion-items {
+                border: 1px solid #ddd !important;
+                float: left;
+                padding: 0px;
+                width: 100%;
+                .list {
+                    width: 98%;
+                    float: left;
+                    padding: 10px;
                     border: 1px solid #ddd !important;
-                    box-shadow: none;
-                    li {
-                        padding: 0px !important;
-                        border-radius: 0 !important;
-                        .item {
-                            padding: 10px 10px 10px 72px !important;
-                        }
-                        .item-body {
-                            padding: 0 0 0 72px!important;
+                    margin: 5px;
+                    label {
+                        float: left;
+                        width: 40%;
+                        max-width: 100%;
+                        margin-top: 5px;
+                        font-weight: bold;
+                    }
+                    input {
+                        border: 1px solid #ddd;
+                        width: 60%;
+                        height: 40px;
+                        padding: 0 10px;
+                    }
+                    select {
+                        width: 60%;
+                        float: left;
+                        border: 1px solid #ddd;
+                        height: 40px;
+                        padding: 0 10px
+                    }
+                }
+            }
+            .uploads_img_block {
+                .ion-items {
+                    .list {
+                        img {
+                            float: left;
+                            width: 100px !important;
                         }
                     }
                 }
             }
-            .search_bar {
-                margin: 10px 0;
-                label {
-                    height: 50px;
-                    line-height: 40px;
-                    padding: 10px 5px;
-                    background: #424242;
-                    color: #fff;
-                    margin: 5px 10px;
-                }
-                i {
-                    position: absolute;
-                    right: 5px;
-                    color: #fff;
-                    font-size: 20px;
-                    background: red;
-                    padding: 7px 10px;
-                    margin: 10px 0;
-                    line-height: 15px;
-                    top: -3px;
-                }
-                input {
-                    color: #424242 !important;
-                    background: #fff;
-                    padding: 10px;
-                }
+        }
+    }
+}
+.report_module {
+    .cheque_detail {
+        position: static;
+        border-bottom: 1px solid #ddd;
+    }
+    .right_sidebar {
+        border-right: 0;
+    }
+    .right_sidebar {
+        margin-left: 30px;
+        float: left;
+        width: 100% !important;
+        .cheque_detail {
+            border-bottom: 1px solid #ddd !important;
+            width: 70%;
+        }
+        .ion-item {
+            &:last-child {
+                border-bottom: 1px solid #ddd !important;
             }
-            ion-side-menu {
+        }
+    }
+}
+.cheque_imges {
+    ng-pintura {
+        height: 100% !important;
+        padding: 10px !important;
+        min-height: 200px;
+        .konvajs-content {
+            width: 100% !important;
+            canvas {
                 width: 100% !important;
-                top: 125px !important;
             }
-            .item-select {
-                margin-bottom: 10px;
-                background: #424242;
-                margin: 5px 10px;
-                .input-label {
-                    color: #fff;
-                    position: relative;
-                    z-index: 9999;
-                    text-align: left;
-                }
-                select {
-                    background: #424242;
-                    color: #fff;
-                    width: 100%;
-                    max-width: 100%;
-                    padding: 10px 42px 10px 10px;
-                }
-            }
+        }
+    }
+}
+.approver_app {
+    .cheque_report {
+        width: 100%;
+        float: left;
+        .left_sidebar {
+            width: 30% !important;
+            float: left;
+            border-bottom: 1px solid #ddd !important;
+            border-right: 0 !important;
         }
         .right_sidebar {
-            width: 75% !important;
-            ion-side-menu-content {
-                width: 74% !important;
-                right: 0;
-                left: auto;
-                float: right;
-                transform: none !important;
+            width: 40% !important;
+            float: left;
+        }
+        h3 {
+            margin: 0 0 20px;
+        }
+    }
+}
+.button {
+    &.red_btn {
+        padding: 0 10px;
+        width: 90%;
+        background: red;
+        color: #fff;
+        margin: 10px;
+        border-radius: 5px !important;
+        font-size: 16px;
+        text-transform: uppercase;
+        height: 30px;
+    }
+    &.black_btn {
+        padding: 0 10px;
+        width: 90%;
+        background: #424242;
+        color: #fff;
+        margin: 10px;
+        border-radius: 5px !important;
+        font-size: 16px;
+        text-transform: uppercase;
+        height: 30px;
+    }
+}
+ion-tabs {
+    float: left;
+    width: 100%;
+    label {
+        float: left;
+        width: 33%;
+    }
+}
+ion-nav-view {
+    background: none !important;
+}
+.content_dtl {
+    h3 {
+        margin: 20px 0 10px;
+        display: block;
+        font-size: 16px;
+        background: #424242;
+        color: #fff;
+        padding: 10px;
+        font-weight: 400;
+    }
+}
+.ion-tabs {
+    label {
+        width: 33.3%;
+        display: block;
+    }
+}
+.cheque_items {
+    .content_detail {
+        padding: 0 10px 10px !important;
+    }
+}
+.approver_app {
+    .bar-header {
+        background: red;
+        height: 50px;
+        border: 0;
+        .title {
+            text-transform: uppercase;
+            line-height: 50px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding: 2px 0;
+        }
+    }
+    .left_sidebar {
+        width: 25%;
+        position: relative;
+        float: left;
+        border-right: 1px solid #ddd;
+        height: 100%;
+        .list {
+            max-width: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+            &.card {
+                margin: 0 10px !important;
+                border: 1px solid #ddd !important;
                 box-shadow: none;
-            }
-            ion-content {
-                top: 0 !important;
-            }
-            .content_detail {
-                width: 40%;
-                position: relative;
-                ion-nav-view {
-                    width: 100%;
-                    ion-view {
-                        height: 85%;
+                li {
+                    padding: 0 !important;
+                    border-radius: 0 !important;
+                    .item {
+                        padding: 10px 10px 10px 72px !important;
+                    }
+                    .item-body {
+                        padding: 0 0 0 72px !important;
                     }
                 }
             }
         }
-        .tab-nav {
-            top: 65px;
-            &.tabs {
-                color: #fff !important;
-                padding: 0 !important;
-                height: 40px;
-                top: 55px;
+        .search_bar {
+            margin: 10px 0;
+            label {
+                height: 50px;
+                line-height: 40px;
+                padding: 10px 5px;
+                background: #424242;
+                color: #fff;
+                margin: 5px 10px;
             }
-            .tab-item {
-                width: 33%;
-                float: left;
-                max-width: 33.3% !important;
-                background: #424242 !important;
-                margin-right: 5px;
-                height: 40px;
+            i {
+                position: absolute;
+                right: 5px;
+                color: #fff;
+                font-size: 20px;
+                background: red;
+                padding: 7px 10px;
+                margin: 10px 0;
+                line-height: 15px;
+                top: -3px;
+            }
+            input {
+                color: #424242 !important;
+                background: #fff;
+                padding: 10px;
+            }
+        }
+        ion-side-menu {
+            width: 100% !important;
+            top: 125px !important;
+        }
+        .item-select {
+            margin-bottom: 10px;
+            background: #424242;
+            margin: 5px 10px;
+            .input-label {
+                color: #fff;
+                position: relative;
+                z-index: 9999;
                 text-align: left;
-                padding-left: 20px;
-                &:last-child {
-                    margin: 0;
-                }
-                i {
-                    display: inline-block;
-                    position: relative;
-                    top: 5px;
-                    font-size: 28px;
-                }
-                span {
-                    display: inline-block;
-                    padding-left: 10px;
-                    font-size: 18px;
-                    padding-top: 3px;
-                    position: relative;
-                    top: 2px;
-                    font-weight: 500;
-                }
-                &.tab-item-active {
-                    background: #424242 !important;
-                }
+            }
+            select {
+                background: #424242;
+                color: #fff;
+                width: 100%;
+                max-width: 100%;
+                padding: 10px 42px 10px 10px;
             }
         }
-        ion-side-menus {
-            top: 95px !important;
+    }
+    .right_sidebar {
+        width: 75% !important;
+        ion-side-menu-content {
+            width: 74% !important;
+            right: 0;
+            left: auto;
+            float: right;
+            transform: none !important;
+            box-shadow: none;
         }
-        .buttons {
-            width: 100%;
-            z-index: 999999;
-        }
-        ion-view {
-            background: none;
-            overflow-y: visible;
-        }
-        .display_block {
-            width: 60%;
-            .d_block_img {
-                width: 80%;
-                padding-left: 10px;
-                ng-pintura {
-                    margin: 0 auto !important;
-                }
-            }
-            .d_thumb_img {
-                width: 20%;
-            }
+        ion-content {
+            top: 0 !important;
         }
         .content_detail {
             width: 40%;
-        }
-        ion-item {
-            &:last-child {
-                border-bottom: 0;
-            }
-        }
-        .cheque_items {
-            position: absolute;
-            top: 105px;
-            .item {
-                margin: 10px 0;
-                &:first-child {
-                    margin-top: 0;
-                    ng-pintura {
-                        background: red;
-                        padding: 40px;
-                    }
-                }
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-            .display_block {
-                margin: 0 15px;
-                float: right;
-                width: 55% !important;
-                img {
-                    margin: 0 auto;
-                    display: block;
-                    &.payslip_img {
-                        max-width: 400px
-                    }
-                }
-            }
-            .content_detail {
-                float: left;
-                border: 0;
-            }
-            .right_sidebar {
-                float: right;
-                margin: 0 10px;
-                width: 72% !important;
-            }
-        }
-    }
-    .report_module {
-        .cheque_detail {
-            label {
-                width: 40%;
-                display: inline-block;
-            }
-            p {
-                float: right;
-                width: 50%;
-                text-align: left;
-                padding-left: 15px;
-            }
-        }
-    }
-    .approver_doc_block {
-        width: 33%;
-        float: left;
-    }
-    .documents_tab {
-        float: left;
-        position: absolute;
-        width: 100%;
-        .document_list {
-            position: absolute;
-            left: 0;
-            width: 33%;
-            top: 0px;
-            .list {
-                margin: 0;
-                border: none;
-                background: none;
-                .item {
-                    background: none;
-                    border: 0;
-                    margin: 0;
-                    padding: 0 !important;
-                    height: 40px;
-                    .input-label {
-                        width: 100%;
-                        text-align: left;
-                        max-width: 100%;
-                    }
-                    select {
-                        background: none;
-                        color: #fff;
-                        position: absolute;
-                        width: 100%;
-                        max-width: 100%;
-                        option {
-                            background: #fff;
-                            color: #000;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .ion_tabs {
-        .ion_tab_items {
-            width: 33.3%;
-            position: absolute;
-            select {
-                background: none;
-                color: #fff;
-                position: absolute;
-                width: 100%;
-                max-width: 20%;
-                right: 10px;
-                border: none;
-                height: 40px;
-                option {
-                    background: #fff;
-                    color: #000;
-                }
-                option {
-                    float: right;
-                    width: 100%;
-                    position: absolute;
-                }
-            }
-        }
-    }
-    .report_module {
-        position: absolute;
-        top: 100px;
-    }
-    .cheque_edit_dtl {
-        background: #fff;
-        ion-item {
-            border: none;
-            margin: 0 !important;
-            padding: 0;
-            label {
-                margin: 5px 0 2px 0;
-                font-weight: 600;
-                color: #666;
-                display: inline-block;
-                font-size: 14px;
-                max-width: 240px;
-                float: left;
-            }
-            input {
-                border: 1px solid #ddd;
-                width: 60%;
-                height: 40px;
-                margin: 0 0 10px 0;
-                padding: 0 10px;
-                float: right;
-                &:focus {
-                    box-shadow: 0px 1px 3px #ccc;
-                }
-            }
-        }
-        .buttons {
             position: relative;
-            bottom: auto;
-            a {
-                margin: 20px 0 0 0;
+            ion-nav-view {
+                width: 100%;
+                ion-view {
+                    height: 85%;
+                }
             }
         }
-        md-datepicker {
-            width: 60%;
-            float: right;
-            border: 1px solid #ddd;
+    }
+    .tab-nav {
+        top: 65px;
+        &.tabs {
+            color: #fff !important;
+            padding: 0 !important;
             height: 40px;
-            margin: 0 0 10px 0;
-            padding: 0 10px 0 0;
-            position: relative;
-            button {
-                position: absolute;
+            top: 55px;
+        }
+        .tab-item {
+            width: 33%;
+            float: left;
+            max-width: 33.3% !important;
+            background: #424242 !important;
+            margin-right: 5px;
+            height: 40px;
+            text-align: left;
+            padding-left: 20px;
+            &:last-child {
+                margin: 0;
             }
-            .md-datepicker-button {
-                margin: 0 !important;
-                padding: 0 !important;
+            i {
+                display: inline-block;
+                position: relative;
+                top: 5px;
+                font-size: 28px;
             }
-            .md-datepicker-input-container {
-                width: 100%;
-                margin: 0 !important;
-                input {
-                    border: 0;
-                    height: 40px;
-                    margin: 0 0 10px 0;
-                    padding: 0 10px;
-                    width: 90%;
-                    box-shadow: none;
-                }
-                .md-datepicker-triangle-button {
-                    top: 5px;
-                }
+            span {
+                display: inline-block;
+                padding-left: 10px;
+                font-size: 18px;
+                padding-top: 3px;
+                position: relative;
+                top: 2px;
+                font-weight: 500;
             }
+            &.tab-item-active {
+                background: #424242 !important;
+            }
+        }
+    }
+    ion-side-menus {
+        top: 95px !important;
+    }
+    .buttons {
+        width: 100%;
+        z-index: 999999;
+    }
+    ion-view {
+        background: none;
+        overflow-y: visible;
+    }
+    .display_block {
+        width: 60%;
+        .d_block_img {
+            width: 80%;
+            padding-left: 10px;
+            ng-pintura {
+                margin: 0 auto !important;
+            }
+        }
+        .d_thumb_img {
+            width: 20%;
+        }
+    }
+    .content_detail {
+        width: 40%;
+    }
+    ion-item {
+        &:last-child {
+            border-bottom: 0;
         }
     }
     .cheque_items {
-        .left_sidebar {
-            display: inline-block;
-            width: 25%;
-            height: 100%;
-            .cheque_detail {
-                width: 100%;
+        position: absolute;
+        top: 105px;
+        .item {
+            margin: 10px 0;
+            &:first-child {
+                margin-top: 0;
+                ng-pintura {
+                    background: red;
+                    padding: 40px;
+                }
             }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        .display_block {
+            margin: 0 15px;
+            float: right;
+            width: 55% !important;
+            img {
+                margin: 0 auto;
+                display: block;
+                &.payslip_img {
+                    max-width: 400px;
+                }
+            }
+        }
+        .content_detail {
+            float: left;
+            border: 0;
         }
         .right_sidebar {
+            float: right;
+            margin: 0 10px;
+            width: 72% !important;
+        }
+    }
+}
+.report_module {
+    .cheque_detail {
+        label {
+            width: 40%;
             display: inline-block;
-            width: 74%;
-            height: 100%;
-            border: 1px solid #ddd;
-            margin-bottom: 10px;
-            padding: 10px;
-            .list {
-                width: 100%;
-                ion-item {
-                    width: 100%;
-                }
-                .content_detail {
-                    display: table-cell;
-                }
-                .cheque_imges {
-                    display: table-cell;
-                    border: 0;
-                }
-            }
         }
-        .cheque_detail {
-            margin-bottom: 20px;
-            &.list {
-                border: 1px solid #ddd;
-                margin: 10px auto 10px !important;
-                width: 96% !important;
-            }
-            ion-item {
+        p {
+            float: right;
+            width: 50%;
+            text-align: left;
+            padding-left: 15px;
+        }
+    }
+}
+.approver_doc_block {
+    width: 33%;
+    float: left;
+}
+.documents_tab {
+    float: left;
+    position: absolute;
+    width: 100%;
+    .document_list {
+        position: absolute;
+        left: 0;
+        width: 33%;
+        top: 0;
+        .list {
+            margin: 0;
+            border: none;
+            background: none;
+            .item {
+                background: none;
                 border: 0;
-                display: table;
-                border-bottom: 1px solid #efefef;
-                width: 100%;
-                padding: 5px 20px !important;
-                margin: 5px 0!important;
-                &:last-child {
-                    border: 0;
+                margin: 0;
+                padding: 0 !important;
+                height: 40px;
+                .input-label {
+                    width: 100%;
+                    text-align: left;
+                    max-width: 100%;
                 }
-                label {
-                    margin: 0;
-                    font-weight: 600;
-                    color: #666;
-                    display: inline-block;
-                    font-size: 13px;
-                    float: left;
-                    display: table-cell;
-                    width: 50%;
-                }
-                p {
-                    margin: 0;
-                    padding: 0 10px;
-                    float: right;
-                    display: table-cell;
+                select {
+                    background: none;
+                    color: #fff;
+                    position: absolute;
+                    width: 100%;
+                    max-width: 100%;
+                    option {
+                        background: #fff;
+                        color: #000;
+                    }
                 }
             }
         }
     }
-    .approver_app {
-        &.report_module {
-            ion-side-menus {
-                top: 0px !important;
-            }
-        }
-    }
-    .report_module {
-        .ion-side-menus {
-            ion-items {
-                margin: 0 auto;
-                width: 90%;
-                border: 0 !important;
-            }
-        }
-        .sunburst_chart {
+}
+.ion_tabs {
+    .ion_tab_items {
+        width: 33.3%;
+        position: absolute;
+        select {
+            background: none;
+            color: #fff;
+            position: absolute;
             width: 100%;
-            .left_sidebar {
-                width: 70% !important;
+            max-width: 20%;
+            right: 10px;
+            border: none;
+            height: 40px;
+            option {
+                background: #fff;
+                color: #000;
             }
-            .right_sidebar {
-                width: 25% !important;
-                display: inline-block;
-                margin-left: 30px;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-                background: #eaeaea;
-                padding: 20px;
-                p {
-                    display: block;
-                    text-overflow: initial;
-                    white-space: normal;
-                    text-align: justify;
-                    line-height: 30px;
-                }
-                .downloader_btn {
-                    position: relative;
-                    margin: 0;
-                    padding: 0;
-                    bottom: auto;
-                    input {
-                        padding: 0px 10px;
-                        max-width: 200px;
-                        background: red;
-                        color: #fff;
-                        margin: 10px 0;
-                        border-radius: 5px !important;
-                        font-size: 16px;
-                        text-transform: uppercase;
-                        height: 30px;
-                        border: 0;
-                        border-radius: 0 !important;
-                        height: 40px !important;
-                        padding: 10px 20px;
-                    }
-                    .button {
-                        position: absolute;
-                        top: 0 !important;
-                        padding: 0!important;
-                        width: 25px !important;
-                        height: 25px !important;
-                        margin: 0 !important;
-                        &.red_btn {
-                            max-width: 200px;
-                            border-radius: 0 !important;
-                        }
-                    }
-                }
-            }
-        }
-        .multibar_chart_outer {
-            padding: 50px 0;
-            max-width: 90%;
-            border-left: 0;
-            border-right: 0;
-            margin: 0 auto;
-            .multibar_chart {
-                padding: 30px 0;
-            }
-        }
-        @media(max-width:1190px) {
-            label {
-                width: 100% !important;
-                max-width: 100%!important;
-            }
-            input {
-                width: 100%!important;
-            }
-        }
-        @media(max-width:1024px) {
-            label {
-                font-size: 13px !important;
+            option {
+                float: right;
+                width: 100%;
+                position: absolute;
             }
         }
     }
+}
+.report_module {
+    position: absolute;
+    top: 100px;
+}
+.cheque_edit_dtl {
+    background: #fff;
+    ion-item {
+        border: none;
+        margin: 0 !important;
+        padding: 0;
+        label {
+            margin: 5px 0 2px;
+            font-weight: 600;
+            color: #666;
+            display: inline-block;
+            font-size: 14px;
+            max-width: 240px;
+            float: left;
+        }
+        input {
+            border: 1px solid #ddd;
+            width: 60%;
+            height: 40px;
+            margin: 0 0 10px;
+            padding: 0 10px;
+            float: right;
+            &:focus {
+                box-shadow: 0 1px 3px #ccc;
+            }
+        }
+    }
+    .buttons {
+        position: relative;
+        bottom: auto;
+        a {
+            margin: 20px 0 0;
+        }
+    }
+    md-datepicker {
+        width: 60%;
+        float: right;
+        border: 1px solid #ddd;
+        height: 40px;
+        margin: 0 0 10px;
+        padding: 0 10px 0 0;
+        position: relative;
+        button {
+            position: absolute;
+        }
+        .md-datepicker-button {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .md-datepicker-input-container {
+            width: 100%;
+            margin: 0 !important;
+            input {
+                border: 0;
+                height: 40px;
+                margin: 0 0 10px;
+                padding: 0 10px;
+                width: 90%;
+                box-shadow: none;
+            }
+            .md-datepicker-triangle-button {
+                top: 5px;
+            }
+        }
+    }
+}
+.cheque_items {
+    .left_sidebar {
+        display: inline-block;
+        width: 25%;
+        height: 100%;
+        .cheque_detail {
+            width: 100%;
+        }
+    }
+    .right_sidebar {
+        display: inline-block;
+        width: 74%;
+        height: 100%;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        padding: 10px;
+        .list {
+            width: 100%;
+            ion-item {
+                width: 100%;
+            }
+            .content_detail {
+                display: table-cell;
+            }
+            .cheque_imges {
+                display: table-cell;
+                border: 0;
+            }
+        }
+    }
+    .cheque_detail {
+        margin-bottom: 20px;
+        &.list {
+            border: 1px solid #ddd;
+            margin: 10px auto !important;
+            width: 96% !important;
+        }
+        ion-item {
+            border: 0;
+            display: table;
+            border-bottom: 1px solid #efefef;
+            width: 100%;
+            padding: 5px 20px !important;
+            margin: 5px 0 !important;
+            &:last-child {
+                border: 0;
+            }
+            label {
+                margin: 0;
+                font-weight: 600;
+                color: #666;
+                display: inline-block;
+                font-size: 13px;
+                float: left;
+                display: table-cell;
+                width: 50%;
+            }
+            p {
+                margin: 0;
+                padding: 0 10px;
+                float: right;
+                display: table-cell;
+            }
+        }
+    }
+}
+.approver_app {
+    &.report_module {
+        ion-side-menus {
+            top: 0 !important;
+        }
+    }
+}
+.report_module {
+    .ion-side-menus {
+        ion-items {
+            margin: 0 auto;
+            width: 90%;
+            border: 0 !important;
+        }
+    }
+    .sunburst_chart {
+        width: 100%;
+        .left_sidebar {
+            width: 70% !important;
+        }
+        .right_sidebar {
+            width: 25% !important;
+            display: inline-block;
+            margin-left: 30px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            background: #eaeaea;
+            padding: 20px;
+            p {
+                display: block;
+                text-overflow: initial;
+                white-space: normal;
+                text-align: justify;
+                line-height: 30px;
+            }
+            .downloader_btn {
+                position: relative;
+                margin: 0;
+                padding: 0;
+                bottom: auto;
+                input {
+                    padding: 0 10px;
+                    max-width: 200px;
+                    background: red;
+                    color: #fff;
+                    margin: 10px 0;
+                    border-radius: 5px !important;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    height: 30px;
+                    border: 0;
+                    border-radius: 0 !important;
+                    height: 40px !important;
+                    padding: 10px 20px;
+                }
+                .button {
+                    position: absolute;
+                    top: 0 !important;
+                    padding: 0 !important;
+                    width: 25px !important;
+                    height: 25px !important;
+                    margin: 0 !important;
+                    &.red_btn {
+                        max-width: 200px;
+                        border-radius: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+    .multibar_chart_outer {
+        padding: 50px 0;
+        max-width: 90%;
+        border-left: 0;
+        border-right: 0;
+        margin: 0 auto;
+        .multibar_chart {
+            padding: 30px 0;
+        }
+    }
+    @media(max-width:1190px) {
+        label {
+            width: 100% !important;
+            max-width: 100%!important;
+        }
+        input {
+            width: 100%!important;
+        }
+    }
+    @media(max-width:1024px) {
+        label {
+            font-size: 13px !important;
+        }
+    }
+}

@@ -9760,6 +9760,59 @@ body {
         background: #000 !important;
         padding: 10px !important; }
 
+.doc_download_wrapper {
+  position: relative;
+  top: 100px; }
+  .doc_download_wrapper h3 {
+    background: #444;
+    color: #FFF;
+    font-size: 18px;
+    padding: 15px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400; }
+  .doc_download_wrapper ion-item {
+    padding: 0; }
+    .doc_download_wrapper ion-item ion-item-content {
+      width: 33.3%;
+      padding: 15px 30px;
+      float: left;
+      display: block;
+      border-right: 1px solid #ddd;
+      height: 100%; }
+      .doc_download_wrapper ion-item ion-item-content .ion-items {
+        border: 1px solid #ddd !important;
+        float: left;
+        padding: 0px;
+        width: 100%; }
+        .doc_download_wrapper ion-item ion-item-content .ion-items .list {
+          width: 98%;
+          float: left;
+          padding: 10px;
+          border: 1px solid #ddd !important;
+          margin: 5px; }
+          .doc_download_wrapper ion-item ion-item-content .ion-items .list label {
+            float: left;
+            width: 40%;
+            max-width: 100%;
+            margin-top: 5px;
+            font-weight: bold; }
+          .doc_download_wrapper ion-item ion-item-content .ion-items .list input {
+            border: 1px solid #ddd;
+            width: 60%;
+            height: 40px;
+            padding: 0 10px; }
+          .doc_download_wrapper ion-item ion-item-content .ion-items .list select {
+            width: 60%;
+            float: left;
+            border: 1px solid #ddd;
+            height: 40px;
+            padding: 0 10px; }
+      .doc_download_wrapper ion-item ion-item-content .uploads_img_block .ion-items .list img {
+        float: left;
+        width: 100px !important; }
+
 .report_module .cheque_detail {
   position: static;
   border-bottom: 1px solid #ddd; }
@@ -9777,6 +9830,15 @@ body {
   .report_module .right_sidebar .ion-item:last-child {
     border-bottom: 1px solid #ddd !important; }
 
+.cheque_imges ng-pintura {
+  height: 100% !important;
+  padding: 10px !important;
+  min-height: 200px; }
+  .cheque_imges ng-pintura .konvajs-content {
+    width: 100% !important; }
+    .cheque_imges ng-pintura .konvajs-content canvas {
+      width: 100% !important; }
+
 .approver_app .cheque_report {
   width: 100%;
   float: left; }
@@ -9789,10 +9851,10 @@ body {
     width: 40% !important;
     float: left; }
   .approver_app .cheque_report h3 {
-    margin: 0 0 20px 0; }
+    margin: 0 0 20px; }
 
 .button.red_btn {
-  padding: 0px 10px;
+  padding: 0 10px;
   width: 90%;
   background: red;
   color: #fff;
@@ -9803,7 +9865,7 @@ body {
   height: 30px; }
 
 .button.black_btn {
-  padding: 0px 10px;
+  padding: 0 10px;
   width: 90%;
   background: #424242;
   color: #fff;
@@ -9824,7 +9886,7 @@ ion-nav-view {
   background: none !important; }
 
 .content_dtl h3 {
-  margin: 20px 0 10px 0;
+  margin: 20px 0 10px;
   display: block;
   font-size: 16px;
   background: #424242;
@@ -9837,7 +9899,7 @@ ion-nav-view {
   display: block; }
 
 .cheque_items .content_detail {
-  padding: 0 10px 10px 10px !important; }
+  padding: 0 10px 10px !important; }
 
 .approver_app .bar-header {
   background: red;
@@ -9865,7 +9927,7 @@ ion-nav-view {
       border: 1px solid #ddd !important;
       box-shadow: none; }
       .approver_app .left_sidebar .list.card li {
-        padding: 0px !important;
+        padding: 0 !important;
         border-radius: 0 !important; }
         .approver_app .left_sidebar .list.card li .item {
           padding: 10px 10px 10px 72px !important; }
@@ -10044,7 +10106,7 @@ ion-nav-view {
     position: absolute;
     left: 0;
     width: 33%;
-    top: 0px; }
+    top: 0; }
     .documents_tab .document_list .list {
       margin: 0;
       border: none;
@@ -10100,7 +10162,7 @@ ion-nav-view {
     margin: 0 !important;
     padding: 0; }
     .cheque_edit_dtl ion-item label {
-      margin: 5px 0 2px 0;
+      margin: 5px 0 2px;
       font-weight: 600;
       color: #666;
       display: inline-block;
@@ -10111,22 +10173,22 @@ ion-nav-view {
       border: 1px solid #ddd;
       width: 60%;
       height: 40px;
-      margin: 0 0 10px 0;
+      margin: 0 0 10px;
       padding: 0 10px;
       float: right; }
       .cheque_edit_dtl ion-item input:focus {
-        box-shadow: 0px 1px 3px #ccc; }
+        box-shadow: 0 1px 3px #ccc; }
   .cheque_edit_dtl .buttons {
     position: relative;
     bottom: auto; }
     .cheque_edit_dtl .buttons a {
-      margin: 20px 0 0 0; }
+      margin: 20px 0 0; }
   .cheque_edit_dtl md-datepicker {
     width: 60%;
     float: right;
     border: 1px solid #ddd;
     height: 40px;
-    margin: 0 0 10px 0;
+    margin: 0 0 10px;
     padding: 0 10px 0 0;
     position: relative; }
     .cheque_edit_dtl md-datepicker button {
@@ -10140,7 +10202,7 @@ ion-nav-view {
       .cheque_edit_dtl md-datepicker .md-datepicker-input-container input {
         border: 0;
         height: 40px;
-        margin: 0 0 10px 0;
+        margin: 0 0 10px;
         padding: 0 10px;
         width: 90%;
         box-shadow: none; }
@@ -10175,7 +10237,7 @@ ion-nav-view {
   margin-bottom: 20px; }
   .cheque_items .cheque_detail.list {
     border: 1px solid #ddd;
-    margin: 10px auto 10px !important;
+    margin: 10px auto !important;
     width: 96% !important; }
   .cheque_items .cheque_detail ion-item {
     border: 0;
@@ -10202,7 +10264,7 @@ ion-nav-view {
       display: table-cell; }
 
 .approver_app.report_module ion-side-menus {
-  top: 0px !important; }
+  top: 0 !important; }
 
 .report_module .ion-side-menus ion-items {
   margin: 0 auto;
@@ -10232,7 +10294,7 @@ ion-nav-view {
       padding: 0;
       bottom: auto; }
       .report_module .sunburst_chart .right_sidebar .downloader_btn input {
-        padding: 0px 10px;
+        padding: 0 10px;
         max-width: 200px;
         background: red;
         color: #fff;
