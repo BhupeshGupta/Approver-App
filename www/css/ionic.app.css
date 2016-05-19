@@ -9798,6 +9798,10 @@ body {
             max-width: 100%;
             margin-top: 5px;
             font-weight: bold; }
+          .doc_download_wrapper ion-item ion-item-content .ion-items .list p {
+            display: inline-block;
+            margin-left: 40px;
+            margin-top: 2px; }
           .doc_download_wrapper ion-item ion-item-content .ion-items .list input {
             border: 1px solid #ddd;
             width: 60%;
@@ -9809,7 +9813,7 @@ body {
             border: 1px solid #ddd;
             height: 40px;
             padding: 0 10px; }
-      .doc_download_wrapper ion-item ion-item-content .uploads_img_block .ion-items .list img {
+      .doc_download_wrapper ion-item ion-item-content .upload_img {
         float: left;
         width: 100px !important; }
 
@@ -9985,7 +9989,8 @@ ion-nav-view {
     transform: none !important;
     box-shadow: none; }
   .approver_app .right_sidebar ion-content {
-    top: 0 !important; }
+    top: 0 !important;
+    bottom: 50px; }
   .approver_app .right_sidebar .content_detail {
     width: 40%;
     position: relative; }

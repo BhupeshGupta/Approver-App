@@ -90,6 +90,11 @@ body {
                         margin-top: 5px;
                         font-weight: bold;
                     }
+                    p {
+                        display: inline-block;
+                        margin-left: 40px;
+                        margin-top: 2px;
+                    }
                     input {
                         border: 1px solid #ddd;
                         width: 60%;
@@ -105,15 +110,9 @@ body {
                     }
                 }
             }
-            .uploads_img_block {
-                .ion-items {
-                    .list {
-                        img {
-                            float: left;
-                            width: 100px !important;
-                        }
-                    }
-                }
+            .upload_img {
+                float: left;
+                width: 100px !important;
             }
         }
     }
@@ -331,6 +330,7 @@ ion-nav-view {
         }
         ion-content {
             top: 0 !important;
+            bottom: 50px;
         }
         .content_detail {
             width: 40%;
