@@ -8,6 +8,7 @@ angular.module('ApproverApp', [
   'ngMaterial',
   'ngAria',
   'lfNgMdFileInput',
+  'angular-timeline',
 ])
 
 .value('ServerUrl', 'http://192.168.31.195:1337')
@@ -105,12 +106,12 @@ angular.module('ApproverApp', [
                 }
             }
         })
-        .state('approve.invoice.progressbar', {
-            url: 'progressbar/',
+        .state('approve.invoice.billstatus', {
+            url: 'billstatus/',
             views: {
                 'invoice_view': {
-                    templateUrl: 'components/progressbar/progressbar.html',
-                    controller: 'progressbar'
+                    templateUrl: 'components/bill-status/bill-status.html',
+                    controller: 'BillStatus'
                 }
             }
         })

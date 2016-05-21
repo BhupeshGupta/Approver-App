@@ -17,7 +17,8 @@
     "underscore": "^1.8.3",
     "angular": "^1.5.5",
     "lf-ng-md-file-input": "^1.4.6",
-    "ng-flow": "~2"
+    "ng-flow": "~2",
+    "angular-timeline": "^1.6.2"
   },
   "resolutions": {
     "angular": "^1.5.5",

@@ -1,0 +1,192 @@
+<ion-list class="bill_status main_wrapper">
+    <ion-item>
+        <ion-item-content>
+            <div class="content_items">
+                <div class="ion-items">
+                    <div class="fields_wrapper">
+                        <h3>Bill Detail</h3>
+                        <div class="list col-1">
+                            <div class="input_group">
+                                <label> customer</label>
+                                <input type="text" placeholder="customer">
+                            </div>
+                            <div class="input_group">
+                                <label> Bill No</label>
+                                <input type="Number" placeholder="Bill No">
+                            </div>
+                            <div class="input_group">
+                                <label> Consignment date </label>
+                                <input type="text" placeholder="Bill No">
+                            </div>
+                        </div>
+                        <div class="list col  col-2">
+                            <div class="input_group">
+                                <label> customer</label>
+                                <input type="text" placeholder="customer">
+                            </div>
+                            <div class="input_group">
+                                <label> Bill No</label>
+                                <input type="Number" placeholder="Bill No">
+                            </div>
+                            <div class="input_group">
+                                <label> Consignment date </label>
+                                <input type="text" placeholder="Bill No">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ion-items">
+                    <div class="bill_status">
+                        <h3>Bill Status</h3>
+                        <div class="list_status">
+                            <div class="bill_list">
+                                <h4>Status</h4>
+                            </div>
+                            <div class="bill_list">
+                                <h5>Bill 1</h5>
+                                <input type="checkbox">
+                            </div>
+                            <div class="bill_list">
+                                <h5>Bill 1</h5>
+                                <input type="checkbox">
+                            </div>
+                            <div class="bill_list">
+                                <h5>Bill 1</h5>
+                                <input type="checkbox">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ion-items bills_timeline">
+                    <div class="bill_status">
+                        <h3>Bill Status</h3>
+                        <div class="list_status">
+                            <div class="bill_list">
+                                <div class="container-fluid">
+                                    <div class="main_heading">
+                                        <h2>Material Bill Timeline</h2>
+                                        <p>Updated 4 minutes</p>
+                                    </div>
+                                    <timeline>
+                                        <!-- can also hard-code to side="left" or side="right" -->
+                                        <timeline-event ng-repeat="event in events" side="right">
+                                            <!-- uses angular-scroll-animate to give it some pop -->
+                                            <timeline-badge class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                                                <i class="glyphicon {{event.badgeIconClass}}"></i>
+                                            </timeline-badge>
+
+                                            <!-- uses angular-scroll-animate to give it some pop -->
+                                            <timeline-panel class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                                                <timeline-heading>
+                                                    <h4>Received by Customer</h4>
+
+                                                    <p ng-if="event.when">
+                                                        <small class="text-muted"><i class="glyphicon glyphicon-time"></i>26-2-2016 / 2:25 pm</small>
+                                                    </p>
+
+                                                </timeline-heading>
+                                            </timeline-panel>
+
+                                        </timeline-event>
+                                    </timeline>
+                                </div>
+                            </div>
+                            <div class="bill_list">
+                                <div class="container-fluid">
+                                    <div class="main_heading">
+                                        <h2>Material Bill Timeline</h2>
+                                        <p>Updated 4 minutes</p>
+                                    </div>
+                                    <timeline>
+                                        <!-- can also hard-code to side="left" or side="right" -->
+                                        <timeline-event ng-repeat="event in events" side="right">
+                                            <!-- uses angular-scroll-animate to give it some pop -->
+                                            <timeline-badge class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                                                <i class="glyphicon {{event.badgeIconClass}}"></i>
+                                            </timeline-badge>
+
+                                            <!-- uses angular-scroll-animate to give it some pop -->
+                                            <timeline-panel class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                                                <timeline-heading>
+                                                    <h4>Received by Customer</h4>
+
+                                                    <p ng-if="event.when">
+                                                        <small class="text-muted"><i class="glyphicon glyphicon-time"></i>26-2-2016 / 2:25 pm</small>
+                                                    </p>
+
+                                                </timeline-heading>
+                                            </timeline-panel>
+
+                                        </timeline-event>
+                                    </timeline>
+                                </div>
+                            </div>
+                            <div class="bill_list">
+                                <div class="container-fluid">
+                                    <div class="main_heading">
+                                        <h2>Material Bill Timeline</h2>
+                                        <p>Updated 4 minutes</p>
+                                    </div>
+                                    <timeline>
+                                        <!-- can also hard-code to side="left" or side="right" -->
+                                        <timeline-event ng-repeat="event in events" side="right">
+                                            <!-- uses angular-scroll-animate to give it some pop -->
+                                            <timeline-badge class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                                                <i class="glyphicon {{event.badgeIconClass}}"></i>
+                                            </timeline-badge>
+
+                                            <!-- uses angular-scroll-animate to give it some pop -->
+                                            <timeline-panel class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                                                <timeline-heading>
+                                                    <h4>Received by Customer</h4>
+
+                                                    <p ng-if="event.when">
+                                                        <small class="text-muted"><i class="glyphicon glyphicon-time"></i>26-2-2016 / 2:25 pm</small>
+                                                    </p>
+
+                                                </timeline-heading>
+                                            </timeline-panel>
+
+                                        </timeline-event>
+                                    </timeline>
+                                </div>
+                            </div>
+                            <div class="bill_list">
+                                <div class="container-fluid">
+                                    <div class="main_heading">
+                                        <h2>Material Bill Timeline</h2>
+                                        <p>Updated 4 minutes</p>
+                                    </div>
+                                    <timeline>
+                                        <!-- can also hard-code to side="left" or side="right" -->
+                                        <timeline-event ng-repeat="event in events" side="right">
+                                            <!-- uses angular-scroll-animate to give it some pop -->
+                                            <timeline-badge class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                                                <i class="glyphicon {{event.badgeIconClass}}"></i>
+                                            </timeline-badge>
+
+                                            <!-- uses angular-scroll-animate to give it some pop -->
+                                            <timeline-panel class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                                                <timeline-heading>
+                                                    <h4>Received by Customer</h4>
+
+                                                    <p ng-if="event.when">
+                                                        <small class="text-muted"><i class="glyphicon glyphicon-time"></i>26-2-2016 / 2:25 pm</small>
+                                                    </p>
+
+                                                </timeline-heading>
+                                            </timeline-panel>
+
+                                        </timeline-event>
+                                    </timeline>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-item-content>
+
+    </ion-item>
+</ion-list>
