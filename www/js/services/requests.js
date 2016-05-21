@@ -2,7 +2,7 @@ angular
   .module('ApproverApp')
   .factory('QueueFactory', queueFactory);
 
-queueFactory.$inject = ['$http', 'ServerUrl', 'SettingsFactory'];
+queueFactory.$inject = ['$http', 'ServerUrl', 'SettingsFactory', 'SessionService'];
 
 function queueFactory($http, ServerUrl, SettingsFactory, SessionService) {
   return {
@@ -28,8 +28,8 @@ function queueFactory($http, ServerUrl, SettingsFactory, SessionService) {
   function updateRequestStatus(queueId, status) {
 
     return $http.post(SettingsFactory.getReviewServerBaseUrl() + '/currentstat/updatestatus', {
-      qid: request.qid,
-      status: docstatus,
+      qid: queueId,
+      status: status,
       sid: SessionService.getToken()
     });
 

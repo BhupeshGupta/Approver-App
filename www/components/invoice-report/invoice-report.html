@@ -2,11 +2,11 @@
     <ion-list>
         <ion-item>
             <label>From</label>
-            <md-datepicker ng-model="irc.from_date" md-placeholder="Enter date"></md-datepicker>
+            <md-datepicker ng-model="irc.from_date" ng-change ="irc.loadcharts()" md-placeholder="Enter date"></md-datepicker>
         </ion-item>
         <ion-item>
             <label>To</label>
-            <md-datepicker ng-model="irc.to_date" md-placeholder="Enter date"></md-datepicker>
+            <md-datepicker ng-model="irc.to_date" ng-change ="irc.loadcharts()" md-placeholder="Enter date"></md-datepicker>
         </ion-item>
     </ion-list>
     <ion-item>
