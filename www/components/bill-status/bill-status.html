@@ -4,56 +4,61 @@
             <div class="content_items">
                 <div class="ion-items">
                     <div class="fields_wrapper">
+                        {{docs}}
+                        <!--                        {{metadata}}-->
                         <h3>Bill Detail</h3>
-                        <div class="list col-1">
+                        <div class="list " ng-init="user_input.id='SCN-05255';">
                             <div class="input_group">
-                                <label> customer</label>
-                                <input type="text" placeholder="customer">
+                                <label>search</label>
+                                <button value="search" ng-click="searchConsignmentNote(user_input.id)">Search</button>
+                            </div>
+                            <div class="input_group">
+                                <label>Consignment Note no</label>
+                                <input type="text" placeholder="customer" ng-model="user_input.id">
                             </div>
                             <div class="input_group">
                                 <label> Bill No</label>
-                                <input type="Number" placeholder="Bill No">
+                                <input type="text" placeholder="Bill No" ng-model="metadata['Bill Number']">
                             </div>
                             <div class="input_group">
-                                <label> Consignment date </label>
-                                <input type="text" placeholder="Bill No">
+                                <label>Posting Date</label>
+                                <p>{{metadata['Bill Date']}}</p>
+                            </div>
+                            <div class="input_group">
+                                <label>Item</label>
+                                <p>{{metadata['Bill Item']}}</p>
+                            </div>
+                            <div class="input_group">
+                                <label>Amount</label>
+                                <p>{{metadata['Consignment Amount']}}</p>
+                            </div>
+
+                            <div class="input_group">
+                                <label>Consignment date</label>
+                                <p>{{metadata['Consignment Date']}}</p>
+                            </div>
+                            <div class="input_group">
+                                <label>Quantity</label>
+                                <p>{{metadata['Bill Quantity']}}</p>
                             </div>
                         </div>
-                        <div class="list col  col-2">
-                            <div class="input_group">
-                                <label> customer</label>
-                                <input type="text" placeholder="customer">
-                            </div>
-                            <div class="input_group">
-                                <label> Bill No</label>
-                                <input type="Number" placeholder="Bill No">
-                            </div>
-                            <div class="input_group">
-                                <label> Consignment date </label>
-                                <input type="text" placeholder="Bill No">
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="ion-items">
                     <div class="bill_status">
                         <h3>Bill Status</h3>
                         <div class="list_status">
-                            <div class="bill_list">
+                            <div class="bill_list ">
                                 <h4>Status</h4>
                             </div>
-                            <div class="bill_list">
-                                <h5>Bill 1</h5>
-                                <input type="checkbox">
+                            <div class="bill_list" ng-repeat="doc in docs">
+                                <h5>{{doc.doctype}}</h5>
+                                <div class="bill_status">
+                                    <i ng-class=" doc.status == '1' ? 'ion-ios-checkmark' : 'ion-ios-close' "></i>
+                                </div>
                             </div>
-                            <div class="bill_list">
-                                <h5>Bill 1</h5>
-                                <input type="checkbox">
-                            </div>
-                            <div class="bill_list">
-                                <h5>Bill 1</h5>
-                                <input type="checkbox">
-                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -2,107 +2,43 @@
     <ion-item>
 
         <ion-item-content>
-            <div class="ion-items">
+            <div class="ion-items scroll_bar" ng-init="user_input.id='SCN-05255';user_input.type='Consignment Note';">
                 <div class="list col">
                     <!-- pick a panel block start here -->
                     <label class="input-label"> Type</label>
-                    <select>
-                        <option value="0" selected>type1</option>
-                        <option value="2">type2</option>
+                    <select ng-model="user_input.type">
+                        <option value="Consignment Note" selected>Consignment Note</option>
+                        <option value="2">{{SALES_INVOICE}}</option>
                     </select>
                     <!-- pick a panel block end here -->
                 </div>
                 <div class="list">
                     <label>Document No</label>
-                    <input type="text" palaceholder="Document"> </div>
+                    <input type="text" palaceholder="Document" ng-model="user_input.id">
+                </div>
                 <div class="buttons">
-                    <div class="button-bar row"> <a class="button red_btn">Get Data</a></div>
+                    <div class="button-bar row"> <a class="button red_btn" ng-click="getMetedata(user_input)">Get Data</a></div>
                 </div>
             </div>
         </ion-item-content>
-
         <ion-item-content>
-            <div class="content_items">
+            <div class="content_items scroll_bar">
                 <div class="ion-items">
                     <h3>Invoice Review</h3>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
-                    </div>
-                    <div class="list col">
-                        <label>Consignment date </label>:
-                        <p><span>2015-12-08</span></p>
+                    <div class="list col" ng-repeat="item in metadata_list">
+                        <label>{{item.key}}</label>:
+                        <p><span>{{item.value}}</span></p>
                     </div>
                 </div>
             </div>
         </ion-item-content>
 
         <ion-item-content class="uploads_img_block">
-            <documents-uploader></documents-uploader>
+            <span>
+               <div class="docs_uploads">
+                <documents-uploader doc="doc" ng-repeat="doc in docs"></documents-uploader>
+                </div>
+            </span>
         </ion-item-content>
 
 

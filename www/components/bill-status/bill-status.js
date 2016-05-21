@@ -4,7 +4,70 @@ angular.module('ApproverApp')
     .controller('BillStatus', billStatus);
 
 
-function billStatus($scope) {
+function billStatus($scope, getInvoiceMetaData, $http, SettingsFactory, SessionService) {
+
+
+    $scope.searchConsignmentNote = searchConsignmentNote;
+
+
+
+    function searchConsignmentNote(cnNumber) {
+
+        getInvoiceMetaData.get_meta(JSON.stringify({
+            type: 'Consignment Note',
+            id: cnNumber
+        })).then(
+            function (data) {
+                var intermediateData = JSON.parse(data.data.message);
+                $scope.metadata = intermediateData;
+                loadCurrentStatus(intermediateData['Consignment Name']);
+            },
+            function (error) {
+                alert(error);
+            });
+
+    }
+
+    function loadCurrentStatus(conNumber) {
+        conNumber = conNumber.substring(0, conNumber.lastIndexOf("-"));
+        $http.get(SettingsFactory.getReviewServerBaseUrl() + '/CurrentStat/?sid=' + SessionService.getToken() + '&where={"cno":"' + conNumber + '}')
+            .then(function (data) {
+                $scope.docs = data.data;
+
+                var doctypes = [];
+                data.data.forEach(function (value, index) {
+                    doctypes.push(value.doctype);
+                });
+
+                loadTimeline(conNumber, doctypes);
+
+            });
+
+    }
+
+    function loadTimeline(cno, doctypes) {
+        //        doctypes.forEach(function (value, index) {
+        //            $scope.docs.push(value);
+        //            doctypes.push(value.doctype);
+        //        });
+        //
+        //
+        //        $http.get(SettingsFactory.getReviewServerBaseUrl() + '/CurrentStat/?sid=' + SessionService.getToken() + '&where={"cno":"' + conNumber + '}')
+        //            .then(function (data) {
+        //
+        //                var doctypes = [];
+        //                data.data.forEach(function (value, index) {
+        //                    $scope.docs.push(value);
+        //                    doctypes.push(value.doctype);
+        //                });
+        //
+        //                loadTimeline(conNumber, doctypes);
+        //
+        //            });
+
+    }
+
+
     var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. " +
         "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor." +
         "Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, " +

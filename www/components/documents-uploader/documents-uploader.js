@@ -4,26 +4,85 @@ angular.module('ApproverApp')
     .component('documentsUploader', {
         restrict: 'E',
         bindings: {
-            onCreation: '='
+            doc: '='
         },
         templateUrl: '/components/documents-uploader/documents-uploader.html',
         //        template: 'Yay',
         controller: documentsUploaderController,
         controllerAs: 'duc'
-    });
+    })
+    .factory('DocUpload', docUpload);
 
 
-function documentsUploaderController($scope, $interval) {
+
+
+function documentsUploaderController($scope, $http, SettingsFactory, SessionService, DocUpload) {
     var self = this;
     self.determinateValue = 30;
 
-//    $scope.$watch('files02.length', function (newVal, oldVal) {
-//        console.log($scope.files02);
-//    });
-    $scope.optoin08 = {
+    $scope.options = {
         "browseIconCls": "myBrowse",
         "removeIconCls": "myRemove",
         "captionIconCls": "myCaption",
         "unknowIconCls": "myUnknow"
+    };
+
+
+    $scope.$watch('files.length', function (newVal, oldVal) {
+        if ($scope.files) {
+            console.log($scope.files[0].lfDataUrl);
+            uploadDoc(self.doc, $scope.files[0].lfFile);
+        }
+    });
+
+
+    function uploadDoc(doc, fileBlob) {
+
+        return DocUpload.createQueueInstance({
+            cno: doc.conNumber,
+            doctype: doc.label,
+            sid: SessionService.getToken()
+        }).then(function (data) {
+
+            var fd = new FormData();
+            fd.append('parenttype', 'Queue');
+            fd.append('parentid', data.data.qid);
+            fd.append('file', fileBlob, 'upload');
+
+            var uploadUrl = SettingsFactory.getReviewServerBaseUrl() + "/files/uploadMultipart";
+
+            return $http.post(uploadUrl, fd, {
+                transformRequest: angular.identity,
+                headers: {
+                    'Content-Type': undefined
+                },
+                loading: true
+            }).then(function (res) {
+                console.log(JSON.stringify(res.data));
+            });
+
+
+        });
+    }
+
+}
+
+function docUpload($localStorage, $http, SettingsFactory) {
+
+    return {
+        createQueueInstance: createQueueInstance
+    };
+
+    function createQueueInstance(data) {
+        return $http({
+            url: SettingsFactory.getReviewServerBaseUrl() + "/queue",
+            method: 'POST',
+            data: data,
+            // transformRequest: angular.identity,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
     }
 }
