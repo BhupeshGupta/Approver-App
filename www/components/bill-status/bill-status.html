@@ -1,11 +1,12 @@
 <ion-list class="bill_status main_wrapper">
     <ion-item>
         <ion-item-content>
-            <div class="content_items">
+            <div class="content_items scroll_bar">
                 <div class="ion-items">
                     <div class="fields_wrapper">
-                        {{docs}}
+                        <!--                        {{docs}}-->
                         <!--                        {{metadata}}-->
+                        <!--                        {{auditTrail}}-->
                         <h3>Bill Detail</h3>
                         <div class="list " ng-init="user_input.id='SCN-05255';">
                             <div class="input_group">
@@ -22,7 +23,7 @@
                             </div>
                             <div class="input_group">
                                 <label>Posting Date</label>
-                                <p>{{metadata['Bill Date']}}</p>
+                                <p>{{metadata['Bill Date']| date:"dd-MM-yy"}}</p>
                             </div>
                             <div class="input_group">
                                 <label>Item</label>
@@ -30,12 +31,12 @@
                             </div>
                             <div class="input_group">
                                 <label>Amount</label>
-                                <p>{{metadata['Consignment Amount']}}</p>
+                                <p>{{ metadata['Consignment Amount'] | currency:"₹ ":2 }}</p>
                             </div>
 
                             <div class="input_group">
                                 <label>Consignment date</label>
-                                <p>{{metadata['Consignment Date']}}</p>
+                                <p>{{metadata['Consignment Date']| date:"dd-MM-yy"}}</p>
                             </div>
                             <div class="input_group">
                                 <label>Quantity</label>
@@ -45,151 +46,77 @@
 
                     </div>
                 </div>
-                <div class="ion-items">
-                    <div class="bill_status">
+                <div class="ion-items bill_status_list">
+                    <div class="bill_status ">
                         <h3>Bill Status</h3>
                         <div class="list_status">
-                            <div class="bill_list ">
+                            <div class="bill_list_heading">
                                 <h4>Status</h4>
                             </div>
-                            <div class="bill_list" ng-repeat="doc in docs">
-                                <h5>{{doc.doctype}}</h5>
-                                <div class="bill_status">
-                                    <i ng-class=" doc.status == '1' ? 'ion-ios-checkmark' : 'ion-ios-close' "></i>
+                            <div class="bill_listing">
+                                <div class="bill_list" ng-repeat="doc in docs">
+                                    <h5>{{doc.doctype}}</h5>
+                                    <div class="bill_status">
+                                        <i ng-class=" doc.status == '1' ? 'ion-ios-checkmark' : 'ion-ios-close' "></i>
+                                    </div>
+                                    <div class="bill_status">
+                                        <p>{{doc.account.id || 'NA'}}</p>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
                     </div>
                 </div>
+
                 <div class="ion-items bills_timeline">
                     <div class="bill_status">
                         <h3>Bill Status</h3>
                         <div class="list_status">
-                            <div class="bill_list">
-                                <div class="container-fluid">
-                                    <div class="main_heading">
-                                        <h2>Material Bill Timeline</h2>
-                                        <p>Updated 4 minutes</p>
-                                    </div>
-                                    <timeline>
-                                        <!-- can also hard-code to side="left" or side="right" -->
-                                        <timeline-event ng-repeat="event in events" side="right">
-                                            <!-- uses angular-scroll-animate to give it some pop -->
-                                            <timeline-badge class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
-                                                <i class="glyphicon {{event.badgeIconClass}}"></i>
-                                            </timeline-badge>
-
-                                            <!-- uses angular-scroll-animate to give it some pop -->
-                                            <timeline-panel class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
-                                                <timeline-heading>
-                                                    <h4>Received by Customer</h4>
-
-                                                    <p ng-if="event.when">
-                                                        <small class="text-muted"><i class="glyphicon glyphicon-time"></i>26-2-2016 / 2:25 pm</small>
-                                                    </p>
-
-                                                </timeline-heading>
-                                            </timeline-panel>
-
-                                        </timeline-event>
-                                    </timeline>
-                                </div>
+                            <div class="bill_list" ng-repeat="(doctype, trail) in auditTrail">
+                                <bill-timeline doctype="doctype" audit-trail="trail"></bill-timeline>
                             </div>
-                            <div class="bill_list">
-                                <div class="container-fluid">
-                                    <div class="main_heading">
-                                        <h2>Material Bill Timeline</h2>
-                                        <p>Updated 4 minutes</p>
-                                    </div>
-                                    <timeline>
-                                        <!-- can also hard-code to side="left" or side="right" -->
-                                        <timeline-event ng-repeat="event in events" side="right">
-                                            <!-- uses angular-scroll-animate to give it some pop -->
-                                            <timeline-badge class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
-                                                <i class="glyphicon {{event.badgeIconClass}}"></i>
-                                            </timeline-badge>
-
-                                            <!-- uses angular-scroll-animate to give it some pop -->
-                                            <timeline-panel class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
-                                                <timeline-heading>
-                                                    <h4>Received by Customer</h4>
-
-                                                    <p ng-if="event.when">
-                                                        <small class="text-muted"><i class="glyphicon glyphicon-time"></i>26-2-2016 / 2:25 pm</small>
-                                                    </p>
-
-                                                </timeline-heading>
-                                            </timeline-panel>
-
-                                        </timeline-event>
-                                    </timeline>
-                                </div>
-                            </div>
-                            <div class="bill_list">
-                                <div class="container-fluid">
-                                    <div class="main_heading">
-                                        <h2>Material Bill Timeline</h2>
-                                        <p>Updated 4 minutes</p>
-                                    </div>
-                                    <timeline>
-                                        <!-- can also hard-code to side="left" or side="right" -->
-                                        <timeline-event ng-repeat="event in events" side="right">
-                                            <!-- uses angular-scroll-animate to give it some pop -->
-                                            <timeline-badge class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
-                                                <i class="glyphicon {{event.badgeIconClass}}"></i>
-                                            </timeline-badge>
-
-                                            <!-- uses angular-scroll-animate to give it some pop -->
-                                            <timeline-panel class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
-                                                <timeline-heading>
-                                                    <h4>Received by Customer</h4>
-
-                                                    <p ng-if="event.when">
-                                                        <small class="text-muted"><i class="glyphicon glyphicon-time"></i>26-2-2016 / 2:25 pm</small>
-                                                    </p>
-
-                                                </timeline-heading>
-                                            </timeline-panel>
-
-                                        </timeline-event>
-                                    </timeline>
-                                </div>
-                            </div>
-                            <div class="bill_list">
-                                <div class="container-fluid">
-                                    <div class="main_heading">
-                                        <h2>Material Bill Timeline</h2>
-                                        <p>Updated 4 minutes</p>
-                                    </div>
-                                    <timeline>
-                                        <!-- can also hard-code to side="left" or side="right" -->
-                                        <timeline-event ng-repeat="event in events" side="right">
-                                            <!-- uses angular-scroll-animate to give it some pop -->
-                                            <timeline-badge class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
-                                                <i class="glyphicon {{event.badgeIconClass}}"></i>
-                                            </timeline-badge>
-
-                                            <!-- uses angular-scroll-animate to give it some pop -->
-                                            <timeline-panel class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
-                                                <timeline-heading>
-                                                    <h4>Received by Customer</h4>
-
-                                                    <p ng-if="event.when">
-                                                        <small class="text-muted"><i class="glyphicon glyphicon-time"></i>26-2-2016 / 2:25 pm</small>
-                                                    </p>
-
-                                                </timeline-heading>
-                                            </timeline-panel>
-
-                                        </timeline-event>
-                                    </timeline>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
+
+                <!-- <div class="ion-items bills_timeline">
+                    <div class="bill_status">
+                        <h3>Bill Status</h3>
+                        <div class="list_status">
+                            <div class="bill_list" ng-repeat="(doctype, trail) in auditTrail">
+                                <div class="container-fluid">
+                                    <div class="main_heading">
+                                        <h2>{{doctype}}</h2>
+                                        <p>Updated 4 minutes</p>
+                                    </div>
+                                    <timeline>
+                                        <!-- can also hard-code to side="left" or side="right" -->
+                <!--  <timeline-event ng-repeat="event in events" side="right">
+                                            <!-- uses angular-scroll-animate to give it some pop -->
+                <!--  <timeline-badge class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                                                <i class="glyphicon {{event.badgeIconClass}}"></i>
+                                            </timeline-badge>
+
+                                            <!-- uses angular-scroll-animate to give it some pop -->
+                <!--   <timeline-panel class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                                                <timeline-heading>
+                                                    <h4>Received by Customer</h4>
+
+                                                    <p ng-if="event.when">
+                                                        <small class="text-muted"><i class="glyphicon glyphicon-time"></i>26-2-2016 / 2:25 pm</small>
+                                                    </p>
+
+                                                </timeline-heading>
+                                            </timeline-panel>
+
+                                        </timeline-event>
+                                    </timeline>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </ion-item-content>
 

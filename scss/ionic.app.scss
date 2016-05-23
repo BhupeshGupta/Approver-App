@@ -37,7 +37,7 @@ body {
     .main_wrapper {
         .scroll_bar {
             padding: 0 10px;
-            overflow-y: visible;
+            overflow-y: hidden;
             &:hover {
                 overflow-y: scroll !important;
             }
@@ -350,6 +350,23 @@ timeline-event {
         }
     }
 }
+.bill_status_list {
+    padding-bottom: 40px;
+    .bill_list_heading {
+        display: table-cell;
+        margin-right: 10px;
+        padding: 10px 0;
+        h4 {
+            font-size: 18px;
+        }
+    }
+    .bill_list {
+        text-align: center;
+    }
+}
+.bills_timeline {
+    margin-bottom: 60px !important;
+}
 .bill_status {
     .ion-items {
         float: none;
@@ -363,12 +380,24 @@ timeline-event {
         }
         .list_status {
             width: 100%;
-            display: block;
+            display: table;
             padding-left: 20px;
             .bill_list {
-                width: 25%;
-                float: left;
+                width: 15%;
                 padding: 10px;
+                display: inline-block;
+                display: table-cell;
+                i {
+                    font-size: 24px;
+                    margin: 10px 0;
+                    display: inline-block;
+                    &.ion-ios-close {
+                        color: red;
+                    }
+                    &.ion-ios-checkmark {
+                        color: green;
+                    }
+                }
                 h2 {
                     font-size: 17px;
                 }
@@ -668,6 +697,7 @@ ion-nav-view {
     .buttons {
         width: 100%;
         z-index: 999999;
+        padding-bottom: 50px;
     }
     ion-view {
         background: none;

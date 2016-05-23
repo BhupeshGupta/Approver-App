@@ -30,105 +30,35 @@ function billStatus($scope, getInvoiceMetaData, $http, SettingsFactory, SessionS
 
     function loadCurrentStatus(conNumber) {
         conNumber = conNumber.substring(0, conNumber.lastIndexOf("-"));
-        $http.get(SettingsFactory.getReviewServerBaseUrl() + '/CurrentStat/?sid=' + SessionService.getToken() + '&where={"cno":"' + conNumber + '}')
+        $http.get(SettingsFactory.getReviewServerBaseUrl() + '/CurrentStat/?sid=' + SessionService.getToken() + '&where=' + JSON.stringify({
+                cno: conNumber
+            }))
             .then(function (data) {
                 $scope.docs = data.data;
 
                 var doctypes = [];
-                data.data.forEach(function (value, index) {
+                data.data.forEach(function (value) {
                     doctypes.push(value.doctype);
                 });
 
                 loadTimeline(conNumber, doctypes);
-
             });
-
     }
 
     function loadTimeline(cno, doctypes) {
-        //        doctypes.forEach(function (value, index) {
-        //            $scope.docs.push(value);
-        //            doctypes.push(value.doctype);
-        //        });
-        //
-        //
-        //        $http.get(SettingsFactory.getReviewServerBaseUrl() + '/CurrentStat/?sid=' + SessionService.getToken() + '&where={"cno":"' + conNumber + '}')
-        //            .then(function (data) {
-        //
-        //                var doctypes = [];
-        //                data.data.forEach(function (value, index) {
-        //                    $scope.docs.push(value);
-        //                    doctypes.push(value.doctype);
-        //                });
-        //
-        //                loadTimeline(conNumber, doctypes);
-        //
-        //            });
+        doctypes.forEach(function (doctype) {
+            $scope.auditTrail = {};
+            $http.get(SettingsFactory.getReviewServerBaseUrl() + '/AuditTrail/?sid=' + SessionService.getToken() + '&limit=1000&sort=id desc' + '&where=' + JSON.stringify({
+                    doctype: doctype,
+                    cno: cno
+                }))
+                .then(function (data) {
+                    $scope.auditTrail[doctype] = data.data;
+                });
 
-    }
-
-
-    var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. " +
-        "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor." +
-        "Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, " +
-        "ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor." +
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-
-    $scope.side = '';
-
-    $scope.events = [{
-        badgeClass: 'info',
-        badgeIconClass: 'glyphicon-check',
-        title: 'First heading',
-        when: '11 hours ago via Twitter',
-        content: 'Some awesome content.'
-    }, {
-        badgeClass: 'warning',
-        badgeIconClass: 'glyphicon-credit-card',
-        title: 'Second heading',
-        when: '12 hours ago via Twitter',
-        content: 'More awesome content.'
-    }, {
-        badgeClass: 'default',
-        badgeIconClass: 'glyphicon-credit-card',
-        title: 'Third heading',
-        titleContentHtml: '<img class="img-responsive" src="http://www.freeimages.com/assets/183333/1833326510/wood-weel-1444183-m.jpg">',
-        contentHtml: lorem,
-        footerContentHtml: '<a href="">Continue Reading</a>'
-    }];
-
-    $scope.addEvent = function () {
-        $scope.events.push({
-            badgeClass: 'info',
-            badgeIconClass: 'glyphicon-check',
-            title: 'First heading',
-            when: '3 hours ago via Twitter',
-            content: 'Some awesome content.'
         });
-
-    };
-    // optional: not mandatory (uses angular-scroll-animate)
-    $scope.animateElementIn = function ($el) {
-        $el.removeClass('timeline-hidden');
-        $el.addClass('bounce-in');
-    };
-
-    // optional: not mandatory (uses angular-scroll-animate)
-    $scope.animateElementOut = function ($el) {
-        $el.addClass('timeline-hidden');
-        $el.removeClass('bounce-in');
-    };
-
-    $scope.leftAlign = function () {
-        $scope.side = 'left';
     }
 
-    $scope.rightAlign = function () {
-        $scope.side = 'right';
-    }
 
-    $scope.defaultAlign = function () {
-        $scope.side = ''; // or 'alternate'
-    }
 
 }

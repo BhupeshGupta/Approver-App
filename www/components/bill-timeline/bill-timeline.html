@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="main_heading">
+        <h2>{{btc.doctype}}</h2>
+        <p>{{events[0].createdAtAgo}}</p>
+    </div>
+    <timeline>
+        <!-- can also hard-code to side="left" or side="right" -->
+        <timeline-event ng-repeat="event in events" side="right">
+            <!-- uses angular-scroll-animate to give it some pop -->
+            <timeline-badge class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                <i class="glyphicon {{event.badgeIconClass}}"></i>
+            </timeline-badge>
+
+            <!-- uses angular-scroll-animate to give it some pop -->
+            <timeline-panel class="{{event.badgeClass}} timeline-hidden" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                <timeline-heading>
+                    <h4>{{event.text}}</h4>
+
+                    <p ng-if="event.createdAt">
+                        <small class="text-muted"><i class="glyphicon glyphicon-time"></i>{{event.createdAt | date:"dd/MM/yy 'at' h:mma"}}</small>
+                    </p>
+
+                </timeline-heading>
+            </timeline-panel>
+
+        </timeline-event>
+    </timeline>
+</div>
