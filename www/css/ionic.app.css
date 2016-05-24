@@ -9806,9 +9806,14 @@ body {
 
 body .main_wrapper .scroll_bar {
   padding: 0 10px;
-  overflow-y: hidden; }
-  body .main_wrapper .scroll_bar:hover {
-    overflow-y: scroll !important; }
+  overflow-y: scroll; }
+
+body .konvajs-content {
+  height: 100% !important; }
+
+ion-side-menu-content .movecente {
+  top: 5px !important;
+  left: 5px !important; }
 
 .scroll_bar::-webkit-scrollbar {
   width: 5px; }
@@ -9820,6 +9825,20 @@ body .main_wrapper .scroll_bar {
 .scroll_bar::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
+
+.md-datepicker-calendar-pane {
+  border: 0 !important;
+  box-shadow: none !important;
+  top: 112px; }
+  .md-datepicker-calendar-pane table th {
+    padding-top: 10px; }
+
+.md-calendar-scroll-mask {
+  border: 1px solid #ddd; }
+
+.md-datepicker-input-mask {
+  height: 27px;
+  width: 0 !important; }
 
 .main_wrapper .input_group {
   margin-bottom: 5px; }
@@ -10144,6 +10163,13 @@ timeline-event li timeline-badge {
     .cheque_imges ng-pintura .konvajs-content canvas {
       width: 100% !important; }
 
+.d_block_img ng-pintura {
+  height: calc(100vh - 130px);
+  margin-bottom: 10px !important; }
+
+.content_detail {
+  height: 90vh; }
+
 .approver_app .cheque_report {
   width: 100%;
   float: left; }
@@ -10391,15 +10417,30 @@ ion-nav-view {
     margin: 0 10px;
     width: 72% !important; }
 
-.report_module .cheque_detail label {
-  width: 40%;
-  display: inline-block; }
-
-.report_module .cheque_detail p {
-  float: right;
-  width: 50%;
-  text-align: left;
-  padding-left: 15px; }
+.report_module .list {
+  border: 0; }
+  .report_module .list ion-item {
+    display: inline-block;
+    border: 0; }
+    .report_module .list ion-item md-datepicker {
+      border: 1px solid #ddd;
+      padding: 5px 10px 5px 0;
+      margin: 0 10px; }
+      .report_module .list ion-item md-datepicker .md-icon-button {
+        padding: 8px 0;
+        width: 22px; }
+      .report_module .list ion-item md-datepicker input {
+        height: 20px; }
+      .report_module .list ion-item md-datepicker .md-datepicker-input-container {
+        border: none; }
+  .report_module .list .cheque_detail label {
+    width: 40%;
+    display: inline-block; }
+  .report_module .list .cheque_detail p {
+    float: right;
+    width: 50%;
+    text-align: left;
+    padding-left: 15px; }
 
 .approver_doc_block {
   width: 33%;

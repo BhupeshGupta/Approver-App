@@ -17,7 +17,6 @@ function settingsFactory(ServerUrl, ERP) {
         set: _saveSettings,
         getERPServerBaseUrl: function () {
             return ERP;
-                //            return _retrieveSettings().serverBaseUrl;
         },
         getSid: function () {
             return _retrieveSettings().sid;

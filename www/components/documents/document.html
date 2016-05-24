@@ -62,7 +62,7 @@
                 <div class="display_block">
                     <div class="row">
                         <div class="d_block_img scroll_bar">
-                            <ng-pintura ngp-src="dc.selectedImg.src" ngp-scaling="dc.selectedImg.scaling" ngp-position="dc.selectedImg.position" ngp-max-scaling="dc.selectedImg.maxScaling" ngp-scale-step="dc.selectedImg.scaleStep" ngp-move-step="dc.selectedImg.moveStep" ngp-mw-scale-step="dc.selectedImg.mwScaleStep">
+                            <ng-pintura ngp-src="dc.selectedImg.src" ngp-scaling="dc.selectedImg.scaling" ngp-position="dc.selectedImg.position" ngp-max-scaling="dc.selectedImg.maxScaling" ngp-scale-step="dc.selectedImg.scaleStep" ngp-move-step="dc.selectedImg.moveStep" ngp-mw-scale-step="dc.selectedImg.mwScaleStep" ngpfit-onload="dc.selectedImg.fitOnload">
                                 <div class="zoomslider">
                                     <input ng-model="slider.value" ng-change="sliderChange()" orient="vertical" type="range" min="0" max="100" step="1" ng-disabled="scalingDisabled" />
                                 </div>

@@ -135,3 +135,7 @@ ng-pintura .ovecenter {
     font-size: 18px;
     font-weight: bold;
 }
+ng-pintura .movecenter {
+    top: 5px !important;
+    left: 5px !important;
+}
