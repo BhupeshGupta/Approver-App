@@ -11,8 +11,8 @@ angular.module('ApproverApp', [
   'angular-timeline',
 ])
 
-.value('ServerUrl', 'http://192.168.31.195:1337')
-    .value('ERP', 'http://192.168.31.195:8080')
+.value('ServerUrl', 'http://approve.arungas.com/api')
+    .value('ERP', 'https://erp.arungas.com')
 
 .run(function ($rootScope, $timeout, $state) {
     $rootScope.$on("$stateChangeError", console.log.bind(console));
