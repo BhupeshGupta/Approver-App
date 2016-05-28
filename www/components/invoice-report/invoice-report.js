@@ -813,7 +813,7 @@ function invoiceReport($scope, $http, $window) {
   vm.loadcharts = function() {
     var from_date = moment(vm.from_date).format("YYYY-MM-DD");
     var to_date = moment(vm.to_date).format("YYYY-MM-DD");
-    $http.get("http://192.168.31.195:9005/bar?from_date=" + from_date + "&to_date=" + to_date).then(function(data) {
+    $http.get("http://approve.arungas.com:9005/bar?from_date=" + from_date + "&to_date=" + to_date).then(function(data) {
       $scope.data1 = data.data.data;
       $scope.options1.chart.yAxis.tickValues = _.range(1, data.data.max + 1, Math.ceil(data.data.max / 10));
 
@@ -835,7 +835,7 @@ function invoiceReport($scope, $http, $window) {
   vm.downloadExcel = function() {
     var from_date = moment(vm.from_date).format("YYYY-MM-DD");
     var to_date = moment(vm.to_date).format("YYYY-MM-DD");
-    $window.open("http://192.168.31.195:9005/excel?from_date=" + from_date + "&to_date=" + to_date, '_blank');
+    $window.open("http://approve.arungas.com:9005/excel?from_date=" + from_date + "&to_date=" + to_date, '_blank');
   }
 
 }
