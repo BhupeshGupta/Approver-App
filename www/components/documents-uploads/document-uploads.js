@@ -1,71 +1,75 @@
 'use strict';
 
 angular.module('ApproverApp')
-    .controller('DocumentsUploads', documentsUploads)
-    .service('getInvoiceMetaData', getInvoiceMetaData);
+  .controller('DocumentsUploads', documentsUploads)
+  .service('getInvoiceMetaData', getInvoiceMetaData);
 
 
 function documentsUploads($scope, getInvoiceMetaData, SettingsFactory, SessionService, $http) {
-    $scope.getMetedata = function (meta) {
-        getInvoiceMetaData.get_meta(JSON.stringify(meta)).then(
-            function (data) {
-                var final_data = [];
-                var intermediateData = JSON.parse(data.data.message);
-                for (var key in intermediateData) {
-                    final_data.push({
-                        "key": key,
-                        "value": intermediateData[key]
-                    });
-                }
+  $scope.getMetedata = function(meta) {
+    getInvoiceMetaData.get_meta(JSON.stringify(meta)).then(
+      function(data) {
+        var final_data = [];
+        var intermediateData = JSON.parse(data.data.message);
+        for (var key in intermediateData) {
+          if (key[0] === '$') continue;
+          final_data.push({
+            "key": key,
+            "value": intermediateData[key]
+          });
+        }
 
-                $scope.metadata_list = final_data;
+        $scope.metadata_list = final_data;
 
-                pendingDocs(intermediateData['Consignment Name']);
-            },
-            function (error) {
-                alert(error);
-            });
-    };
+        pendingDocs(intermediateData['Consignment Name'], intermediateData['$amended_from']);
+      },
+      function(error) {
+        alert(error);
+      });
+  };
 
 
-    $scope.docs = [];
+  $scope.docs = [];
 
-    function pendingDocs(conNumber) {
-        conNumber = conNumber.substring(0, conNumber.lastIndexOf("-"));
-        $http.get(SettingsFactory.getReviewServerBaseUrl() + '/CurrentStat/?sid=' + SessionService.getToken() + '&where={"cno":"' + conNumber + '","status":["0","2"]}')
-            .then(function (data) {
+  function pendingDocs(conNumber, amended_from) {
+    if (amended_from) {
+      conNumber = conNumber.substring(0, conNumber.lastIndexOf("-"));
+    }
 
-                $scope.docs.splice(0, $scope.docs.length);
+    $http.get(SettingsFactory.getReviewServerBaseUrl() + '/CurrentStat/?sid=' + SessionService.getToken() + '&where={"cno":"' + conNumber + '","status":["0","2"]}')
+      .then(function(data) {
 
-                data.data.forEach(function (value, index) {
-                    console.log(value.doctype);
-                    $scope.docs.push({
-                        label: value.doctype,
-                        mandatory: true,
-                        hasValue: false,
-                        src: "img/icon-plus.png",
-                        action: "addSelf",
-                        conNumber: conNumber
-                    });
-                });
+        $scope.docs.splice(0, $scope.docs.length);
 
-            });
-    };
+        data.data.forEach(function(value, index) {
+          console.log(value.doctype);
+          $scope.docs.push({
+            label: value.doctype,
+            mandatory: true,
+            hasValue: false,
+            src: "img/icon-plus.png",
+            action: "addSelf",
+            conNumber: conNumber
+          });
+        });
+
+      });
+  };
 
 
 }
 
 
 function getInvoiceMetaData($http, SettingsFactory) {
-    this.get_meta = function (meta) {
-        return $http({
-            url: SettingsFactory.getERPServerBaseUrl() + '/?' + $.param({
-                cmd: "flows.flows.controller.ephesoft_integration.get_meta",
-                doc: meta,
-                _type: 'POST',
-            }),
-            method: 'GET',
-            cache: false
-        });
-    };
+  this.get_meta = function(meta) {
+    return $http({
+      url: SettingsFactory.getERPServerBaseUrl() + '/?' + $.param({
+        cmd: "flows.flows.controller.ephesoft_integration.get_meta",
+        doc: meta,
+        _type: 'POST',
+      }),
+      method: 'GET',
+      cache: false
+    });
+  };
 }
