@@ -86,6 +86,7 @@ function documents(InvoiceService, SessionService, $rootScope, $scope, $q, $http
                 console.log(data.data.message);
                 var final_data = [];
                 for (var key in $scope.metadata) {
+                    if (key[0] === '$') return;
                     final_data.push({
                         "key": key,
                         "value": $scope.metadata[key]
