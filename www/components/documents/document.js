@@ -74,15 +74,13 @@ function documents(InvoiceService, SessionService, $rootScope, $scope, $q, $http
         .then(function() {
           vm.requests.splice(index, 1);
         });
-      else if (docstatus == 2) {
-        return QueueFactory
-          .deleteRejectedRequestFromQueue(request.qid, docstatus)
-          .then(function() {
-            vm.requests.splice(index, 1);
-          });
-      }
+    } else if (docstatus == 2) {
+      return QueueFactory
+        .deleteRejectedRequestFromQueue(request.qid, docstatus)
+        .then(function() {
+          vm.requests.splice(index, 1);
+        });
     }
-
   }
 
   vm.getMetedata = function(consignmentNumber, docType) {
