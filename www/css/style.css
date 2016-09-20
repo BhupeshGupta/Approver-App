@@ -9,6 +9,7 @@ ng-pintura {
     border-radius: 4px 4px 4px 4px;
     height: 100vh;
     min-height: 500px;
+    filter: none !important;    
 }
 ng-pintura .zoomslider,
 ng-pintura .zoomin,
@@ -138,4 +139,21 @@ ng-pintura .ovecenter {
 ng-pintura .movecenter {
     top: 5px !important;
     left: 5px !important;
+}
+
+
+.loader_img {
+  float: right;
+  position: relative;
+}
+
+.loader_img img {
+  width: 20px;
+  height: 20px;
+  float: left;
+  text-align: right;
+  position: absolute;
+  right: 5px;
+  z-index: 9;
+  top: 3px;
 }

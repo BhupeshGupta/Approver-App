@@ -21,8 +21,11 @@
         <ion-side-menu side="left" expose-aside-when="large" style="top:100px">
             <ion-content>
                 <div class="list card">
-                    <li ng-click="dc.selectRequest(request);dc.getMetedata(request.cno,request.doctype);" class="item" ng-repeat="request in dc.requests track by request.qid">
-                        <div class="item item-avatar"> <img src="/img/ionic.png" title="{{request.uploadedBy || 'Admin'}}">
+		     <li ng-click="dc.selectRequest(request);dc.getMetedata(request.cno,request.doctype);" class="item" ng-repeat="request in dc.requests track by request.qid">
+                       <div class="loader_img" ng-show="request.loading">
+              <img src="/img/spinner.gif">
+            </div>
+			 <div class="item item-avatar"> <img src="/img/ionic.png" title="{{request.uploadedBy || 'Admin'}}">
                             <p>{{request.createdAt | date:'short' }}</p>
                             <p>{{request.doctype}}</p>
                             <p ng-if="request.status == 0">Pending</p>

@@ -50,7 +50,8 @@ function documents(InvoiceService, SessionService, $rootScope, $scope, $q, $http
     }
 
     function selectRequest(request) {
-        vm.selectedRequest = request;
+        vm.getMetedata(request.cno,request.doctype);
+	vm.selectedRequest = request;
         if (vm.selectedRequest.files && vm.selectedRequest.files.length > 0) {
             vm.selectedImg.src = FileFactory.getLink(vm.selectedRequest.files[0].id);
         } else {
@@ -62,18 +63,18 @@ function documents(InvoiceService, SessionService, $rootScope, $scope, $q, $http
         vm.selectedImg.src = FileFactory.getLink(vm.selectedRequest.files[index].id);
     }
 
-    function changeDocstatus(request, docstatus) {
-        return QueueFactory
-            .updateRequestStatus(request.qid, docstatus)
-            .then(function () {
-                var index = vm.requests.indexOf(request);
-                // If the request index is last index, next index will be second last request (reverse queue)
-                // Since we are going to splice last index, we need to account for array length reduction by one
-                var nextRequestIndex = vm.requests.length - 1 == index ? vm.requests.length - 1 - 1 : index;
-                vm.requests.splice(index, 1);
-                vm.selectRequest(vm.requests[nextRequestIndex]);
-            });
-    }
+   function changeDocstatus(request, docstatus) {
+    request.loading = true;
+    var index = vm.requests.indexOf(request);
+	var nextRequestIndex = vm.requests.length - 1 == index ? vm.requests.length - 1 - 1 : index;
+	vm.selectRequest(vm.requests[nextRequestIndex + 1]);
+	return QueueFactory
+      .updateRequestStatus(request.qid, docstatus)
+      .then(function() {
+        vm.requests.splice(index, 1);
+       
+      });
+  }
 
     vm.getMetedata = function (consignmentNumber, docType) {
         var meta = {
