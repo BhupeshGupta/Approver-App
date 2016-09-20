@@ -7,7 +7,8 @@ queueFactory.$inject = ['$http', 'ServerUrl', 'SettingsFactory', 'SessionService
 function queueFactory($http, ServerUrl, SettingsFactory, SessionService) {
   return {
     getRequests: getRequests,
-    updateRequestStatus: updateRequestStatus
+    updateRequestStatus: updateRequestStatus,
+    deleteRejectedRequestFromQueue: deleteRejectedRequestFromQueue
   };
 
   function getRequests(query) {
@@ -40,7 +41,8 @@ function queueFactory($http, ServerUrl, SettingsFactory, SessionService) {
   }
 
   function deleteRejectedRequestFromQueue(queueId) {
-    return $http.post(SettingsFactory.getReviewServerBaseUrl() + '/queue/destroy' + queueId);
+    console.log(queueId);
+    return $http.post(SettingsFactory.getReviewServerBaseUrl() + '/queue/destroy/' + queueId);
   }
 
 }
