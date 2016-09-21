@@ -42,7 +42,10 @@ function queueFactory($http, ServerUrl, SettingsFactory, SessionService) {
 
   function deleteRejectedRequestFromQueue(queueId) {
     console.log(queueId);
-    return $http.post(SettingsFactory.getReviewServerBaseUrl() + '/queue/destroy/' + queueId);
+    return $http.post(SettingsFactory.getReviewServerBaseUrl() + '/queue/destroy', {
+      qid: queueId,
+      updatestatus: true
+    });
   }
 
 }
