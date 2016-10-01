@@ -44,7 +44,7 @@ function queueFactory($http, ServerUrl, SettingsFactory, SessionService) {
     console.log(queueId);
     return $http.post(SettingsFactory.getReviewServerBaseUrl() + '/queue/destroy', {
       qid: queueId,
-      updatestatus: true
+      UpdateStatus: true
     });
   }
 
