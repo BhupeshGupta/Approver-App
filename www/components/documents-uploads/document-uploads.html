@@ -1,43 +1,44 @@
 <ion-list class="doc_download_wrapper main_wrapper">
-    <ion-item>
-        <ion-item-content>
-            <div class="ion-items scroll_bar" ng-init="user_input.id='SCN-05255';user_input.type='Consignment Note';">
-                <div class="list col">
-                    <!-- pick a panel block start here -->
-                    <label class="input-label"> Type</label>
-                    <select ng-model="user_input.type">
-                        <option value="Consignment Note" selected>Consignment Note</option>
-                        <option value="2">{{SALES_INVOICE}}</option>
+  <ion-item>
+    <ion-item-content>
+      <div class="ion-items scroll_bar" ng-init="user_input.id='SCN-16-05255';user_input.type='Consignment Note';">
+        <div class="list col">
+          <!-- pick a panel block start here -->
+          <label class="input-label"> Type</label>
+          <select ng-model="user_input.type">
+                      <option selected>Consignment Note</option>
+                      <option>Indent Invoice</option>
+                      <option>Sales Invoice</option>
                     </select>
-                    <!-- pick a panel block end here -->
-                </div>
-                <div class="list">
-                    <label>Document No</label>
-                    <input type="text" palaceholder="Document" ng-model="user_input.id">
-                </div>
-                <div class="buttons">
-                    <div class="button-bar row"> <a class="button red_btn" ng-click="getMetedata(user_input)">Get Data</a></div>
-                </div>
-            </div>
-        </ion-item-content>
-        <ion-item-content>
-            <div class="content_items scroll_bar">
-                <div class="ion-items">
-                    <h3>Invoice Review</h3>
-                    <div class="list col" ng-repeat="item in metadata_list">
-                        <label>{{item.key}}</label>:
-                        <p><span>{{item.value}}</span></p>
-                    </div>
-                </div>
-            </div>
-        </ion-item-content>
+          <!-- pick a panel block end here -->
+        </div>
+        <div class="list">
+          <label>Document No</label>
+          <input type="text" palaceholder="Document" ng-model="user_input.id">
+        </div>
+        <div class="buttons">
+          <div class="button-bar row"> <a class="button red_btn" ng-click="getMetedata(user_input)">Get Data</a></div>
+        </div>
+      </div>
+    </ion-item-content>
+    <ion-item-content>
+      <div class="content_items scroll_bar">
+        <div class="ion-items">
+          <h3>Invoice Review</h3>
+          <div class="list col" ng-repeat="item in metadata_list">
+            <label>{{item.key}}</label>:
+            <p><span>{{item.value}}</span></p>
+          </div>
+        </div>
+      </div>
+    </ion-item-content>
 
-        <ion-item-content class="uploads_img_block">
-            <span>
+    <ion-item-content class="uploads_img_block">
+      <span>
                <div class="docs_uploads scroll_bar">
                 <documents-uploader doc="doc" ng-repeat="doc in docs"></documents-uploader>
                 </div>
             </span>
-        </ion-item-content>
-    </ion-item>
+    </ion-item-content>
+  </ion-item>
 </ion-list>

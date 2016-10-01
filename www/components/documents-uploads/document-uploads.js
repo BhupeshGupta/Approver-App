@@ -36,7 +36,7 @@ function documentsUploads($scope, getInvoiceMetaData, SettingsFactory, SessionSe
       conNumber = conNumber.substring(0, conNumber.lastIndexOf("-"));
     }
 
-    $http.get(SettingsFactory.getReviewServerBaseUrl() + '/CurrentStat/?sid=' + SessionService.getToken() + '&where={"cno":"' + conNumber + '","status":["0","2"]}')
+    $http.get(SettingsFactory.getReviewServerBaseUrl() + '/CurrentStat/?sid=' + SessionService.getToken() + '&where={"cno":"' + conNumber + '","status":["0","2","3"]}')
       .then(function(data) {
 
         $scope.docs.splice(0, $scope.docs.length);
@@ -49,7 +49,8 @@ function documentsUploads($scope, getInvoiceMetaData, SettingsFactory, SessionSe
             hasValue: false,
             src: "img/icon-plus.png",
             action: "addSelf",
-            conNumber: conNumber
+            conNumber: conNumber,
+            status: value.status
           });
         });
 

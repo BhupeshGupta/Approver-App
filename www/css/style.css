@@ -1,146 +1,151 @@
 /* Empty. Add your own CSS if you like */
 
 ng-pintura {
-    position: relative;
-    display: block;
-    width: 90%;
-    background: rgba(135, 206, 250, .15);
-    filter: blur(5px);
-    border-radius: 4px 4px 4px 4px;
-    height: 100vh;
-    min-height: 500px;
-    filter: none !important;    
-}
-ng-pintura .zoomslider,
-ng-pintura .zoomin,
-ng-pintura .zoomout,
-ng-pintura .moveup,
-ng-pintura .movedown,
-ng-pintura .moveleft,
-ng-pintura .moveright,
-ng-pintura .movecenter {
-    position: absolute;
-    opacity: 0.75;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-}
-ng-pintura .zoomslider:hover,
-ng-pintura .zoomin:hover,
-ng-pintura .zoomout:hover,
-ng-pintura .moveup:hover,
-ng-pintura .movedown:hover,
-ng-pintura .moveleft:hover,
-ng-pintura .moveright:hover,
-ng-pintura .movecenter:hover {
-    opacity: 1;
-}
-ng-pintura .zoomslider {
-    top: 20px;
-    right: 20px;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.75);
-    padding: 10px 0;
-}
-ng-pintura .zoomslider input {
-    writing-mode: bt-lr;
-    -webkit-appearance: slider-vertical;
-    width: 40px;
-    height: 160px;
-}
-ng-pintura .zoomin,
-ng-pintura .zoomout {
-    width: 40px;
-}
-ng-pintura .zoomin {
-    right: 20px;
-    bottom: 55px;
-}
-ng-pintura .zoomout {
-    right: 20px;
-    bottom: 20px;
-}
-ng-pintura .moveleft,
-ng-pintura .movedown,
-ng-pintura .moveright,
-ng-pintura .moveup {
-    bottom: 20px;
-    width: 40px;
-}
-ng-pintura .moveleft {
-    left: 20px;
-}
-ng-pintura .movedown {
-    left: 60px;
-}
-ng-pintura .moveright {
-    left: 100px;
-}
-ng-pintura .moveup {
-    left: 60px;
-    bottom: 55px;
-}
-ng-pintura .ovecenter {
-    top: 20px;
-    left: 20px;
-}
-.cheque_imges ng-pintura {
-    padding: 30px;
-    height: 300px;
-}
-.cheque_imges .d_block_img {
-    margin: 10px 0 !important;
-    width: 100%!important;
-}
-.bill_status .timeline timeline-event li timeline-badge.info {
-    border: 2px solid #5bc0de !important;
-    background-color: #fff !important;
-}
-.bill_status .timeline li timeline-badge.warning {
-    border: 2px solid #f0ad4e !important;
-    background-color: #fff !important;
-}
-.bill_status .timeline li timeline-badge {
-    background-color: #fff !important;
-    box-shadow: none !important;
-    margin-left: 0px !important;
-    border: 2px solid red !important;
-    left: -15px !important;
-    top: 4px !important;
-}
-.bill_status .timeline:before {
-    width: 1px !important;
-    margin: 0;
-    background-color: #7e57c2;
-    left: 0% !important;
-}
-.timeline li {
-    margin-left: 10px;
-}
-.bill_status .timeline li.timeline-inverted timeline-panel {
-    float: left !important;
-    padding: 0 0 0 20px;
-}
-.timeline li timeline-panel {
-    border: none !important;
-    box-shadow: none !important;
-}
-.timeline li timeline-panel:after,
-.timeline li timeline-panel:before {
-    display: none !important;
-}
-.bill_status .ion-items .list_status .bill_list h2 {
-    margin: 20px 0px;
-    font-size: 18px;
-    font-weight: bold;
-}
-ng-pintura .movecenter {
-    top: 5px !important;
-    left: 5px !important;
+  position: relative;
+  display: block;
+  width: 90%;
+  background: rgba(135, 206, 250, .15);
+  filter: blur(5px);
+  border-radius: 4px 4px 4px 4px;
+  height: 100vh;
+  min-height: 500px;
+  filter: none !important;
 }
 
+ng-pintura .zoomslider, ng-pintura .zoomin, ng-pintura .zoomout, ng-pintura .moveup, ng-pintura .movedown, ng-pintura .moveleft, ng-pintura .moveright, ng-pintura .movecenter {
+  position: absolute;
+  opacity: 0.75;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+ng-pintura .zoomslider:hover, ng-pintura .zoomin:hover, ng-pintura .zoomout:hover, ng-pintura .moveup:hover, ng-pintura .movedown:hover, ng-pintura .moveleft:hover, ng-pintura .moveright:hover, ng-pintura .movecenter:hover {
+  opacity: 1;
+}
+
+ng-pintura .zoomslider {
+  top: 20px;
+  right: 20px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 10px 0;
+}
+
+ng-pintura .zoomslider input {
+  writing-mode: bt-lr;
+  -webkit-appearance: slider-vertical;
+  width: 40px;
+  height: 160px;
+}
+
+ng-pintura .zoomin, ng-pintura .zoomout {
+  width: 40px;
+}
+
+ng-pintura .zoomin {
+  right: 20px;
+  bottom: 55px;
+}
+
+ng-pintura .zoomout {
+  right: 20px;
+  bottom: 20px;
+}
+
+ng-pintura .moveleft, ng-pintura .movedown, ng-pintura .moveright, ng-pintura .moveup {
+  bottom: 20px;
+  width: 40px;
+}
+
+ng-pintura .moveleft {
+  left: 20px;
+}
+
+ng-pintura .movedown {
+  left: 60px;
+}
+
+ng-pintura .moveright {
+  left: 100px;
+}
+
+ng-pintura .moveup {
+  left: 60px;
+  bottom: 55px;
+}
+
+ng-pintura .ovecenter {
+  top: 20px;
+  left: 20px;
+}
+
+.cheque_imges ng-pintura {
+  padding: 30px;
+  height: 300px;
+}
+
+.cheque_imges .d_block_img {
+  margin: 10px 0 !important;
+  width: 100%!important;
+}
+
+.bill_status .timeline timeline-event li timeline-badge.info {
+  border: 2px solid #5bc0de !important;
+  background-color: #fff !important;
+}
+
+.bill_status .timeline li timeline-badge.warning {
+  border: 2px solid #f0ad4e !important;
+  background-color: #fff !important;
+}
+
+.bill_status .timeline li timeline-badge {
+  background-color: #fff !important;
+  box-shadow: none !important;
+  margin-left: 0px !important;
+  border: 2px solid red !important;
+  left: -15px !important;
+  top: 4px !important;
+}
+
+.bill_status .timeline:before {
+  width: 1px !important;
+  margin: 0;
+  background-color: #7e57c2;
+  left: 0% !important;
+}
+
+.timeline li {
+  margin-left: 10px;
+}
+
+.bill_status .timeline li.timeline-inverted timeline-panel {
+  float: left !important;
+  padding: 0 0 0 20px;
+}
+
+.timeline li timeline-panel {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.timeline li timeline-panel:after, .timeline li timeline-panel:before {
+  display: none !important;
+}
+
+.bill_status .ion-items .list_status .bill_list h2 {
+  margin: 20px 0px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+ng-pintura .movecenter {
+  top: 5px !important;
+  left: 5px !important;
+}
 
 .loader_img {
   float: right;
@@ -156,4 +161,16 @@ ng-pintura .movecenter {
   right: 5px;
   z-index: 9;
   top: 3px;
+}
+
+.main_wrapper ion-item ion-item-content .ion-items .list.uploader-status-0 {
+  border: 2px solid black !important;
+}
+
+.main_wrapper ion-item ion-item-content .ion-items .list.uploader-status-2 {
+  border: 2px solid #C0392B !important;
+}
+
+.main_wrapper ion-item ion-item-content .ion-items .list.uploader-status-3 {
+  border: 2px solid #2980B9 !important;
 }

@@ -1,15 +1,15 @@
 <div class="ion-items">
-    <div class="list col uploader_block" can-swipe="listCanSwipe">
-        <div class="drag_files">
-            <lf-ng-md-file-input lf-options="options" lf-files="files" drag></lf-ng-md-file-input>
+  <div class="list col uploader_block uploader-status-{{duc.doc.status}}" can-swipe="listCanSwipe">
+    <div class="drag_files">
+      <lf-ng-md-file-input lf-options="options" lf-files="files" drag></lf-ng-md-file-input>
 
-        </div>
-        <div class="note_fields">
-            <p>{{ duc.doc.label }}</p>
-            <md-progress-linear md-mode="determinate" value="{{duc.determinateValue}}"></md-progress-linear>
-        </div>
-
-        <div layout="column" layout-margin="">
-        </div>
     </div>
+    <div class="note_fields">
+      <p>{{ duc.doc.label }}</p>
+      <md-progress-linear md-mode="determinate" value="{{duc.determinateValue}}"></md-progress-linear>
+    </div>
+
+    <div layout="column" layout-margin="">
+    </div>
+  </div>
 </div>
