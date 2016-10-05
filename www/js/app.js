@@ -61,11 +61,11 @@ angular.module('ApproverApp', [
         controllerAs: 'hc'
       }
     },
-    // resolve: {
-    //   "session": function(SessionService, $state, $timeout) {
-    //     SessionService.setupUser();
-    //   }
-    // }
+    resolve: {
+      "session": function(SessionService, $state, $timeout) {
+        SessionService.setupUser();
+      }
+    }
   })
 
   .state('approve.invoice', {

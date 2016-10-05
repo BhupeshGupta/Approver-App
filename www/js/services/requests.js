@@ -14,7 +14,7 @@ function queueFactory($http, ServerUrl, SettingsFactory, SessionService) {
   function getRequests(query) {
     return $http.get(SettingsFactory.getReviewServerBaseUrl() + '/queue?' + $.param({
         where: JSON.stringify(query),
-        limit: 100,
+        limit: 1000,
         sort: 'createdAt asc'
       }))
       .then(
