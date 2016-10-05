@@ -174,3 +174,11 @@ ng-pintura .movecenter {
 .main_wrapper ion-item ion-item-content .ion-items .list.uploader-status-3 {
   border: 2px solid #2980B9 !important;
 }
+
+.approver_app .left_sidebar li:last-child {
+  margin-bottom: 200px !important;
+}
+
+.approver_app .left_sidebar {
+  min-height: 500px !important;
+}

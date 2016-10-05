@@ -27,6 +27,7 @@ function sessionService($http, SettingsFactory, $rootScope, $q, $localStorage, $
     return $http({
       url: url,
       method: 'POST',
+
       loading: true
     }).then(function(data) {
       $localStorage.session_loggedIn = true;
@@ -44,7 +45,12 @@ function sessionService($http, SettingsFactory, $rootScope, $q, $localStorage, $
     return $http({
       url: SettingsFactory.getERPServerBaseUrl(),
       data: $.param(data),
-      method: 'POST'
+      method: 'POST',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
+      }
     });
   }
 
@@ -55,33 +61,33 @@ function sessionService($http, SettingsFactory, $rootScope, $q, $localStorage, $
         return reject();
       }
 
-      if (state.userLoaded) {
-        return resolve();
-      }
 
-      _getStartupData()
-        .then(function(data) {
-          state.user = data.data.user_info[data.data.user.name];
-          state.canWrite = data.data.user.can_write;
+      return resolve();
 
-          if (state.user.image.indexOf('http') == -1)
-            state.user.image = SettingsFactory.getERPServerBaseUrl() + state.user.image;
 
-          if (data.data.server_date !== moment().format('YYYY-MM-DD'))
-            $ionicPopup.show({
-              template: '<p><strong>Date Mismatch.</strong><br>Please check device date and restart the app.</p>',
-              title: 'Error',
-            });
-
-          state.userLoaded = true;
-          $localStorage.session_loggedIn = true;
-
-          return resolve();
-        })
-        .catch(function() {
-          logout();
-          return reject();
-        });
+      // _getStartupData()
+      //   .then(function(data) {
+      //     state.user = data.data.user_info[data.data.user.name];
+      //     state.canWrite = data.data.user.can_write;
+      //
+      //     if (state.user.image.indexOf('http') == -1)
+      //       state.user.image = SettingsFactory.getERPServerBaseUrl() + state.user.image;
+      //
+      //     if (data.data.server_date !== moment().format('YYYY-MM-DD'))
+      //       $ionicPopup.show({
+      //         template: '<p><strong>Date Mismatch.</strong><br>Please check device date and restart the app.</p>',
+      //         title: 'Error',
+      //       });
+      //
+      //     state.userLoaded = true;
+      //     $localStorage.session_loggedIn = true;
+      //
+      //     return resolve();
+      //   })
+      // .catch(function() {
+      //   logout();
+      //   return reject();
+      // });
     });
   }
 
