@@ -1,0 +1,93 @@
+<ion-side-menus class="color">
+  <div class="left_sidebar">
+    <div class="list col">
+      <!-- pick a panel block start here -->
+      <label class="item item-input item-select pick_panal">
+                <div class="input-label"> Pick a Panel </div>
+                <select ng-model="selectedDocstatusFilter" ng-change="hc.reloadRequestList()">
+                    <option value="0" selected>Pending</option>
+                    <option value="2">Rejected</option>
+                    <option value="1">Approved</option>
+                </select>
+            </label>
+      <!-- pick a panel block end here -->
+      <!-- search panel start here -->
+      <div class="list search_bar">
+        <label class="item item-input"> <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Search"> </label>
+      </div>
+      <!-- search panel endf here -->
+    </div>
+    <ion-side-menu side="left" expose-aside-when="large" style="top:100px">
+      <ion-content>
+        <div class="list card">
+          <li ng-click="dc.selectRequest(request);dc.getMetedata(request.cno,request.doctype);" class="item" ng-repeat="request in dc.requests track by request.qid">
+            <div class="loader_img" ng-show="request.loading">
+              <img src="/img/spinner.gif">
+            </div>
+            <div class="item item-avatar"> <img src="/img/ionic.png" title="{{request.uploadedBy || 'Admin'}}">
+              <p>{{request.createdAt | date:'short' }}</p>
+              <p>{{request.doctype}}</p>
+              <p ng-if="request.status == 0">Pending</p>
+              <p ng-if="request.status == 1">Approved</p>
+              <p ng-if="request.status == 2">Rejected</p>
+            </div>
+            <div class="item item-body">
+              <h3>{{request.cno}}</h3>
+              <h3>{{request.data.doctype}}</h3>
+              <p>{{request.data.customer}}</p>
+            </div>
+
+          </li>
+        </div>
+
+      </ion-content>
+    </ion-side-menu>
+  </div>
+
+
+  <div class="right_sidebar">
+    <ion-side-menu-content>
+      <div class="row">
+        <div class="content_detail">
+          <ion-view>
+            <ion-content class="scroll_bar">
+              <ion-item ng-repeat="item in dc.metadata_list">
+                {{item.key}}: {{item.value}}
+                <br>
+              </ion-item>
+              <div class="buttons">
+                <div class="button-bar row" ng-show="dc.selectedRequest"> <a class="button red_btn" ng-click="dc.changeDocstatus(dc.selectedRequest, 1);">Accept</a> <a class="button black_btn" ng-click="dc.changeDocstatus(dc.selectedRequest, 2)">Reject</a> </div>
+              </div>
+            </ion-content>
+          </ion-view>
+        </div>
+        <div class="display_block">
+          <div class="row">
+            <div class="d_block_img scroll_bar">
+              <ng-pintura ngp-src="dc.selectedImg.src" ngp-scaling="dc.selectedImg.scaling" ngp-position="dc.selectedImg.position" ngp-max-scaling="dc.selectedImg.maxScaling" ngp-scale-step="dc.selectedImg.scaleStep" ngp-move-step="dc.selectedImg.moveStep" ngp-mw-scale-step="dc.selectedImg.mwScaleStep"
+                  ngpfit-onload="dc.selectedImg.fitOnload">
+                <div class="zoomslider">
+                  <input ng-model="slider.value" ng-change="sliderChange()" orient="vertical" type="range" min="0" max="100" step="1" ng-disabled="scalingDisabled" />
+                </div>
+                <button ng-click="zoomIn()" ng-disabled="scalingDisabled" class="btn btn-default zoomin"><span class="ion-ios-plus-empty"></span></button>
+                <button ng-click="zoomOut()" ng-disabled="scalingDisabled" class="btn btn-default zoomout"><span class="ion-ios-minus-empty"></span></button>
+                <button ng-click="moveUp()" class="btn btn-default moveup"><span class="ion-ios-arrow-up"></span></button>
+                <button ng-click="moveDown()" class="btn btn-default movedown"><span class="ion-ios-arrow-down"></span></button>
+                <button ng-click="moveLeft()" class="btn btn-default moveleft"><span class="ion-ios-arrow-left"></span></button>
+                <button ng-click="moveRight()" class="btn btn-default moveright"><span class="ion-ios-arrow-right"></span></button>
+                <button ng-click="fitInView()" class="btn btn-default movecenter"><span class="ion-qr-scanner"></span></button>
+              </ng-pintura>
+
+            </div>
+
+            <div class="d_thumb_img">
+              <ion-scroll direction="y"> <img ng-repeat="image in dc.selectedRequest.files" ng-src="{{image.id | reviewServerFile }}" ng-click="dc.showImage($index)" class="image-list-thumb" style="max-width: 100%" /> </ion-scroll>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </ion-side-menu-content>
+  </div>
+</ion-side-menus>
